@@ -1,6 +1,7 @@
 ScriptHost:LoadScript("scripts/autotracking/item_mapping.lua")
 ScriptHost:LoadScript("scripts/autotracking/location_mapping.lua")
 ScriptHost:LoadScript("scripts/autotracking/setting_mapping.lua")
+ScriptHost:LoadScript("scripts/autotracking/tab_mapping.lua")
 
 CUR_INDEX = -1
 LOCAL_ITEMS = {}
@@ -163,6 +164,28 @@ function onLocation(location_id, location_name)
     end
 end
 
+function updateMap(world_id, room_id)
+    local tabs = TAB_MAPPING[tostring(world_id)]
+    if tabs then
+        local tab = tabs[1]
+        if world_id == 8 and room_id >= 8 and room_id ~= 18 and room_id ~= 19 then
+            -- Room is in Agrabah - Cave of Wonders.
+            tab = tabs[2]
+        end
+        print(string.format('updateMap: activating tab "%s" for world_id %d and room_id %d', tab, world_id, room_id))
+        Tracker:UiHint("ActivateTab", tab)
+    end
+end
+
+function onBounce(json)
+    if Tracker:FindObjectForCode("auto_tab_map").CurrentStage == 1 then
+        if json ~= nil and json["data"] ~= nil then
+            local data = json["data"]
+            updateMap(data["worldId"], data["roomId"])
+        end
+    end
+end
+
 Archipelago:AddClearHandler("clear handler", onClear)
 if AUTOTRACKER_ENABLE_ITEM_TRACKING then
     Archipelago:AddItemHandler("item handler", onItem)
@@ -170,3 +193,4 @@ end
 if AUTOTRACKER_ENABLE_LOCATION_TRACKING then
     Archipelago:AddLocationHandler("location handler", onLocation)
 end
+Archipelago:AddBouncedHandler("bounce handler", onBounce)
