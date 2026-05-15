@@ -1,6 +1,14 @@
 {
     "versions": [
         {
+            "package_version": "1.1.1",
+            "download_url": "https://github.com/culk/Kingdom-Hearts-FM-AP-Tracker/releases/download/v1.1.1/kh1_ap_tracker.zip",
+            "sha256": "5ff6cc6cabc72e656af59e61a8a5bec035d3ed3229bdd17bd2efffd8a3c0899d",
+            "changelog": [
+                "Small UI and logic updates and bug fixes"
+            ]
+        },
+        {
             "package_version": "1.1.0",
             "download_url": "https://github.com/culk/Kingdom-Hearts-FM-AP-Tracker/releases/download/v1.1.0/kh1_ap_tracker.zip",
             "sha256": "f9f8d9817f204f3936455588d7ed9d536cd5acca3a314a082adb71f2dba91a3a",
