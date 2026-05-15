@@ -1,0 +1,21 @@
+{
+    "keyblades_row_3": {
+        "type": "array",
+        "orientation": "horizontal",
+        "margin": "5,0,0,0",
+        "content": [
+            {
+                "type": "layout",
+                "key": "keyblades_row_3_oathkeeper"
+            },
+            {
+                "type": "layout",
+                "key": "keyblades_row_3_spellbinder"
+            },
+            {
+                "type": "layout",
+                "key": "keyblades_row_3_crabclaw"
+            }
+        ]
+    }
+}

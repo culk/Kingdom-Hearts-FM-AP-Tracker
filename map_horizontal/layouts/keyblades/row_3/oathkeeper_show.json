@@ -1,0 +1,10 @@
+{
+    "keyblades_row_3_oathkeeper": {
+        "type": "itemgrid",
+        "item_margin": "-3,-3",
+        "item_size": "40,40",
+        "rows": [
+            ["oathkeeper"]
+        ]
+    }
+}

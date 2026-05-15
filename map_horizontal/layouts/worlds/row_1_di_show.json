@@ -1,0 +1,10 @@
+{
+    "worlds_row_1": {
+        "type": "itemgrid",
+        "item_margin": "2,-3",
+        "item_size": "40,40",
+        "rows": [
+            ["destiny_islands", "wonderland", "olympus_coliseum", "deep_jungle"]
+        ]
+    }
+}

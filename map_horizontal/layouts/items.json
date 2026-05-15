@@ -1,15 +1,24 @@
 {
-    "visits": {
-        "type": "itemgrid",
-        "item_margin": "2,2",
-        "item_size": "40,40",
-        "rows": [
-            ["destiny_islands", "wonderland", "olympus_coliseum", "deep_jungle"],
-            ["agrabah", "monstro", "halloween_town", "atlantica"],
-            ["neverland", "hollow_bastion", "end_of_the_world"]
+    "worlds_layout": {
+        "type": "array",
+        "margin": "0,5,0,0",
+        "orientation": "vertical",
+        "content": [
+            {
+                "type": "layout",
+                "key": "worlds_row_1"
+            },
+            {
+                "type": "layout",
+                "key": "worlds_row_2"
+            },
+            {
+                "type": "layout",
+                "key": "worlds_row_3"
+            }
         ]
     },
-    "worlds": {
+    "world_keys_itemgrid": {
         "type": "itemgrid",
         "item_margin": "2,2",
         "item_size": "40,40",
@@ -19,14 +28,23 @@
             ["phil_cup", "pegasus_cup", "hercules_cup", "final_door_key"]
         ]
     },
-    "keyblade_unlocks": {
-        "type": "itemgrid",
-        "item_margin": "2,2",
-        "item_size": "40,40",
-        "rows": [
-            ["lionheart", "lady_luck", "olympia", "jungle_king", "three_wishes"],
-            ["wishing_star", "pumpkinhead", "fairy_harp", "divine_rose", "oblivion"],
-            ["oathkeeper", "spellbinder", "crabclaw"]
+    "keyblades_rows": {
+        "type": "array",
+        "orientation": "vertical",
+        "margin": "0,5,0,0",
+        "content": [
+            {
+                "type": "layout",
+                "key": "keyblades_row_1"
+            },
+            {
+                "type": "layout",
+                "key": "keyblades_row_2"
+            },
+            {
+                "type": "layout",
+                "key": "keyblades_row_3"
+            }
         ]
     },
     "magic_trinities": {
@@ -49,7 +67,7 @@
             ["air_combo_plus", "dodge_roll", "second_chance", "leaf_bracer", "mp_rage"]
         ]
     },
-    "collectibles": {
+    "collectibles_layout": {
         "type": "itemgrid",
         "item_margin": "2,2",
         "item_size": "40,40",

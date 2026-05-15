@@ -19,30 +19,22 @@
                     "content": [
                         {
                             "type": "group",
-                            "header": "Visit Locks",
+                            "header": "Worlds",
                             "dock": "left",
                             "content": {
                                 "type": "layout",
-                                "key": "visits"
+                                "key": "worlds_layout"
                             }
                         },
                         {
-                            "type": "group",
-                            "header": "World Items",
+                            "type": "layout",
                             "dock": "left",
-                            "content": {
-                                "type": "layout",
-                                "key": "worlds"
-                            }
+                            "key": "world_keys_layout"
                         },
                         {
-                            "type": "group",
-                            "header": "Keyblades",
+                            "type": "layout",
                             "dock": "left",
-                            "content": {
-                                "type": "layout",
-                                "key": "keyblade_unlocks"
-                            }
+                            "key": "keyblades_layout"
                         },
                         {
                             "type": "group",
@@ -68,7 +60,7 @@
                             "dock": "left",
                             "content": {
                                 "type": "layout",
-                                "key": "collectibles"
+                                "key": "collectibles_layout"
                             }
                         }
                     ]

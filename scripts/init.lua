@@ -39,3 +39,10 @@ Tracker:AddLayouts("layouts/tabs.json")
 if PopVersion and PopVersion >= "0.18.0" then
     ScriptHost:LoadScript("scripts/autotracking.lua")
 end
+
+ScriptHost:AddWatchForCode("destiny_islands_checks", "destiny_islands_checks", toggle_items)
+ScriptHost:AddWatchForCode("stacking_world_items", "stacking_world_items", toggle_items)
+ScriptHost:AddWatchForCode("keyblade_locks", "keyblade_locks", toggle_items)
+
+-- TODO: figure out what to do about how to add layouts for initial layout state
+ScriptHost:AddOnFrameHandler("tracker_layout_update", tracker_layout_update)

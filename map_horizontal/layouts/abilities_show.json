@@ -1,0 +1,10 @@
+{
+    "test_b": {
+        "type": "group",
+        "header": "Abilities",
+        "content": {
+            "type": "layout",
+            "key": "abilities"
+        }
+    }
+}

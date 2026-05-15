@@ -29,3 +29,47 @@ function dump_table(o, depth)
         return tostring(o)
     end
 end
+
+-- TODO: is this the best location for this global variable?
+update_layout = false
+
+function toggle_items()
+    update_layout = true
+end
+
+-- TODO: add support for more of the layout being updatable.
+function tracker_layout_update()
+    if update_layout then
+        local show_destiny_islands_items = Tracker:FindObjectForCode("destiny_islands_checks").CurrentStage == 1
+        local show_world_keys = Tracker:FindObjectForCode("stacking_world_items").CurrentStage == 0
+        local show_keyblades = Tracker:FindObjectForCode("keyblade_locks").CurrentStage == 1
+
+        -- TODO: these calls outside of the if statements should probably be done on initial load only.
+        Tracker:AddLayouts("layouts/keyblades/row_3/crabclaw_show.json")
+        Tracker:AddLayouts("layouts/keyblades/row_3/spellbinder_show.json")
+        Tracker:AddLayouts("layouts/keyblades/row_1.json")
+        Tracker:AddLayouts("layouts/keyblades/row_2.json")
+        Tracker:AddLayouts("layouts/keyblades/row_3.json")
+        Tracker:AddLayouts("layouts/worlds/row_2.json")
+        Tracker:AddLayouts("layouts/worlds/row_3.json")
+        if show_destiny_islands_items then
+            -- TODO: also hide/show raft materials
+            Tracker:AddLayouts("layouts/worlds/row_1_di_show.json")
+            Tracker:AddLayouts("layouts/keyblades/row_3/oathkeeper_show.json")
+        else
+            Tracker:AddLayouts("layouts/worlds/row_1_di_hide.json")
+            Tracker:AddLayouts("layouts/keyblades/row_3/oathkeeper_hide.json")
+        end
+        if show_world_keys then
+            Tracker:AddLayouts("layouts/world_keys_show.json")
+        else
+            Tracker:AddLayouts("layouts/world_keys_hide.json")
+        end
+        if show_keyblades then
+            Tracker:AddLayouts("layouts/keyblades_show.json")
+        else
+            Tracker:AddLayouts("layouts/keyblades_hide.json")
+        end
+        update_layout = false
+    end
+end
