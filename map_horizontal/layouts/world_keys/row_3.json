@@ -1,0 +1,17 @@
+{
+    "world_keys_row_3": {
+        "type": "dock",
+        "content": [
+            {
+                "type": "layout",
+                "dock": "left",
+                "key": "world_keys_row_3_cups"
+            },
+            {
+                "type": "layout",
+                "dock": "left",
+                "key": "world_keys_row_3_final_door_key"
+            }
+        ]
+    }
+}

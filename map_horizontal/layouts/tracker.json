@@ -23,18 +23,18 @@
                             "dock": "left",
                             "content": {
                                 "type": "layout",
-                                "key": "worlds_layout"
+                                "key": "worlds_rows"
                             }
                         },
                         {
                             "type": "layout",
                             "dock": "left",
-                            "key": "world_keys_layout"
+                            "key": "world_keys_group"
                         },
                         {
                             "type": "layout",
                             "dock": "left",
-                            "key": "keyblades_layout"
+                            "key": "keyblades_group"
                         },
                         {
                             "type": "group",
@@ -60,7 +60,7 @@
                             "dock": "left",
                             "content": {
                                 "type": "layout",
-                                "key": "collectibles_layout"
+                                "key": "collectibles_rows"
                             }
                         }
                     ]

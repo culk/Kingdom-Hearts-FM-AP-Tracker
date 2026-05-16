@@ -1,21 +1,26 @@
 {
-    "keyblades_row_3": {
+    "world_keys_row_2": {
         "type": "dock",
         "content": [
             {
                 "type": "layout",
                 "dock": "left",
-                "key": "keyblades_row_3_oathkeeper"
+                "key": "world_keys_row_2_forget_me_not"
             },
             {
                 "type": "layout",
                 "dock": "left",
-                "key": "keyblades_row_3_spellbinder"
+                "key": "world_keys_row_2_jack_box"
             },
             {
                 "type": "layout",
                 "dock": "left",
-                "key": "keyblades_row_3_crabclaw"
+                "key": "world_keys_row_2_trident"
+            },
+            {
+                "type": "layout",
+                "dock": "left",
+                "key": "world_keys_row_2_theon_6"
             }
         ]
     }

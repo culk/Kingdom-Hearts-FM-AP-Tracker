@@ -1,10 +1,10 @@
 {
-    "test_b": {
+    "world_keys_group": {
         "type": "group",
-        "header": "Abilities",
+        "header": "World Keys",
         "content": {
             "type": "layout",
-            "key": "abilities"
+            "key": "world_keys_rows"
         }
     }
 }

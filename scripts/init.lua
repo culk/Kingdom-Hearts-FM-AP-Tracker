@@ -40,9 +40,16 @@ if PopVersion and PopVersion >= "0.18.0" then
     ScriptHost:LoadScript("scripts/autotracking.lua")
 end
 
-ScriptHost:AddWatchForCode("destiny_islands_checks", "destiny_islands_checks", toggle_items)
-ScriptHost:AddWatchForCode("stacking_world_items", "stacking_world_items", toggle_items)
+-- Code watches for settings to show/hide portions of the item tracker layout
 ScriptHost:AddWatchForCode("keyblade_locks", "keyblade_locks", toggle_items)
+ScriptHost:AddWatchForCode("stacking_world_items", "stacking_world_items", toggle_items)
+ScriptHost:AddWatchForCode("halloween_town_key_item_bundle", "halloween_town_key_item_bundle", toggle_items)
+ScriptHost:AddWatchForCode("destiny_islands_checks", "destiny_islands_checks", toggle_items)
+ScriptHost:AddWatchForCode("100_acre_checks", "100_acre_checks", toggle_items)
+ScriptHost:AddWatchForCode("atlantica_checks", "atlantica_checks", toggle_items)
+ScriptHost:AddWatchForCode("cups", "cups", toggle_items)
+ScriptHost:AddWatchForCode("superbosses", "superbosses", toggle_items)
+ScriptHost:AddWatchForCode("eotw_unlock", "eotw_unlock", toggle_items)
+ScriptHost:AddWatchForCode("goal", "goal", toggle_items)
 
--- TODO: figure out what to do about how to add layouts for initial layout state
 ScriptHost:AddOnFrameHandler("tracker_layout_update", tracker_layout_update)

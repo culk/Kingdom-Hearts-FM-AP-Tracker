@@ -1,10 +1,10 @@
 {
-    "worlds_row_1": {
+    "world_keys_row_1": {
         "type": "itemgrid",
         "item_margin": "2,2",
         "item_size": "40,40",
         "rows": [
-            ["wonderland", "olympus_coliseum", "deep_jungle"]
+            ["footprints", "entry_pass", "slides"]
         ]
     }
 }

@@ -1,49 +1,82 @@
 {
-    "worlds_layout": {
-        "type": "array",
+    "worlds_rows": {
+        "type":"array",
+        "orientation": "horizontal",
         "margin": "0,5,0,0",
-        "orientation": "vertical",
         "content": [
             {
-                "type": "layout",
-                "key": "worlds_row_1"
-            },
-            {
-                "type": "layout",
-                "key": "worlds_row_2"
-            },
-            {
-                "type": "layout",
-                "key": "worlds_row_3"
+                "type": "dock",
+                "content": [
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "worlds_row_1"
+                    },
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "worlds_row_2"
+                    },
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "worlds_row_3"
+                    }
+                ]
             }
         ]
     },
-    "world_keys_itemgrid": {
-        "type": "itemgrid",
-        "item_margin": "2,2",
-        "item_size": "40,40",
-        "rows": [
-            ["footprints", "entry_pass", "slides"],
-            ["forget_me_not", "jack_box", "trident", "theon_6"],
-            ["phil_cup", "pegasus_cup", "hercules_cup", "final_door_key"]
-        ]
-    },
-    "keyblades_rows": {
-        "type": "array",
-        "orientation": "vertical",
+    "world_keys_rows": {
+        "type":"array",
+        "orientation": "horizontal",
         "margin": "0,5,0,0",
         "content": [
             {
-                "type": "layout",
-                "key": "keyblades_row_1"
-            },
+                "type": "dock",
+                "content": [
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "world_keys_row_1"
+                    },
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "world_keys_row_2"
+                    },
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "world_keys_row_3"
+                    }
+                ]
+            }
+        ]
+    },
+    "keyblades_rows": {
+        "type":"array",
+        "orientation": "horizontal",
+        "margin": "0,5,0,0",
+        "content": [
             {
-                "type": "layout",
-                "key": "keyblades_row_2"
-            },
-            {
-                "type": "layout",
-                "key": "keyblades_row_3"
+                "type": "dock",
+                "content": [
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "keyblades_row_1"
+                    },
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "keyblades_row_2"
+                    },
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "keyblades_row_3"
+                    }
+                ]
             }
         ]
     },
@@ -67,14 +100,31 @@
             ["air_combo_plus", "dodge_roll", "second_chance", "leaf_bracer", "mp_rage"]
         ]
     },
-    "collectibles_layout": {
-        "type": "itemgrid",
-        "item_margin": "2,2",
-        "item_size": "40,40",
-        "rows": [
-            ["lucky_emblem", "raft_materials", "postcard", "puppy"],
-            ["emblem_fountain", "emblem_flame", "emblem_chest", "emblem_statue"],
-            ["torn_page", "orichalcum", "mythril"]
+    "collectibles_rows": {
+        "type":"array",
+        "orientation": "horizontal",
+        "margin": "0,5,0,0",
+        "content": [
+            {
+                "type": "dock",
+                "content": [
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "collectibles_row_1"
+                    },
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "collectibles_row_2"
+                    },
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "collectibles_row_3"
+                    }
+                ]
+            }
         ]
     }
 }

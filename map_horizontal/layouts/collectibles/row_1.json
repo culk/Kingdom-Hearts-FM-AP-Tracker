@@ -1,21 +1,21 @@
 {
-    "keyblades_row_3": {
+    "collectibles_row_1": {
         "type": "dock",
         "content": [
             {
                 "type": "layout",
                 "dock": "left",
-                "key": "keyblades_row_3_oathkeeper"
+                "key": "collectibles_row_1_lucky_emblems"
             },
             {
                 "type": "layout",
                 "dock": "left",
-                "key": "keyblades_row_3_spellbinder"
+                "key": "collectibles_row_1_raft_materials"
             },
             {
                 "type": "layout",
-                "dock": "left",
-                "key": "keyblades_row_3_crabclaw"
+                "dock": "right",
+                "key": "collectibles_row_1_postcards_puppies"
             }
         ]
     }

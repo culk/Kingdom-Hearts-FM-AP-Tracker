@@ -1,7 +1,7 @@
 {
     "keyblades_row_3_spellbinder": {
         "type": "itemgrid",
-        "item_margin": "-3,-3",
+        "item_margin": "2,2",
         "item_size": "40,40",
         "rows": [
             ["spellbinder"]
