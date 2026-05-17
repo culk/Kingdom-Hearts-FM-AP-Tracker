@@ -42,7 +42,7 @@
                             "dock": "left",
                             "content": {
                                 "type": "layout",
-                                "key": "magic_trinities"
+                                "key": "magic_trinities_rows"
                             }
                         },
                         {
@@ -51,7 +51,7 @@
                             "dock": "left",
                             "content": {
                                 "type": "layout",
-                                "key": "abilities"
+                                "key": "abilities_rows"
                             }
                         },
                         {

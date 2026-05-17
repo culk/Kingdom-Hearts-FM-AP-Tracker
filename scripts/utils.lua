@@ -38,107 +38,96 @@ end
 
 function layout_update_worlds(show_destiny_islands, show_atlantica, show_eotw)
     if show_destiny_islands then
-        Tracker:AddLayouts("layouts/worlds/row_1_di_show.json")
+        Tracker:AddLayouts("layouts/worlds/destiny_islands_show.json")
     else
-        Tracker:AddLayouts("layouts/worlds/row_1_di_hide.json")
+        Tracker:AddLayouts("layouts/worlds/destiny_islands_hide.json")
     end
     if show_atlantica then
-        Tracker:AddLayouts("layouts/worlds/row_2_at_show.json")
+        Tracker:AddLayouts("layouts/worlds/atlantica_show.json")
     else
-        Tracker:AddLayouts("layouts/worlds/row_2_at_hide.json")
+        Tracker:AddLayouts("layouts/worlds/atlantica_hide.json")
     end
     if show_eotw then
-        Tracker:AddLayouts("layouts/worlds/row_3_eotw_show.json")
+        Tracker:AddLayouts("layouts/worlds/eotw_show.json")
     else
-        Tracker:AddLayouts("layouts/worlds/row_3_eotw_hide.json")
+        Tracker:AddLayouts("layouts/worlds/eotw_hide.json")
     end
 end
 
 function layout_update_world_keys(show_world_keys, show_jack_box, show_atlantica, show_cups, show_final_door_key)
     if show_world_keys then
-        Tracker:AddLayouts("layouts/world_keys_show_all.json")
-        Tracker:AddLayouts("layouts/world_keys/row_1.json")
-        Tracker:AddLayouts("layouts/world_keys/row_2.json")
-        Tracker:AddLayouts("layouts/world_keys/row_2/forget_me_not_show.json")
-        Tracker:AddLayouts("layouts/world_keys/row_2/theon_6_show.json")
+        Tracker:AddLayouts("layouts/world_keys/group_show_all.json")
         if show_jack_box then
-            Tracker:AddLayouts("layouts/world_keys/row_2/jack_box_show.json")
+            Tracker:AddLayouts("layouts/world_keys/jack_box_show.json")
         else
-            Tracker:AddLayouts("layouts/world_keys/row_2/jack_box_hide.json")
+            Tracker:AddLayouts("layouts/world_keys/jack_box_hide.json")
         end
         if show_atlantica then
-            Tracker:AddLayouts("layouts/world_keys/row_2/trident_show.json")
+            Tracker:AddLayouts("layouts/world_keys/trident_show.json")
         else
-            Tracker:AddLayouts("layouts/world_keys/row_2/trident_hide.json")
+            Tracker:AddLayouts("layouts/world_keys/trident_hide.json")
         end
     end
     if show_cups or show_final_door_key then
         if not show_world_keys then
-            Tracker:AddLayouts("layouts/world_keys_show_cups_door.json")
+            Tracker:AddLayouts("layouts/world_keys/group_show_cups_door.json")
         end
-        Tracker:AddLayouts("layouts/world_keys/row_3.json")
         if show_cups then
-            Tracker:AddLayouts("layouts/world_keys/row_3/cups_show.json")
+            Tracker:AddLayouts("layouts/world_keys/cups_show.json")
         else
-            Tracker:AddLayouts("layouts/world_keys/row_3/cups_hide.json")
+            Tracker:AddLayouts("layouts/world_keys/cups_hide.json")
         end
         if show_final_door_key then
-            Tracker:AddLayouts("layouts/world_keys/row_3/final_door_key_show.json")
+            Tracker:AddLayouts("layouts/world_keys/final_door_key_show.json")
         else
-            Tracker:AddLayouts("layouts/world_keys/row_3/final_door_key_hide.json")
+            Tracker:AddLayouts("layouts/world_keys/final_door_key_hide.json")
         end
     elseif show_world_keys then
-        Tracker:AddLayouts("layouts/world_keys/row_3/cups_hide.json")
-        Tracker:AddLayouts("layouts/world_keys/row_3/final_door_key_hide.json")
+        Tracker:AddLayouts("layouts/world_keys/cups_hide.json")
+        Tracker:AddLayouts("layouts/world_keys/final_door_key_hide.json")
     else
-        Tracker:AddLayouts("layouts/world_keys_hide.json")
+        Tracker:AddLayouts("layouts/world_keys/group_hide.json")
     end
 end
 
 function layout_update_keyblades(show_keyblades, show_destiny_islands, show_100_acre, show_atlantica)
     if show_keyblades then
-        Tracker:AddLayouts("layouts/keyblades_show.json")
-        Tracker:AddLayouts("layouts/keyblades/row_1.json")
-        Tracker:AddLayouts("layouts/keyblades/row_2.json")
-        Tracker:AddLayouts("layouts/keyblades/row_3.json")
+        Tracker:AddLayouts("layouts/keyblades/group_show.json")
         if show_destiny_islands then
-            Tracker:AddLayouts("layouts/keyblades/row_3/oathkeeper_show.json")
+            Tracker:AddLayouts("layouts/keyblades/oathkeeper_show.json")
         else
-            Tracker:AddLayouts("layouts/keyblades/row_3/oathkeeper_hide.json")
+            Tracker:AddLayouts("layouts/keyblades/oathkeeper_hide.json")
         end
         if show_100_acre then
-            Tracker:AddLayouts("layouts/keyblades/row_3/spellbinder_show.json")
+            Tracker:AddLayouts("layouts/keyblades/spellbinder_show.json")
         else
-            Tracker:AddLayouts("layouts/keyblades/row_3/spellbinder_hide.json")
+            Tracker:AddLayouts("layouts/keyblades/spellbinder_hide.json")
         end
         if show_atlantica then
-            Tracker:AddLayouts("layouts/keyblades/row_3/crabclaw_show.json")
+            Tracker:AddLayouts("layouts/keyblades/crabclaw_show.json")
         else
-            Tracker:AddLayouts("layouts/keyblades/row_3/crabclaw_hide.json")
+            Tracker:AddLayouts("layouts/keyblades/crabclaw_hide.json")
         end
     else
-        Tracker:AddLayouts("layouts/keyblades_hide.json")
+        Tracker:AddLayouts("layouts/keyblades/group_hide.json")
     end
 end
 
 function layout_update_collectibles(show_lucky_emblems, show_destiny_islands, show_100_acre)
-    Tracker:AddLayouts("layouts/collectibles/row_1.json")
-    Tracker:AddLayouts("layouts/collectibles/row_1/postcards_puppies_show.json")
-    Tracker:AddLayouts("layouts/collectibles/row_2.json")
     if show_lucky_emblems then
-        Tracker:AddLayouts("layouts/collectibles/row_1/lucky_emblems_show.json")
+        Tracker:AddLayouts("layouts/collectibles/lucky_emblems_show.json")
     else
-        Tracker:AddLayouts("layouts/collectibles/row_1/lucky_emblems_hide.json")
+        Tracker:AddLayouts("layouts/collectibles/lucky_emblems_hide.json")
     end
     if show_destiny_islands then
-        Tracker:AddLayouts("layouts/collectibles/row_1/raft_materials_show.json")
+        Tracker:AddLayouts("layouts/collectibles/raft_materials_show.json")
     else
-        Tracker:AddLayouts("layouts/collectibles/row_1/raft_materials_hide.json")
+        Tracker:AddLayouts("layouts/collectibles/raft_materials_hide.json")
     end
     if show_100_acre then
-        Tracker:AddLayouts("layouts/collectibles/row_3_torn_page_show.json")
+        Tracker:AddLayouts("layouts/collectibles/torn_pages_show.json")
     else
-        Tracker:AddLayouts("layouts/collectibles/row_3_torn_page_hide.json")
+        Tracker:AddLayouts("layouts/collectibles/torn_pages_hide.json")
     end
 end
 

@@ -8,21 +8,81 @@
                 "type": "dock",
                 "content": [
                     {
-                        "type": "layout",
+                        "type": "dock",
                         "dock": "top",
-                        "key": "worlds_row_1"
+                        "content": [
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "worlds_destiny_islands"
+                            },
+                            {
+                                "type": "itemgrid",
+                                "dock": "left",
+                                "item_margin": "2,2",
+                                "item_size": "40,40",
+                                "rows": [
+                                    ["wonderland", "olympus_coliseum", "deep_jungle"]
+                                ]
+                            }
+                        ]
                     },
                     {
-                        "type": "layout",
+                        "type": "dock",
                         "dock": "top",
-                        "key": "worlds_row_2"
+                        "content": [
+                            {
+                                "type": "itemgrid",
+                                "dock": "left",
+                                "item_margin": "2,2",
+                                "item_size": "40,40",
+                                "rows": [
+                                    ["agrabah", "monstro", "halloween_town"]
+                                ]
+                            },
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "worlds_atlantica"
+                            }
+                        ]
                     },
                     {
-                        "type": "layout",
+                        "type": "dock",
                         "dock": "top",
-                        "key": "worlds_row_3"
+                        "content": [
+                            {
+                                "type": "itemgrid",
+                                "dock": "left",
+                                "item_margin": "2,2",
+                                "item_size": "40,40",
+                                "rows": [
+                                    ["neverland", "hollow_bastion"]
+                                ]
+                            },
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "worlds_eotw"
+                            }
+                        ]
                     }
                 ]
+            }
+        ]
+    },
+    "world_keys_cups_and_door": {
+        "type": "dock",
+        "content": [
+            {
+                "type": "layout",
+                "dock": "left",
+                "key": "world_keys_cups"
+            },
+            {
+                "type": "layout",
+                "dock": "left",
+                "key": "world_keys_final_door_key"
             }
         ]
     },
@@ -35,19 +95,52 @@
                 "type": "dock",
                 "content": [
                     {
-                        "type": "layout",
+                        "type": "itemgrid",
                         "dock": "top",
-                        "key": "world_keys_row_1"
+                        "item_margin": "2,2",
+                        "item_size": "40,40",
+                        "rows": [
+                            ["footprints", "entry_pass", "slides"]
+                        ]
+                    },
+                    {
+                        "type": "dock",
+                        "dock": "top",
+                        "content": [
+                            {
+                                "type": "itemgrid",
+                                "dock": "left",
+                                "item_margin": "2,2",
+                                "item_size": "40,40",
+                                "rows": [
+                                    ["forget_me_not"]
+                                ]
+                            },
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "world_keys_jack_box"
+                            },
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "world_keys_trident"
+                            },
+                            {
+                                "type": "itemgrid",
+                                "dock": "left",
+                                "item_margin": "2,2",
+                                "item_size": "40,40",
+                                "rows": [
+                                    ["theon_6"]
+                                ]
+                            }
+                        ]
                     },
                     {
                         "type": "layout",
                         "dock": "top",
-                        "key": "world_keys_row_2"
-                    },
-                    {
-                        "type": "layout",
-                        "dock": "top",
-                        "key": "world_keys_row_3"
+                        "key": "world_keys_cups_and_door"
                     }
                 ]
             }
@@ -62,25 +155,49 @@
                 "type": "dock",
                 "content": [
                     {
-                        "type": "layout",
+                        "type": "itemgrid",
                         "dock": "top",
-                        "key": "keyblades_row_1"
+                        "item_margin": "2,2",
+                        "item_size": "40,40",
+                        "rows": [
+                            ["lionheart", "lady_luck", "olympia", "jungle_king", "three_wishes"]
+                        ]
                     },
                     {
-                        "type": "layout",
+                        "type": "itemgrid",
                         "dock": "top",
-                        "key": "keyblades_row_2"
+                        "item_margin": "2,2",
+                        "item_size": "40,40",
+                        "rows": [
+                            ["wishing_star", "pumpkinhead", "fairy_harp", "divine_rose", "oblivion"]
+                        ]
                     },
                     {
-                        "type": "layout",
+                        "type": "dock",
                         "dock": "top",
-                        "key": "keyblades_row_3"
+                        "content": [
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "keyblades_oathkeeper"
+                            },
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "keyblades_spellbinder"
+                            },
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "keyblades_crabclaw"
+                            }
+                        ]
                     }
                 ]
             }
         ]
     },
-    "magic_trinities": {
+    "magic_trinities_rows": {
         "type": "itemgrid",
         "item_margin": "2,2",
         "item_size": "40,40",
@@ -90,7 +207,7 @@
             ["blue_trinity", "red_trinity", "green_trinity", "yellow_trinity", "white_trinity"]
         ]
     },
-    "abilities": {
+    "abilities_rows": {
         "type": "itemgrid",
         "item_margin": "2,2",
         "item_size": "40,40",
@@ -109,19 +226,58 @@
                 "type": "dock",
                 "content": [
                     {
-                        "type": "layout",
+                        "type": "dock",
                         "dock": "top",
-                        "key": "collectibles_row_1"
+                        "content": [
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "collectibles_lucky_emblems"
+                            },
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "collectibles_raft_materials"
+                            },
+                            {
+                                "type": "itemgrid",
+                                "dock": "right",
+                                "item_margin": "2,2",
+                                "item_size": "40,40",
+                                "rows": [
+                                    ["postcard", "puppy"]
+                                ]
+                            }
+                        ]
                     },
                     {
-                        "type": "layout",
+                        "type": "itemgrid",
                         "dock": "top",
-                        "key": "collectibles_row_2"
+                        "item_margin": "2,2",
+                        "item_size": "40,40",
+                        "rows": [
+                            ["emblem_fountain", "emblem_flame", "emblem_chest", "emblem_statue"]
+                        ]
                     },
                     {
-                        "type": "layout",
+                        "type": "dock",
                         "dock": "top",
-                        "key": "collectibles_row_3"
+                        "content": [
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "collectibles_torn_pages"
+                            },
+                            {
+                                "type": "itemgrid",
+                                "dock": "left",
+                                "item_margin": "2,2",
+                                "item_size": "40,40",
+                                "rows": [
+                                    ["orichalcum", "mythril"]
+                                ]
+                            }
+                        ]
                     }
                 ]
             }
