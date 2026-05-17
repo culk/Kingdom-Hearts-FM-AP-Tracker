@@ -14,6 +14,11 @@
                             {
                                 "type": "layout",
                                 "dock": "left",
+                                "key": "worlds_row_1_pad"
+                            },
+                            {
+                                "type": "layout",
+                                "dock": "left",
                                 "key": "worlds_destiny_islands"
                             },
                             {
@@ -31,6 +36,11 @@
                         "type": "dock",
                         "dock": "top",
                         "content": [
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "worlds_row_2_pad"
+                            },
                             {
                                 "type": "layout",
                                 "dock": "left",
@@ -62,6 +72,11 @@
             {
                 "type": "layout",
                 "dock": "left",
+                "key": "world_keys_row_cups_door_pad"
+            },
+            {
+                "type": "layout",
+                "dock": "left",
                 "key": "world_keys_cups"
             },
             {
@@ -83,6 +98,11 @@
                         "type": "dock",
                         "dock": "top",
                         "content": [
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "world_keys_row_1_pad"
+                            },
                             {
                                 "type": "itemgrid",
                                 "dock": "left",
@@ -135,6 +155,11 @@
                         "dock": "top",
                         "content": [
                             {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "keyblades_row_1_pad"
+                            },
+                            {
                                 "type": "itemgrid",
                                 "dock": "left",
                                 "item_margin": "2,2",
@@ -160,15 +185,14 @@
                         "dock": "top",
                         "content": [
                             {
-                                "type": "dock",
+                                "type": "layout",
                                 "dock": "left",
-                                "content": [
-                                    {
-                                        "type": "layout",
-                                        "dock": "left",
-                                        "key": "keyblades_crabclaw"
-                                    }
-                                ]
+                                "key": "keyblades_row_2_pad"
+                            },
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "keyblades_crabclaw"
                             },
                             {
                                 "type": "itemgrid",
@@ -187,6 +211,7 @@
     },
     "magic_trinities_rows": {
         "type": "itemgrid",
+        "margin": "0,5,5,5",
         "item_margin": "2,2",
         "item_size": "40,40",
         "rows": [
@@ -197,6 +222,7 @@
     },
     "abilities_rows": {
         "type": "itemgrid",
+        "margin": "0,5,5,5",
         "item_margin": "2,2",
         "item_size": "40,40",
         "rows": [
@@ -216,6 +242,11 @@
                         "type": "dock",
                         "dock": "top",
                         "content": [
+                            {
+                                "type": "layout",
+                                "dock": "left",
+                                "key": "collectibles_row_1_pad"
+                            },
                             {
                                 "type": "layout",
                                 "dock": "left",
@@ -252,12 +283,23 @@
                         ]
                     },
                     {
-                        "type": "itemgrid",
+                        "type": "dock",
                         "dock": "top",
-                        "item_margin": "2,2",
-                        "item_size": "40,40",
-                        "rows": [
-                            ["emblem_fountain", "emblem_flame", "emblem_chest", "emblem_statue"]
+                        "content": [
+                            {
+                                "type": "canvas",
+                                "dock": "left",
+                                "width": 66
+                            },
+                            {
+                                "type": "itemgrid",
+                                "dock": "top",
+                                "item_margin": "2,2",
+                                "item_size": "40,40",
+                                "rows": [
+                                    ["emblem_fountain", "emblem_flame", "emblem_chest", "emblem_statue"]
+                                ]
+                            }
                         ]
                     }
                 ]

@@ -5,6 +5,7 @@ ENABLE_DEBUG_LOG = true
 local variant = Tracker.ActiveVariantUID
 -- check variant info
 IS_ITEMS_ONLY = variant:find("itemsonly")
+IS_HORIZONTAL = variant:find("horizontal")
 
 print("Loaded variant: ", variant)
 if ENABLE_DEBUG_LOG then
