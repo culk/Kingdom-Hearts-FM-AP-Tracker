@@ -5,6 +5,7 @@ ScriptHost:LoadScript("scripts/autotracking/setting_mapping.lua")
 CUR_INDEX = -1
 LOCAL_ITEMS = {}
 GLOBAL_ITEMS = {}
+IGNORE_SLOT_2_LEVELS = false
 
 function onClear(slot_data)
     if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
@@ -13,20 +14,25 @@ function onClear(slot_data)
     SLOT_DATA = slot_data
     CUR_INDEX = -1
     -- reset locations
-    for _, v in pairs(LOCATION_MAPPING) do
-        if v[1] then
+    for location_id, v in pairs(LOCATION_MAPPING) do
+        local location_name = v[1]
+        if location_name then
             if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-                print(string.format("onClear: clearing location %s", v[1]))
+                print(string.format("onClear: clearing location %s", location_name))
             end
-            local obj = Tracker:FindObjectForCode(v[1])
+            local obj = Tracker:FindObjectForCode(location_name)
             if obj then
-                if v[1]:sub(1, 1) == "@" then
-                    obj.AvailableChestCount = obj.ChestCount
+                if location_name:sub(1, 1) == "@" then
+                    if is_slot_2_level(location_id) then
+                        obj.AvailableChestCount = 0
+                    else
+                        obj.AvailableChestCount = obj.ChestCount
+                    end
                 else
                     obj.Active = false
                 end
             elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-                print(string.format("onClear: could not find object for code %s", v[1]))
+                print(string.format("onClear: could not find object for code %s", location_name))
             end
         end
     end
@@ -55,9 +61,22 @@ function onClear(slot_data)
     end
     LOCAL_ITEMS = {}
     GLOBAL_ITEMS = {}
+    IGNORE_SLOT_2_LEVELS = false
     -- get slot data
     for key, value in pairs(SLOT_DATA) do
-        if key == "required_lucky_emblems_eotw" then
+        if key == "remote_items" and value ~= "full" then
+            IGNORE_SLOT_2_LEVELS = true
+        elseif key == "remote_location_ids" then
+            for _, location_id in ipairs(value) do
+                if is_slot_2_level(location_id) then
+                    local location_name = LOCATION_MAPPING[location_id][1]
+                    if location_name then
+                        local obj = Tracker:FindObjectForCode(location_name)
+                        obj.AvailableChestCount = obj.AvailableChestCount + 1
+                    end
+                end
+            end
+        elseif key == "required_lucky_emblems_eotw" then
             Tracker:FindObjectForCode("eotw_req").AcquiredCount = value
         elseif key == "required_lucky_emblems_door" then
             Tracker:FindObjectForCode("door_req").AcquiredCount = value

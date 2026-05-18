@@ -71,6 +71,10 @@ function is_random_accessory_visible()
     return false
 end
 
+function is_slot_2_visible()
+    return not IGNORE_SLOT_2_LEVELS
+end
+
 -- optional rules, if not met then checks are accessible out of logic
 
 function world_count()

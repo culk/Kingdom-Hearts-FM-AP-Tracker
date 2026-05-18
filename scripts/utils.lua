@@ -30,6 +30,10 @@ function dump_table(o, depth)
     end
 end
 
+function is_slot_2_level(location_id)
+    return location_id >= 2658100 and location_id <= 2658200
+end
+
 update_layout = true
 
 function toggle_items()
