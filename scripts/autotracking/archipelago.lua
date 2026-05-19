@@ -3,15 +3,13 @@ ScriptHost:LoadScript("scripts/autotracking/location_mapping.lua")
 ScriptHost:LoadScript("scripts/autotracking/setting_mapping.lua")
 
 CUR_INDEX = -1
-LOCAL_ITEMS = {}
-GLOBAL_ITEMS = {}
 
 function onClear(slot_data)
     if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
         print(string.format("called onClear, slot_data:\n%s", dump_table(slot_data)))
     end
-    SLOT_DATA = slot_data
     CUR_INDEX = -1
+
     -- reset locations
     for location_id, v in pairs(LOCATION_MAPPING) do
         local location_name = v[1]
@@ -35,34 +33,35 @@ function onClear(slot_data)
             end
         end
     end
+
     -- reset items
     for _, v in pairs(ITEM_MAPPING) do
-        if v[1] and v[2] then
-            if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-                print(string.format("onClear: clearing item %s of type %s", v[1], v[2]))
-            end
-            local obj = Tracker:FindObjectForCode(v[1])
+        local item_name = v[1]
+        local item_type = v[2]
+        if item_name and item_type then
+            local obj = Tracker:FindObjectForCode(item_name)
             if obj then
-                if v[2] == "toggle" then
+                if item_type == "toggle" then
                     obj.Active = false
-                elseif v[2] == "progressive" then
+                elseif item_type == "progressive" then
                     obj.CurrentStage = 0
                     obj.Active = false
-                elseif v[2] == "consumable" then
+                elseif item_type == "consumable" then
                     obj.AcquiredCount = 0
                 elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-                    print(string.format("onClear: unknown item type %s for code %s", v[2], v[1]))
+                    print(string.format("onClear: unknown item type %s for code %s", item_type, item_name))
                 end
             elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-                print(string.format("onClear: could not find object for code %s", v[1]))
+                print(string.format("onClear: could not find object for code %s", item_name))
             end
         end
     end
-    LOCAL_ITEMS = {}
-    GLOBAL_ITEMS = {}
+
+    -- update settings with slot data
     IGNORE_SLOT_2_LEVELS = true
-    -- get slot data
-    for key, value in pairs(SLOT_DATA) do
+    local puppy_value = 3
+    local randomize_puppies = true
+    for key, value in pairs(slot_data) do
         if key == "remote_items" and value == "full" then
             IGNORE_SLOT_2_LEVELS = false
         elseif key == "remote_location_ids" then
@@ -96,18 +95,18 @@ function onClear(slot_data)
         elseif key == "mythril_in_pool" then
             Tracker:FindObjectForCode("mythril").MaxCount = value
         elseif key == "randomize_puppies" then
-            RANDOMIZE_PUPPIES = value
+            randomize_puppies = value
         elseif key == "puppy_value" then
-            PUPPY_VALUE = value
+            puppy_value = value
         elseif key and SLOT_CODES[key] then
             print(string.format("INFO: updating setting for slot data with key %s", key))
             Tracker:FindObjectForCode(SLOT_CODES[key].code).CurrentStage = SLOT_CODES[key].mapping[value]
         end
     end
-    if not RANDOMIZE_PUPPIES then
-        PUPPY_VALUE = 3
+    if not randomize_puppies then
+        puppy_value = 3
     end
-    Tracker:FindObjectForCode("puppy").Increment = PUPPY_VALUE
+    Tracker:FindObjectForCode("puppy").Increment = puppy_value
 end
 
 -- called when an item gets collected
@@ -125,34 +124,30 @@ function onItem(index, item_id, item_name, player_number)
     CUR_INDEX = index;
     local v = ITEM_MAPPING[item_id]
     if not v then
-        if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-            print(string.format("onItem: could not find item mapping for id %s", item_id))
-        end
         return
     end
-    if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-        print(string.format("onItem: code: %s, type %s", v[1], v[2]))
-    end
-    if not v[1] then
+    local item_name = v[1]
+    local item_type = v[2]
+    if not item_name then
         return
     end
-    local obj = Tracker:FindObjectForCode(v[1])
+    local obj = Tracker:FindObjectForCode(item_name)
     if obj then
-        if v[2] == "toggle" then
+        if item_type == "toggle" then
             obj.Active = true
-        elseif v[2] == "progressive" then
+        elseif item_type == "progressive" then
             if obj.Active then
                 obj.CurrentStage = obj.CurrentStage + 1
             else
                 obj.Active = true
             end
-        elseif v[2] == "consumable" then
+        elseif item_type == "consumable" then
             obj.AcquiredCount = obj.AcquiredCount + obj.Increment
         elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-            print(string.format("onItem: unknown item type %s for code %s", v[2], v[1]))
+            print(string.format("onItem: unknown item type %s for code %s", item_type, item_name))
         end
     elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-        print(string.format("onItem: could not find object for code %s", v[1]))
+        print(string.format("onItem: could not find object for code %s", item_name))
     end
 end
 
