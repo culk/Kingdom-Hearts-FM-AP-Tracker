@@ -27,6 +27,8 @@ LOGIC_NORMAL = 1
 LOGIC_PROUD = 2
 LOGIC_MINIMAL = 3
 
+IGNORE_SLOT_2_LEVELS = true
+
 -- settings helpers
 
 function is_keyblade_locks()

@@ -5,7 +5,6 @@ ScriptHost:LoadScript("scripts/autotracking/setting_mapping.lua")
 CUR_INDEX = -1
 LOCAL_ITEMS = {}
 GLOBAL_ITEMS = {}
-IGNORE_SLOT_2_LEVELS = false
 
 function onClear(slot_data)
     if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
@@ -61,18 +60,20 @@ function onClear(slot_data)
     end
     LOCAL_ITEMS = {}
     GLOBAL_ITEMS = {}
-    IGNORE_SLOT_2_LEVELS = false
+    IGNORE_SLOT_2_LEVELS = true
     -- get slot data
     for key, value in pairs(SLOT_DATA) do
-        if key == "remote_items" and value ~= "full" then
-            IGNORE_SLOT_2_LEVELS = true
+        if key == "remote_items" and value == "full" then
+            IGNORE_SLOT_2_LEVELS = false
         elseif key == "remote_location_ids" then
             for _, location_id in ipairs(value) do
                 if is_slot_2_level(location_id) then
                     local location_name = LOCATION_MAPPING[location_id][1]
                     if location_name then
                         local obj = Tracker:FindObjectForCode(location_name)
-                        obj.AvailableChestCount = obj.AvailableChestCount + 1
+                        if obj then
+                            obj.AvailableChestCount = obj.AvailableChestCount + 1
+                        end
                     end
                 end
             end
@@ -166,6 +167,9 @@ function onLocation(location_id, location_name)
     local v = LOCATION_MAPPING[location_id]
     if not v and AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
         print(string.format("onLocation: could not find location mapping for id %s", location_id))
+    end
+    if IGNORE_SLOT_2_LEVELS and is_slot_2_level(location_id) then
+        return
     end
     if not v[1] then
         return
