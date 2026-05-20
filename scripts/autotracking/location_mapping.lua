@@ -765,4 +765,6 @@ LOCATION_MAPPING = {
     [2658198] = {"@Overview/Level 90-100/Slot 2"},
     [2658199] = {"@Overview/Level 90-100/Slot 2"},
     [2658200] = {"@Overview/Level 90-100/Slot 2"},
+
+    [2659999] = {"@Overview/Homecoming/Goal - Final Ansem"},
 }

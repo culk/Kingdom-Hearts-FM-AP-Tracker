@@ -196,6 +196,29 @@ function di_day_2_access()
     return has("destiny_islands") and has("raft_materials", materials_required)
 end
 
+function can_open_final_door()
+    local goal_status = Tracker:FindObjectForCode("goal").CurrentStage -- 0 = world item, 1 = lucky emblems
+    local lucky_emblems_required = Tracker:FindObjectForCode("door_req").AcquiredCount
+    if goal_status == 3 and has("lucky_emblem", lucky_emblems_required) then
+        return true
+    elseif goal_status == 5 and eotw_access() then
+        return true
+    elseif has("final_door_key") then
+        return true
+    end
+    return false
+end
+
+function homecoming_access()
+    local materials_required = Tracker:FindObjectForCode("homecoming_materials_req").AcquiredCount
+    if has("destiny_islands") and has("raft_materials", materials_required) then
+        return true
+    elseif eotw_access() and can_open_final_door() then
+        return true
+    end
+    return false
+end
+
 --- item access
 
 function has_all_cups()
