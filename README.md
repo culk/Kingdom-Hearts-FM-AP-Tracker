@@ -6,6 +6,13 @@ A [PopTracker](https://github.com/black-sliver/PopTracker/) Pack for Kingdom Hea
 
 Download the most recent .zip file from the **Releases** and either drag it to the PopTracker window or place it in your `poptracker/packs` directory. For more details and instructions on how to connect the tracker to an Archipelago server see [PopTracker](https://github.com/black-sliver/PopTracker/).
 
+## Features
+
+- Supports advanced difficulty settings and color codes locations that require higher difficulty logic. Green locations are reachable on the current logic setting. Yellow are reachable out of logic with advanced tricks or difficult combat. Red are not reachable.
+- Automatically reads player options from the AP server.
+- Autotracking of found key items and checked locations.
+- Highlighting of hinted item locations.
+
 ## Screenshot
 
 ![Screenshot](images/screenshot.png)
