@@ -20,5 +20,6 @@
         }
     },
     "versions_url": "https://raw.githubusercontent.com/culk/Kingdom-Hearts-FM-AP-Tracker/main/versions.json",
-    "min_poptracker_version": "0.25.6"
+    "min_poptracker_version": "0.25.6",
+    "target_poptracker_version": "0.32.0"
 }

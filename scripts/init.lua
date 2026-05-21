@@ -12,6 +12,9 @@ if ENABLE_DEBUG_LOG then
     print("Debug logging is enabled!")
 end
 
+-- check for supported PopTracker features
+IS_ENABLE_HIGHLIGHT = Highlight ~= nil
+
 -- Utility Script for helper functions etc.
 ScriptHost:LoadScript("scripts/utils.lua")
 

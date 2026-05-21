@@ -3,6 +3,17 @@ ScriptHost:LoadScript("scripts/autotracking/location_mapping.lua")
 ScriptHost:LoadScript("scripts/autotracking/setting_mapping.lua")
 
 CUR_INDEX = -1
+HINT_ID = ""
+
+if IS_ENABLE_HIGHLIGHT then
+    HIGHLIGHT_FOR_STATUS = {
+        [0] = Highlight.Unspecified,
+        [10] = Highlight.NoPriority,
+        [20] = Highlight.Avoid,
+        [30] = Highlight.Priority,
+        [40] = Highlight.None -- Hint Found
+    }
+end
 
 function onClear(slot_data)
     if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
@@ -24,6 +35,9 @@ function onClear(slot_data)
                         obj.AvailableChestCount = 0
                     else
                         obj.AvailableChestCount = obj.ChestCount
+                    end
+                    if IS_ENABLE_HIGHLIGHT then
+                        obj.Highlight = Highlight.None
                     end
                 else
                     obj.Active = false
@@ -107,6 +121,12 @@ function onClear(slot_data)
         puppy_value = 3
     end
     Tracker:FindObjectForCode("puppy").Increment = puppy_value
+
+    if IS_ENABLE_HIGHLIGHT and Archipelago.PlayerNumber ~= -1 then
+        HINT_ID = "_read_hints_" .. Archipelago.TeamNumber .. "_" .. Archipelago.PlayerNumber
+        Archipelago:Get({HINT_ID})
+        Archipelago:SetNotify({HINT_ID})
+    end
 end
 
 -- called when an item gets collected
@@ -181,6 +201,37 @@ function onLocation(location_id, location_name)
     end
 end
 
+function updateHints(hints)
+    for _, hint in ipairs(hints) do
+        if hint.finding_player == Archipelago.PlayerNumber then
+            local v = LOCATION_MAPPING[hint.location]
+            if v[1] then
+                local location_name = v[1]
+                local obj = Tracker:FindObjectForCode(location_name)
+                if obj then
+                    obj.Highlight = HIGHLIGHT_FOR_STATUS[hint.status]
+                elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
+                    print(string.format("updateHints: could not find object for code: %s", location_name))
+                end
+            elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
+                print(string.format("updateHints: could not find location for ID: %d", hint.location))
+            end
+        end
+    end
+end
+
+function onDataStorageChanged(key, value, prev_value)
+    if key == HINT_ID and IS_ENABLE_HIGHLIGHT then
+        updateHints(value)
+    end
+end
+
+function onDataStorageRetrieved(key, value)
+    if key == HINT_ID and IS_ENABLE_HIGHLIGHT then
+        updateHints(value)
+    end
+end
+
 Archipelago:AddClearHandler("clear handler", onClear)
 if AUTOTRACKER_ENABLE_ITEM_TRACKING then
     Archipelago:AddItemHandler("item handler", onItem)
@@ -188,3 +239,5 @@ end
 if AUTOTRACKER_ENABLE_LOCATION_TRACKING then
     Archipelago:AddLocationHandler("location handler", onLocation)
 end
+Archipelago:AddSetReplyHandler("data storage notify handler", onDataStorageChanged)
+Archipelago:AddRetrievedHandler("data storage get handler", onDataStorageRetrieved)
