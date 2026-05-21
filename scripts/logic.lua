@@ -125,49 +125,49 @@ function access_broken_chest_for(world_name)
 end
 
 function wl_after_footprints()
-    if has("footprints") then
+    if has("wonderland") and has("footprints") then
         return true
     end
     return is_stacking_worlds() and has("wonderland", 2)
 end
 
 function oc_after_entry_pass()
-    if has("entry_pass") then
+    if has("olympus_coliseum") and has("entry_pass") then
         return true
     end
     return is_stacking_worlds() and has("olympus_coliseum", 2)
 end
 
 function dj_after_slides()
-    if has("slides") then
+    if has("deep_jungle") and has("slides") then
         return true
     end
     return is_stacking_worlds() and has("deep_jungle", 2)
 end
 
 function ht_after_forget_me_not()
-    if has("forget_me_not") then
+    if has("halloween_town") and has("forget_me_not") then
         return true
     end
     return is_stacking_worlds() and has("halloween_town", 2)
 end
 
 function ht_after_jack_in_the_box()
-    if has("forget_me_not") and (has("jack_box") or is_halloween_town_bundled()) then
+    if has("halloween_town") and has("forget_me_not") and (has("jack_box") or is_halloween_town_bundled()) then
         return true
     end
     return is_stacking_worlds() and has("halloween_town", 2)
 end
 
 function at_after_crystal_trident()
-    if has("trident") then
+    if has("atlantica") and has("trident") then
         return true
     end
     return is_stacking_worlds() and has("atlantica", 2)
 end
 
 function hb_after_theon_6()
-    if has("theon_6") then
+    if has("hollow_bastion") and has("theon_6") then
         return true
     end
     return is_stacking_worlds() and has("hollow_bastion", 2)
