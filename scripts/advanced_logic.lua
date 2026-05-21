@@ -90,14 +90,11 @@ end
 function wl_lotus_forest_southwest_access()
    if has("glide") then
       return AccessibilityLevel.Normal
-   elseif (
-      logic_difficulty_at_least_proud()
-      and has("footprints") and (has("high_jump") or can_dumbo_skip())
-   ) then
+   elseif logic_difficulty_at_least_proud() and wl_after_footprints() and (has("high_jump") or can_dumbo_skip()) then
       return AccessibilityLevel.Normal
    elseif logic_difficulty_at_least_minimal() and can_minimal_air_combo_jump() then
       return AccessibilityLevel.Normal
-   elseif has("footprints") and (has("high_jump") or can_dumbo_skip()) then
+   elseif wl_after_footprints() and (has("high_jump") or can_dumbo_skip()) then
       return AccessibilityLevel.SequenceBreak
    elseif can_minimal_air_combo_jump() then
       return AccessibilityLevel.SequenceBreak
@@ -124,12 +121,10 @@ end
 function wl_tea_party_entrance_hedge_access()
    if has("glide") then
       return AccessibilityLevel.Normal
-   elseif wl_after_footprints() then
-      if logic_difficulty_at_least_normal() and has("high_jump", 2) then
-         return AccessibilityLevel.Normal
-      elseif logic_difficulty_at_least_proud() and (has("high_jump", 1) or can_dumbo_skip()) then
-         return AccessibilityLevel.Normal
-      end
+   elseif logic_difficulty_at_least_normal() and wl_after_footprints() and has("high_jump", 2) then
+      return AccessibilityLevel.Normal
+   elseif logic_difficulty_at_least_proud() and wl_after_footprints() and (has("high_jump", 1) or can_dumbo_skip()) then
+      return AccessibilityLevel.Normal
    elseif logic_difficulty_at_least_minimal() and can_minimal_air_combo_jump() then
       return AccessibilityLevel.Normal
    elseif wl_after_footprints() and (has("high_jump", 1) or can_dumbo_skip()) then
@@ -196,7 +191,6 @@ function dj_jump_and_glide_access()
 end
 
 -- Agrabah Main Street High Above Palace Gates Entrance Chest
--- Agrabah Palace Gates Low Chest
 function ag_high_jump_access()
    if has("high_jump") then
       return AccessibilityLevel.Normal
@@ -243,6 +237,17 @@ function ag_cow_entrance_access()
    ) then
       return AccessibilityLevel.Normal
    elseif logic_difficulty_at_least_minimal() then
+      return AccessibilityLevel.Normal
+   end
+
+   return AccessibilityLevel.SequenceBreak
+end
+
+-- Agrabah Cave of Wonders Dark Chamber Near Save Chest
+function ag_cow_near_save_access()
+   if has("high_jump", 1) or has("glide", 1) then
+      return AccessibilityLevel.Normal
+   elseif logic_difficulty_at_least_normal() then
       return AccessibilityLevel.Normal
    end
 
@@ -646,6 +651,16 @@ function hb_entrance_hall_flame_emblem_access()
 end
 
 -- End of the World Final Dimension Giant Crevasse - 1st Chest
+function eotw_giant_crevasse_first()
+   if has("glide") or has("high_jump") then
+      return AccessibilityLevel.Normal
+   elseif logic_difficulty_at_least_minimal() then
+      return AccessibilityLevel.Normal
+   end
+
+   return AccessibilityLevel.SequenceBreak
+end
+
 -- End of the World Final Dimension Giant Crevasse - 2nd Chest
 -- End of the World Final Dimension Giant Crevasse - 3rd Chest
 function eotw_giant_crevasse_lower()

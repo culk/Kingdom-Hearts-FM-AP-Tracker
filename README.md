@@ -6,9 +6,16 @@ A [PopTracker](https://github.com/black-sliver/PopTracker/) Pack for Kingdom Hea
 
 Download the most recent .zip file from the **Releases** and either drag it to the PopTracker window or place it in your `poptracker/packs` directory. For more details and instructions on how to connect the tracker to an Archipelago server see [PopTracker](https://github.com/black-sliver/PopTracker/).
 
+## Features
+
+- Supports advanced difficulty settings and color codes locations that require higher difficulty logic. Green locations are reachable on the current logic setting. Yellow are reachable out of logic with advanced tricks or difficult combat. Red are not reachable.
+- Automatically reads player options from the AP server.
+- Autotracking of found key items and checked locations.
+- Highlighting of hinted item locations.
+
 ## Screenshot
 
-![Screenshop](images/screenshot.png)
+![Screenshot](images/screenshot.png)
 
 ## Pack Settings
 
@@ -45,7 +52,7 @@ The Goal section controls the requirements for unlocking the **End of the World*
 
 ### Collectible Requirements
 
-The Collectible Requirements section controls how many of a collectible are required for their respective goal. Note that a collectbile is only required if their respective goal is set or if Destiny Islands checks are enabled.
+The Collectible Requirements section controls how many of a collectible are required for their respective goal. Note that a collectable is only required if their respective goal is set or if Destiny Islands checks are enabled.
 
 ![Collectible Requirements](images/ui_collectible_requirements.png)
 

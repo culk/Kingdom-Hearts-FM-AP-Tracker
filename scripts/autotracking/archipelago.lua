@@ -4,61 +4,94 @@ ScriptHost:LoadScript("scripts/autotracking/setting_mapping.lua")
 ScriptHost:LoadScript("scripts/autotracking/tab_mapping.lua")
 
 CUR_INDEX = -1
-LOCAL_ITEMS = {}
-GLOBAL_ITEMS = {}
+HINT_ID = ""
+
+if IS_ENABLE_HIGHLIGHT then
+    HIGHLIGHT_FOR_STATUS = {
+        [0] = Highlight.Unspecified,
+        [10] = Highlight.NoPriority,
+        [20] = Highlight.Avoid,
+        [30] = Highlight.Priority,
+        [40] = Highlight.None -- Hint Found
+    }
+end
 
 function onClear(slot_data)
     if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
         print(string.format("called onClear, slot_data:\n%s", dump_table(slot_data)))
     end
-    SLOT_DATA = slot_data
     CUR_INDEX = -1
+
     -- reset locations
-    for _, v in pairs(LOCATION_MAPPING) do
-        if v[1] then
+    for location_id, v in pairs(LOCATION_MAPPING) do
+        local location_name = v[1]
+        if location_name then
             if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-                print(string.format("onClear: clearing location %s", v[1]))
+                print(string.format("onClear: clearing location %s", location_name))
             end
-            local obj = Tracker:FindObjectForCode(v[1])
+            local obj = Tracker:FindObjectForCode(location_name)
             if obj then
-                if v[1]:sub(1, 1) == "@" then
-                    obj.AvailableChestCount = obj.ChestCount
+                if location_name:sub(1, 1) == "@" then
+                    if is_slot_2_level(location_id) then
+                        obj.AvailableChestCount = 0
+                    else
+                        obj.AvailableChestCount = obj.ChestCount
+                    end
+                    if IS_ENABLE_HIGHLIGHT then
+                        obj.Highlight = Highlight.None
+                    end
                 else
                     obj.Active = false
                 end
             elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-                print(string.format("onClear: could not find object for code %s", v[1]))
+                print(string.format("onClear: could not find object for code %s", location_name))
             end
         end
     end
+
     -- reset items
     for _, v in pairs(ITEM_MAPPING) do
-        if v[1] and v[2] then
-            if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-                print(string.format("onClear: clearing item %s of type %s", v[1], v[2]))
-            end
-            local obj = Tracker:FindObjectForCode(v[1])
+        local item_name = v[1]
+        local item_type = v[2]
+        if item_name and item_type then
+            local obj = Tracker:FindObjectForCode(item_name)
             if obj then
-                if v[2] == "toggle" then
+                if item_type == "toggle" then
                     obj.Active = false
-                elseif v[2] == "progressive" then
+                elseif item_type == "progressive" then
                     obj.CurrentStage = 0
                     obj.Active = false
-                elseif v[2] == "consumable" then
+                elseif item_type == "consumable" then
                     obj.AcquiredCount = 0
                 elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-                    print(string.format("onClear: unknown item type %s for code %s", v[2], v[1]))
+                    print(string.format("onClear: unknown item type %s for code %s", item_type, item_name))
                 end
             elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-                print(string.format("onClear: could not find object for code %s", v[1]))
+                print(string.format("onClear: could not find object for code %s", item_name))
             end
         end
     end
-    LOCAL_ITEMS = {}
-    GLOBAL_ITEMS = {}
-    -- get slot data
-    for key, value in pairs(SLOT_DATA) do
-        if key == "required_lucky_emblems_eotw" then
+
+    -- update settings with slot data
+    IGNORE_SLOT_2_LEVELS = true
+    local puppy_value = 3
+    local randomize_puppies = true
+    for key, value in pairs(slot_data) do
+        if key == "remote_items" and value == "full" then
+            IGNORE_SLOT_2_LEVELS = false
+        elseif key == "remote_location_ids" then
+            for _, location_id in ipairs(value) do
+                if is_slot_2_level(location_id) then
+                    local location_name = LOCATION_MAPPING[location_id][1]
+                    if location_name then
+                        local obj = Tracker:FindObjectForCode(location_name)
+                        if obj then
+                            obj.AvailableChestCount = obj.AvailableChestCount + 1
+                        end
+                    end
+                end
+            end
+        elseif key == "required_lucky_emblems_eotw" then
             Tracker:FindObjectForCode("eotw_req").AcquiredCount = value
         elseif key == "required_lucky_emblems_door" then
             Tracker:FindObjectForCode("door_req").AcquiredCount = value
@@ -77,18 +110,24 @@ function onClear(slot_data)
         elseif key == "mythril_in_pool" then
             Tracker:FindObjectForCode("mythril").MaxCount = value
         elseif key == "randomize_puppies" then
-            RANDOMIZE_PUPPIES = value
+            randomize_puppies = value
         elseif key == "puppy_value" then
-            PUPPY_VALUE = value
+            puppy_value = value
         elseif key and SLOT_CODES[key] then
             print(string.format("INFO: updating setting for slot data with key %s", key))
             Tracker:FindObjectForCode(SLOT_CODES[key].code).CurrentStage = SLOT_CODES[key].mapping[value]
         end
     end
-    if not RANDOMIZE_PUPPIES then
-        PUPPY_VALUE = 3
+    if not randomize_puppies then
+        puppy_value = 3
     end
-    Tracker:FindObjectForCode("puppy").Increment = PUPPY_VALUE
+    Tracker:FindObjectForCode("puppy").Increment = puppy_value
+
+    if IS_ENABLE_HIGHLIGHT and Archipelago.PlayerNumber ~= -1 then
+        HINT_ID = "_read_hints_" .. Archipelago.TeamNumber .. "_" .. Archipelago.PlayerNumber
+        Archipelago:Get({HINT_ID})
+        Archipelago:SetNotify({HINT_ID})
+    end
 end
 
 -- called when an item gets collected
@@ -106,34 +145,30 @@ function onItem(index, item_id, item_name, player_number)
     CUR_INDEX = index;
     local v = ITEM_MAPPING[item_id]
     if not v then
-        if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-            print(string.format("onItem: could not find item mapping for id %s", item_id))
-        end
         return
     end
-    if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-        print(string.format("onItem: code: %s, type %s", v[1], v[2]))
-    end
-    if not v[1] then
+    local item_name = v[1]
+    local item_type = v[2]
+    if not item_name then
         return
     end
-    local obj = Tracker:FindObjectForCode(v[1])
+    local obj = Tracker:FindObjectForCode(item_name)
     if obj then
-        if v[2] == "toggle" then
+        if item_type == "toggle" then
             obj.Active = true
-        elseif v[2] == "progressive" then
+        elseif item_type == "progressive" then
             if obj.Active then
                 obj.CurrentStage = obj.CurrentStage + 1
             else
                 obj.Active = true
             end
-        elseif v[2] == "consumable" then
+        elseif item_type == "consumable" then
             obj.AcquiredCount = obj.AcquiredCount + obj.Increment
         elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-            print(string.format("onItem: unknown item type %s for code %s", v[2], v[1]))
+            print(string.format("onItem: unknown item type %s for code %s", item_type, item_name))
         end
     elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
-        print(string.format("onItem: could not find object for code %s", v[1]))
+        print(string.format("onItem: could not find object for code %s", item_name))
     end
 end
 
@@ -148,6 +183,9 @@ function onLocation(location_id, location_name)
     local v = LOCATION_MAPPING[location_id]
     if not v and AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
         print(string.format("onLocation: could not find location mapping for id %s", location_id))
+    end
+    if IGNORE_SLOT_2_LEVELS and is_slot_2_level(location_id) then
+        return
     end
     if not v[1] then
         return
@@ -186,6 +224,37 @@ function onBounce(json)
     end
 end
 
+function updateHints(hints)
+    for _, hint in ipairs(hints) do
+        if hint.finding_player == Archipelago.PlayerNumber then
+            local v = LOCATION_MAPPING[hint.location]
+            if v[1] then
+                local location_name = v[1]
+                local obj = Tracker:FindObjectForCode(location_name)
+                if obj then
+                    obj.Highlight = HIGHLIGHT_FOR_STATUS[hint.status]
+                elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
+                    print(string.format("updateHints: could not find object for code: %s", location_name))
+                end
+            elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
+                print(string.format("updateHints: could not find location for ID: %d", hint.location))
+            end
+        end
+    end
+end
+
+function onDataStorageChanged(key, value, prev_value)
+    if key == HINT_ID and IS_ENABLE_HIGHLIGHT then
+        updateHints(value)
+    end
+end
+
+function onDataStorageRetrieved(key, value)
+    if key == HINT_ID and IS_ENABLE_HIGHLIGHT then
+        updateHints(value)
+    end
+end
+
 Archipelago:AddClearHandler("clear handler", onClear)
 if AUTOTRACKER_ENABLE_ITEM_TRACKING then
     Archipelago:AddItemHandler("item handler", onItem)
@@ -194,3 +263,5 @@ if AUTOTRACKER_ENABLE_LOCATION_TRACKING then
     Archipelago:AddLocationHandler("location handler", onLocation)
 end
 Archipelago:AddBouncedHandler("bounce handler", onBounce)
+Archipelago:AddSetReplyHandler("data storage notify handler", onDataStorageChanged)
+Archipelago:AddRetrievedHandler("data storage get handler", onDataStorageRetrieved)

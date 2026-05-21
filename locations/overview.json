@@ -971,7 +971,7 @@
                     },
                     {
                         "name": "Palace Gates - Low Chest",
-                        "access_rules":["^$ag_high_jump_access, ^$boss_beginner_require_tools"]
+                        "access_rules":["^$boss_beginner_require_tools"]
                     },
                     {
                         "name": "Palace Gates - High Chest Opposite Palace",
@@ -1073,7 +1073,7 @@
                     },
                     {
                         "name": "Dark Chamber - Chest Near Save Point",
-                        "access_rules":["high_jump", "glide", "[$logic_difficulty_at_least_normal]"]
+                        "access_rules":["^$ag_cow_near_save_access"]
                     },
                     {
                         "name": "Silent Chamber - Blue Trinity Chest",
@@ -2079,7 +2079,7 @@
                     },
                     {
                         "name": "Giant Crevasse - 1st Chest",
-                        "access_rules":["^$eotw_giant_crevasse_lower, $access_chest_for|end_of_the_world"]
+                        "access_rules":["^$eotw_giant_crevasse_first, $access_chest_for|end_of_the_world"]
                     },
                     {
                         "name": "Giant Crevasse - 2nd Chest",
@@ -2104,7 +2104,7 @@
                 "map_locations": [
                     {
                         "map": "OV",
-                        "x": 880,
+                        "x": 865,
                         "y": 480
                     }
                 ]
@@ -2168,7 +2168,25 @@
                 "map_locations": [
                     {
                         "map": "OV",
-                        "x": 910,
+                        "x": 895,
+                        "y": 480
+                    }
+                ]
+            },
+            {
+                "name": "Homecoming",
+                "access_rules":["$homecoming_access, [$world_count:8], [$has_defenses], ^$boss_beginner_require_tools"],
+                "chest_unopened_img": "/images/misc/emblem.png",
+                "chest_opened_img": "/images/misc/emblem_bw.png",
+                "sections": [
+                    {
+                        "name": "Goal - Final Ansem"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "OV",
+                        "x": 925,
                         "y": 480
                     }
                 ]
@@ -2349,6 +2367,245 @@
                         "map": "OV",
                         "x": 200,
                         "y": 470
+                    }
+                ]
+            },
+            {
+                "name": "Level 2-9",
+                "chest_unopened_img": "/images/misc/emblem.png",
+                "chest_opened_img": "/images/misc/emblem_bw.png",
+                "sections": [
+                    {
+                        "item_count": 8
+                    },
+                    {
+                        "name": "Slot 2",
+                        "visibility_rules":["$is_slot_2_visible"],
+                        "item_count": 8
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "OV",
+                        "x": 400,
+                        "y": 620
+                    }
+                ]
+            },
+            {
+                "name": "Level 10-19",
+                "access_rules":["[$world_count:2]"],
+                "chest_unopened_img": "/images/misc/emblem.png",
+                "chest_opened_img": "/images/misc/emblem_bw.png",
+                "sections": [
+                    {
+                        "item_count": 10
+                    },
+                    {
+                        "name": "Slot 2",
+                        "visibility_rules":["$is_slot_2_visible"],
+                        "item_count": 10
+                    }
+
+                ],
+                "map_locations": [
+                    {
+                        "map": "OV",
+                        "x": 425,
+                        "y": 620
+                    }
+                ]
+            },
+            {
+                "name": "Level 20-29",
+                "access_rules":["[$world_count:4]"],
+                "chest_unopened_img": "/images/misc/emblem.png",
+                "chest_opened_img": "/images/misc/emblem_bw.png",
+                "sections": [
+                    {
+                        "item_count": 10
+                    },
+                    {
+                        "name": "Slot 2",
+                        "visibility_rules":["$is_slot_2_visible"],
+                        "item_count": 10
+                    }
+
+                ],
+                "map_locations": [
+                    {
+                        "map": "OV",
+                        "x": 450,
+                        "y": 620
+                    }
+                ]
+            },
+            {
+                "name": "Level 30-39",
+                "access_rules":["[$world_count:6]"],
+                "chest_unopened_img": "/images/misc/emblem.png",
+                "chest_opened_img": "/images/misc/emblem_bw.png",
+                "sections": [
+                    {
+                        "item_count": 10
+                    },
+                    {
+                        "name": "Slot 2",
+                        "visibility_rules":["$is_slot_2_visible"],
+                        "item_count": 10
+                    }
+
+                ],
+                "map_locations": [
+                    {
+                        "map": "OV",
+                        "x": 475,
+                        "y": 620
+                    }
+                ]
+            },
+            {
+                "name": "Level 40-49",
+                "access_rules":["[$world_count:8]"],
+                "chest_unopened_img": "/images/misc/emblem.png",
+                "chest_opened_img": "/images/misc/emblem_bw.png",
+                "sections": [
+                    {
+                        "item_count": 10
+                    },
+                    {
+                        "name": "Slot 2",
+                        "visibility_rules":["$is_slot_2_visible"],
+                        "item_count": 10
+                    }
+
+                ],
+                "map_locations": [
+                    {
+                        "map": "OV",
+                        "x": 500,
+                        "y": 620
+                    }
+                ]
+            },
+            {
+                "name": "Level 50-59",
+                "access_rules":["[$world_count:8]"],
+                "chest_unopened_img": "/images/misc/emblem.png",
+                "chest_opened_img": "/images/misc/emblem_bw.png",
+                "sections": [
+                    {
+                        "item_count": 10
+                    },
+                    {
+                        "name": "Slot 2",
+                        "visibility_rules":["$is_slot_2_visible"],
+                        "item_count": 10
+                    }
+
+                ],
+                "map_locations": [
+                    {
+                        "map": "OV",
+                        "x": 525,
+                        "y": 620
+                    }
+                ]
+            },
+            {
+                "name": "Level 60-69",
+                "access_rules":["[$world_count:8]"],
+                "chest_unopened_img": "/images/misc/emblem.png",
+                "chest_opened_img": "/images/misc/emblem_bw.png",
+                "sections": [
+                    {
+                        "item_count": 10
+                    },
+                    {
+                        "name": "Slot 2",
+                        "visibility_rules":["$is_slot_2_visible"],
+                        "item_count": 10
+                    }
+
+                ],
+                "map_locations": [
+                    {
+                        "map": "OV",
+                        "x": 550,
+                        "y": 620
+                    }
+                ]
+            },
+            {
+                "name": "Level 70-79",
+                "access_rules":["[$world_count:8]"],
+                "chest_unopened_img": "/images/misc/emblem.png",
+                "chest_opened_img": "/images/misc/emblem_bw.png",
+                "sections": [
+                    {
+                        "item_count": 10
+                    },
+                    {
+                        "name": "Slot 2",
+                        "visibility_rules":["$is_slot_2_visible"],
+                        "item_count": 10
+                    }
+
+                ],
+                "map_locations": [
+                    {
+                        "map": "OV",
+                        "x": 575,
+                        "y": 620
+                    }
+                ]
+            },
+            {
+                "name": "Level 80-89",
+                "access_rules":["[$world_count:8]"],
+                "chest_unopened_img": "/images/misc/emblem.png",
+                "chest_opened_img": "/images/misc/emblem_bw.png",
+                "sections": [
+                    {
+                        "item_count": 10
+                    },
+                    {
+                        "name": "Slot 2",
+                        "visibility_rules":["$is_slot_2_visible"],
+                        "item_count": 10
+                    }
+
+                ],
+                "map_locations": [
+                    {
+                        "map": "OV",
+                        "x": 600,
+                        "y": 620
+                    }
+                ]
+            },
+            {
+                "name": "Level 90-100",
+                "access_rules":["[$world_count:8]"],
+                "chest_unopened_img": "/images/misc/emblem.png",
+                "chest_opened_img": "/images/misc/emblem_bw.png",
+                "sections": [
+                    {
+                        "name": "",
+                        "item_count": 11
+                    },
+                    {
+                        "name": "Slot 2",
+                        "visibility_rules":["$is_slot_2_visible"],
+                        "item_count": 11
+                    }
+
+                ],
+                "map_locations": [
+                    {
+                        "map": "OV",
+                        "x": 625,
+                        "y": 620
                     }
                 ]
             }

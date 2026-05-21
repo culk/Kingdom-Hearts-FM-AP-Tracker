@@ -27,6 +27,8 @@ LOGIC_NORMAL = 1
 LOGIC_PROUD = 2
 LOGIC_MINIMAL = 3
 
+IGNORE_SLOT_2_LEVELS = true
+
 -- settings helpers
 
 function is_keyblade_locks()
@@ -69,6 +71,10 @@ end
 -- TODO: return value of setting instead when random accessories are fixed.
 function is_random_accessory_visible()
     return false
+end
+
+function is_slot_2_visible()
+    return not IGNORE_SLOT_2_LEVELS
 end
 
 -- optional rules, if not met then checks are accessible out of logic
@@ -188,6 +194,29 @@ end
 function di_day_2_access()
     local materials_required = Tracker:FindObjectForCode("day_2_materials_req").AcquiredCount
     return has("destiny_islands") and has("raft_materials", materials_required)
+end
+
+function can_open_final_door()
+    local goal_status = Tracker:FindObjectForCode("goal").CurrentStage -- 0 = world item, 1 = lucky emblems
+    local lucky_emblems_required = Tracker:FindObjectForCode("door_req").AcquiredCount
+    if goal_status == 3 and has("lucky_emblem", lucky_emblems_required) then
+        return true
+    elseif goal_status == 5 and eotw_access() then
+        return true
+    elseif has("final_door_key") then
+        return true
+    end
+    return false
+end
+
+function homecoming_access()
+    local materials_required = Tracker:FindObjectForCode("homecoming_materials_req").AcquiredCount
+    if has("destiny_islands") and has("raft_materials", materials_required) then
+        return true
+    elseif eotw_access() and can_open_final_door() then
+        return true
+    end
+    return false
 end
 
 --- item access
