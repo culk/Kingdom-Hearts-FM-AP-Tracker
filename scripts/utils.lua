@@ -30,8 +30,12 @@ function dump_table(o, depth)
     end
 end
 
+function is_level_up_location(location_id)
+    return location_id >= 2658002 and location_id <= 2658200
+end
+
 function is_slot_2_level(location_id)
-    return location_id >= 2658100 and location_id <= 2658200
+    return location_id >= 2658102 and location_id <= 2658200
 end
 
 update_layout = true

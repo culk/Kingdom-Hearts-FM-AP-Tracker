@@ -2372,6 +2372,7 @@
             },
             {
                 "name": "Level 2-9",
+                "visibility_rules": ["$level_checks:2"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
                 "sections": [
@@ -2394,6 +2395,7 @@
             },
             {
                 "name": "Level 10-19",
+                "visibility_rules": ["$level_checks:10"],
                 "access_rules":["[$world_count:2]"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -2418,6 +2420,7 @@
             },
             {
                 "name": "Level 20-29",
+                "visibility_rules": ["$level_checks:20"],
                 "access_rules":["[$world_count:4]"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -2442,6 +2445,7 @@
             },
             {
                 "name": "Level 30-39",
+                "visibility_rules": ["$level_checks:30"],
                 "access_rules":["[$world_count:6]"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -2466,6 +2470,7 @@
             },
             {
                 "name": "Level 40-49",
+                "visibility_rules": ["$level_checks:40"],
                 "access_rules":["[$world_count:8]"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -2490,6 +2495,7 @@
             },
             {
                 "name": "Level 50-59",
+                "visibility_rules": ["$level_checks:50"],
                 "access_rules":["[$world_count:8]"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -2514,6 +2520,7 @@
             },
             {
                 "name": "Level 60-69",
+                "visibility_rules": ["$level_checks:60"],
                 "access_rules":["[$world_count:8]"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -2538,6 +2545,7 @@
             },
             {
                 "name": "Level 70-79",
+                "visibility_rules": ["$level_checks:70"],
                 "access_rules":["[$world_count:8]"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -2562,6 +2570,7 @@
             },
             {
                 "name": "Level 80-89",
+                "visibility_rules": ["$level_checks:80"],
                 "access_rules":["[$world_count:8]"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -2586,6 +2595,7 @@
             },
             {
                 "name": "Level 90-100",
+                "visibility_rules": ["$level_checks:90"],
                 "access_rules":["[$world_count:8]"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",

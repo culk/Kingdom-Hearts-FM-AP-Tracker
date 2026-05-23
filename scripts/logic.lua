@@ -27,6 +27,8 @@ LOGIC_NORMAL = 1
 LOGIC_PROUD = 2
 LOGIC_MINIMAL = 3
 
+-- Values updated based on slot data.
+MAX_LEVEL_WITH_CHECK = 100
 IGNORE_SLOT_2_LEVELS = true
 
 -- settings helpers
@@ -99,6 +101,10 @@ function world_count()
         end
     end
     return count
+end
+
+function level_checks()
+    return MAX_LEVEL_WITH_CHECK
 end
 
 function has_defenses()
