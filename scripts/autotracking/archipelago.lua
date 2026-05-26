@@ -139,8 +139,9 @@ function onClear(slot_data)
 
     if IS_ENABLE_HIGHLIGHT and Archipelago.PlayerNumber ~= -1 then
         HINT_ID = "_read_hints_" .. Archipelago.TeamNumber .. "_" .. Archipelago.PlayerNumber
-        Archipelago:Get({HINT_ID})
-        Archipelago:SetNotify({HINT_ID})
+        CLIENT_STATUS_ID = "_read_client_status_" .. Archipelago.TeamNumber .. "_" .. Archipelago.PlayerNumber
+        Archipelago:Get({HINT_ID, CLIENT_STATUS_ID})
+        Archipelago:SetNotify({HINT_ID, CLIENT_STATUS_ID})
     end
 end
 
@@ -235,15 +236,26 @@ function updateHints(hints)
     end
 end
 
+function updateStatus(status)
+    if status == Archipelago.ClientStatus.GOAL then
+        print("updateStatus: goal achieved")
+        onLocation(2659999, "Goal")
+    end
+end
+
 function onDataStorageChanged(key, value, prev_value)
     if key == HINT_ID and IS_ENABLE_HIGHLIGHT then
         updateHints(value)
+    elseif key == CLIENT_STATUS_ID then
+        updateStatus(value)
     end
 end
 
 function onDataStorageRetrieved(key, value)
     if key == HINT_ID and IS_ENABLE_HIGHLIGHT then
         updateHints(value)
+    elseif key == CLIENT_STATUS_ID then
+        updateStatus(value)
     end
 end
 
