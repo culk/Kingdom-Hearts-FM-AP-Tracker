@@ -200,14 +200,14 @@ LOCATION_MAPPING = {
 
     [2656610] = {"@Overview/Deep Jungle - Before Slides/Treetop - Green Trinity"},
 
+    [2656330] = {"@Overview/Olympus Coliseum - Cups/Coliseum Gates - Purple Jar"},
     [2653332] = {"@Overview/Olympus Coliseum - Before Entry Pass/Coliseum Gates - Chest Behind Left Columns"},
     [2653333] = {"@Overview/Olympus Coliseum - Before Entry Pass/Coliseum Gates - Right Blue Trinity Chest"},
     [2653334] = {"@Overview/Olympus Coliseum - Before Entry Pass/Coliseum Gates - Left Blue Trinity Chest"},
     [2653371] = {"@Overview/Olympus Coliseum - Before Entry Pass/Coliseum Gates - White Trinity Chest"},
     [2653372] = {"@Overview/Olympus Coliseum - Before Entry Pass/Coliseum Gates - Blizzara Chest"},
     [2653373] = {"@Overview/Olympus Coliseum - Before Entry Pass/Coliseum Gates - Blizzaga Chest"},
-    [2656330] = {"@Overview/Olympus Coliseum - Cups/Coliseum Lobby - Olympia Chest"},
-    [2656369] = {"@Overview/Olympus Coliseum - Cups/Coliseum Gates - Purple Jar"},
+    [2656369] = {"@Overview/Olympus Coliseum - Cups/Coliseum Lobby - Olympia Chest"},
 
     [2656031] = {"@Overview/Olympus Coliseum - Before Entry Pass/Coliseum Lobby - Phil's Training"},
     [2656032] = {"@Overview/Olympus Coliseum - After Entry Pass/Coliseum Gates - Talk to Cloud"},
