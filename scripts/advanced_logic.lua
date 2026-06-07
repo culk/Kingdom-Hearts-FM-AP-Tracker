@@ -125,15 +125,11 @@ end
 
 -- Wonderland Lotus Forest Corner Chest
 function wl_jump_and_glide_access()
-   if has("high_jump") and has("glide") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and (has("high_jump") or has("glide")) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY(
+      ALL("high_jump", "glide"),
+      ALL(AT_LEAST(LOGIC_NORMAL), ANY("high_jump", "glide")),
+      AT_LEAST(LOGIC_PROUD)
+   )
 end
 
 -- Wonderland Tea Party Garden Above Lotus Forest Entrance 2nd Chest
@@ -153,15 +149,11 @@ end
 
 -- Wonderland Tea Party Garden Bear and Clock Puzzle Chest
 function wl_tea_party_puzzle_access()
-   if wl_after_footprints() or has("glide") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_minimal() and can_minimal_air_combo_jump() then
-      return AccessibilityLevel.Normal
-   elseif can_minimal_air_combo_jump() then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ANY(
+      wl_after_footprints(),
+      "glide",
+      ALL(AT_LEAST(LOGIC_MINIMAL), can_minimal_air_combo_jump())
+   )
 end
 
 -- Wonderland Tea Party Garden Chairs
@@ -191,30 +183,20 @@ end
 
 -- Deep Jungle Hippo's Lagoon Right Chest
 function dj_jump_and_glide_access()
-   if has("high_jump") and has("glide") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and (has("high_jump") or has("glide")) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY(
+      ALL("high_jump", "glide"),
+      ALL(AT_LEAST(LOGIC_NORMAL), ANY("high_jump", "glide")),
+      AT_LEAST(LOGIC_PROUD)
+   )
 end
 
 -- Agrabah Main Street High Above Palace Gates Entrance Chest
 function ag_high_jump_access()
-   if has("high_jump") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and has("glide") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() and can_dumbo_skip() then
-      return AccessibilityLevel.Normal
-   elseif has("glide") or can_dumbo_skip() then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ANY(
+      "high_jump",
+      ALL(AT_LEAST(LOGIC_NORMAL), "glide"),
+      ALL(AT_LEAST(LOGIC_PROUD), can_dumbo_skip())
+   )
 end
 
 -- Agrabah Palace Gates High Close to Palace Chest
@@ -248,29 +230,17 @@ end
 
 -- Agrabah Cave of Wonders Dark Chamber Near Save Chest
 function ag_cow_near_save_access()
-   if has("high_jump", 1) or has("glide", 1) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY("high_jump", "glide", AT_LEAST(LOGIC_NORMAL))
 end
 
 -- Agrabah Cave of Wonders Hidden Room Right Chest
 -- Agrabah Cave of Wonders Hidden Room Left Chest
 function ag_cow_hidden_room_access()
-   if has("yellow_trinity") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and has("high_jump") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() and has("glide") then
-      return AccessibilityLevel.Normal
-   elseif has("high_jump") or has("glide") then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ANY(
+      "yellow_trinity",
+      ALL(AT_LEAST(LOGIC_NORMAL), "high_jump"),
+      ALL(AT_LEAST(LOGIC_PROUD), "glide")
+   )
 end
 
 function has_minimal_kurt_zisa_magic()
@@ -284,25 +254,18 @@ end
 
 -- Agrabah Desert Defeat Kurt Zisa
 function ag_kurt_zisa_magic_access()
-   if has("blizzard", 3) then
-      return AccessibilityLevel.Normal
-   elseif (
-      logic_difficulty_at_least_normal()
-      and (has("blizzard", 2) or has("fire", 3) or has("thunder", 3) or has("gravity", 3))
-   ) then
-      return AccessibilityLevel.Normal
-   elseif (
-      logic_difficulty_at_least_proud()
-      and (has("blizzard", 1) or has("fire", 2) or has("thunder", 2) or has("gravity", 2))
-   ) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_minimal() and has_minimal_kurt_zisa_magic() then
-      return AccessibilityLevel.Normal
-   elseif has_minimal_kurt_zisa_magic() then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ANY(
+      HAS("blizzard", 3),
+      ALL(
+         AT_LEAST(LOGIC_NORMAL),
+         ANY(HAS("blizzard", 2), HAS("fire", 3), HAS("thunder", 3), HAS("gravity", 3))
+      ),
+      ALL(
+         AT_LEAST(LOGIC_PROUD),
+         ANY("blizzard", HAS("fire", 2), HAS("thunder", 2), HAS("gravity", 2))
+      ),
+      ALL(AT_LEAST(LOGIC_MINIMAL), has_minimal_kurt_zisa_magic())
+   )
 end
 
 -- Monstro Mouth High Platform Boat Side Chest
@@ -348,19 +311,14 @@ end
 
 -- Monstro Defeat Parasite Cage II Stop Event
 function mon_parasite_ii_access()
-   if not has("monstro") then
-      return AccessibilityLevel.None
-   end
-   if (
-      has("high_jump")
-      or (logic_difficulty_at_least_normal() and has("glide"))
-   ) then
-      return AccessibilityLevel.Normal
-   elseif has("glide") then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ALL(
+      "monstro",
+      ANY(
+         "high_jump",
+         ALL(AT_LEAST(LOGIC_NORMAL), "glide"),
+         ALL(AT_LEAST(LOGIC_PROUD), can_dumbo_skip(), "summon_anywhere")
+      )
+   )
 end
 
 -- Atlantica Crystal Trident Checks Modified Beginner Logic
@@ -368,43 +326,26 @@ end
 -- access the crystal trident chest before giving access to crystal
 -- trident checks.
 function at_beginner_require_chest()
-   if access_chest_for("atlantica") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY(access_chest_for("atlantica"), AT_LEAST(LOGIC_NORMAL))
 end
 
 -- Atlantica Offensive Magic Against Ursula
 function at_offensive_magic()
-   if has("fire") or has("blizzard") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() and (has("thunder") or has("gravity")) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_minimal() and has("stop") then
-      return AccessibilityLevel.Normal
-   elseif has("thunder") or has("gravity") or has("stop") then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ANY(
+      "fire",
+      "blizzard",
+      ALL(AT_LEAST(LOGIC_PROUD), ANY("thunder", "gravity")),
+      ALL(AT_LEAST(LOGIC_MINIMAL), "stop")
+   )
 end
 
 -- Halloween Town Guillotine Square High Tower Chest
 function ht_high_tower_access()
-   if has("high_jump") and has("glide") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and (has("high_jump") or has("glide")) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() and can_dumbo_skip() then
-      return AccessibilityLevel.Normal
-   elseif has("high_jump") or has("glide") or can_dumbo_skip() then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ANY(
+      ALL("high_jump", "glide"),
+      ALL(AT_LEAST(LOGIC_NORMAL), ANY("high_jump", "glide")),
+      ALL(AT_LEAST(LOGIC_PROUD), can_dumbo_skip())
+   )
 end
 
 -- Halloween Town Guillotine Square Pumpkin Structure Left Chest
@@ -429,82 +370,55 @@ end
 
 -- Halloween Town Bridge Right of Gate Chest
 function ht_bridge_right_access()
-   if has("glide") or has("high_jump", 3) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and has("high_jump", 2) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() and has("high_jump") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_minimal() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY(
+      "glide",
+      HAS("high_jump", 3),
+      ALL(AT_LEAST(LOGIC_NORMAL), HAS("high_jump", 2)),
+      ALL(AT_LEAST(LOGIC_PROUD), "high_jump"),
+      AT_LEAST(LOGIC_MINIMAL)
+   )
 end
 
 -- Halloween Town Bridge Left of Gate Chest
 function ht_bridge_left_access()
-   if has("glide") or has("high_jump") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY("glide", "high_jump", AT_LEAST(LOGIC_PROUD))
 end
 
 -- Halloween Town Oogie's Manor
 function ht_oogie_manor_access()
-   if has("fire") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and has("high_jump", 3) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() and (has("high_jump", 2) or (has("high_jump") and has("glide"))) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_minimal() and (has("high_jump") or has("glide")) then
-      return AccessibilityLevel.Normal
-   elseif has("high_jump") or has("glide") then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return false
+   return ANY(
+      "fire",
+      ALL(AT_LEAST(LOGIC_NORMAL), HAS("high_jump", 3)),
+      ALL(
+         AT_LEAST(LOGIC_PROUD),
+         ANY(HAS("high_jump", 2), ALL("high_jump", "glide"), can_dumbo_skip())
+      ),
+      ALL(AT_LEAST(LOGIC_MINIMAL), ANY("high_jump", "glide"))
+   )
 end
 
 -- Halloween Town Oogie's Manor Lower Iron Cage
 function ht_manor_lower_cage_access()
-   if has("glide") or has_basic_tools() then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY("glide", has_basic_tools(), AT_LEAST(LOGIC_NORMAL))
 end
 
 -- Halloween Town Oogie's Manor Upper Iron Cage
 function ht_manor_upper_cage_access()
-   if has("glide") and has("high_jump") then
-      return AccessibilityLevel.Normal
-   elseif has_basic_tools() then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY(
+      "glide",
+      "high_jump",
+      has_basic_tools(),
+      AT_LEAST(LOGIC_NORMAL)
+   )
 end
 
 -- Neverland Ship Hold Beam Chests
 function nl_hold_beam_access()
-   if has("green_trinity") or has("glide") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and has("high_jump", 3) then
-      return AccessibilityLevel.Normal
-   elseif has("high_jump", 3) then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ANY(
+      "green_trinity",
+      "glide",
+      ALL(AT_LEAST(LOGIC_NORMAL), HAS("high_jump", 3))
+   )
 end
 
 -- Neverland Defeat Phantom
@@ -591,63 +505,38 @@ end
 
 -- Hollow Bastion Base Level Platform Near Entrance
 function hb_base_platform_access()
-   if has("glide") or has("high_jump") or logic_difficulty_at_least_normal() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY("glide", "high_jump", AT_LEAST(LOGIC_NORMAL))
 end
 
 -- Hollow Bastion Castle Gates Gravity Chest
 function hb_castle_gates_gravity_access()
-   if has_emblems() then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and has("glide") and has("high_jump", 3) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() and has("glide") and (has("high_jump", 2) or can_dumbo_skip()) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_minimal() and has("glide") and has("high_jump") then
-      return AccessibilityLevel.Normal
-   elseif has("glide") and (has("high_jump") or can_dumbo_skip()) then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ANY(
+      has_emblems(),
+      ALL(AT_LEAST(LOGIC_NORMAL), "glide", HAS("high_jump", 3)),
+      ALL(AT_LEAST(LOGIC_PROUD), "glide", ANY(HAS("high_jump", 2), can_dumbo_skip())),
+      ALL(AT_LEAST(LOGIC_MINIMAL), "glide", "high_jump")
+   )
 end
 
 -- Hollow Bastion Castle Gates Freestanding Pillar Chest
 -- Hollow Bastion Castle Gates High Pillar Chest
 function hb_castle_gates_pillar_access()
-   if has_emblems() then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and has("high_jump", 3) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() and (has("high_jump", 2) or can_dumbo_skip()) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_minimal() and has("glide") and has("high_jump") then
-      return AccessibilityLevel.Normal
-   elseif can_dumbo_skip() or (has("glide") and has("high_jump")) then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ANY(
+      has_emblems(),
+      ALL(AT_LEAST(LOGIC_NORMAL), HAS("high_jump", 3)),
+      ALL(AT_LEAST(LOGIC_PROUD), ANY(HAS("high_jump", 2), can_dumbo_skip())),
+      ALL(AT_LEAST(LOGIC_MINIMAL), "glide", "high_jump")
+   )
 end
 
 -- Hollow Bastion Lift Stop from Waterway Examine Node
 function hb_lift_stop_from_waterway_access()
-   if has_emblems() then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and has("glide") and has("high_jump", 3) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() and has("glide") and (has("high_jump", 2) or can_dumbo_skip()) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_minimal() and has("glide") and has("high_jump") then
-      return AccessibilityLevel.Normal
-   elseif has("glide") and (has("high_jump") or can_dumbo_skip()) then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ANY(
+      has_emblems(),
+      ALL(AT_LEAST(LOGIC_NORMAL), "glide", HAS("high_jump", 3)),
+      ALL(AT_LEAST(LOGIC_PROUD), "glide", ANY(HAS("high_jump", 2), can_dumbo_skip())),
+      ALL(AT_LEAST(LOGIC_MINIMAL), "glide", "high_jump")
+   )
 end
 
 
@@ -665,24 +554,23 @@ end
 
 -- Hollow Bastion Entrance Hall Upper Level
 function hb_entrance_hall_upper_level_access()
-   if hb_after_theon_6() or has_emblems() then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and has("high_jump", 3) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() and has("high_jump", 2) then
-      return AccessibilityLevel.Normal
-   elseif has("high_jump", 2) then
-      return AccessibilityLevel.SequenceBreak
-   end
-
-   return AccessibilityLevel.None
+   return ANY(
+      hb_after_theon_6(),
+      has_emblems(),
+      ALL(AT_LEAST(LOGIC_NORMAL), HAS("high_jump", 3)),
+      ALL(AT_LEAST(LOGIC_PROUD), HAS("high_jump", 2))
+   )
 end
 
 -- Hollow Bastion Entrance Hall Emblem Piece Flame
 function hb_entrance_hall_flame_emblem_access()
    return ALL(
       hb_entrance_hall_upper_level_access(),
-      ANY("fire", AT_LEAST(LOGIC_MINIMAL)),
+      ANY(
+         "fire",
+         ALL(is_beta_logic(), AT_LEAST(LOGIC_MINIMAL)),
+         AccessibilityLevel.SequenceBreak
+      ),
       ANY(
          "glide",
          "thunder",
@@ -704,13 +592,7 @@ end
 -- End of the World Final Dimension Giant Crevasse - 2nd Chest
 -- End of the World Final Dimension Giant Crevasse - 3rd Chest
 function eotw_giant_crevasse_lower()
-   if has("glide") or has("high_jump") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY("glide", "high_jump", AT_LEAST(LOGIC_NORMAL))
 end
 
 -- End of the World Final Dimension Giant Crevasse - 4th Chest
@@ -741,15 +623,11 @@ end
 -- 100 Acre Wood Bouncing Spot Right Tree Alcove Chest
 -- 100 Acre Wood Bouncing Spot Turn in Rare Nut 2, 3, 4
 function haw_bouncing_spot_access()
-   if has("high_jump") and has("glide") then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() and (has("high_jump") or has("glide")) then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_proud() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY(
+      ALL("high_jump", "glide"),
+      ALL(AT_LEAST(LOGIC_NORMAL), ANY("high_jump", "glide")),
+      AT_LEAST(LOGIC_PROUD)
+   )
 end
 
 -- 100 Acre Wood Bouncing Spot Turn in Rare Nut 5
@@ -761,12 +639,7 @@ function haw_final_nut_access()
    )
 end
 
+-- Locations after boss fights require basic tools on beginner difficulty
 function boss_beginner_require_tools()
-   if has_basic_tools() then
-      return AccessibilityLevel.Normal
-   elseif logic_difficulty_at_least_normal() then
-      return AccessibilityLevel.Normal
-   end
-
-   return AccessibilityLevel.SequenceBreak
+   return ANY(has_basic_tools(), AT_LEAST(LOGIC_NORMAL))
 end
