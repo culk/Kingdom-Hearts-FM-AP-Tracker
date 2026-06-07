@@ -1327,7 +1327,7 @@
             {
                 "name": "Atlantica - Chests",
                 "visibility_rules":["atlantica_on"],
-                "access_rules": ["atlantica, [$access_broken_chest_for|atlantica], [$world_count:3]"],
+                "access_rules": ["atlantica, ^$access_broken_chest_for|atlantica, [$world_count:3]"],
                 "chest_unopened_img": "/images/misc/chest.png",
                 "chest_opened_img": "/images/misc/chest_bw.png",
                 "sections": [
@@ -1644,7 +1644,7 @@
                     },
                     {
                         "name": "Hold - Red Chest",
-                        "access_rules":["yellow_trinity, [$access_broken_chest_for|neverland]"]
+                        "access_rules":["yellow_trinity, ^$access_broken_chest_for|neverland"]
                     },
                     {
                         "name": "Galley - Chest",
@@ -1824,19 +1824,19 @@
                     },
                     {
                         "name": "Library - Turning Carousel Chest on 1st Floor",
-                        "access_rules":["[$access_broken_chest_for|hollow_bastion], ^$boss_beginner_require_tools"]
+                        "access_rules":["^$access_broken_chest_for|hollow_bastion, ^$boss_beginner_require_tools"]
                     },
                     {
                         "name": "Library - Turning Carousel Chest on Top of Bookshelf",
-                        "access_rules":["[$access_broken_chest_for|hollow_bastion], ^$boss_beginner_require_tools"]
+                        "access_rules":["^$access_broken_chest_for|hollow_bastion, ^$boss_beginner_require_tools"]
                     },
                     {
                         "name": "Library - 1st Turning Carousel Chest on 2nd Floor",
-                        "access_rules":["[$access_broken_chest_for|hollow_bastion], ^$boss_beginner_require_tools"]
+                        "access_rules":["^$access_broken_chest_for|hollow_bastion, ^$boss_beginner_require_tools"]
                     },
                     {
                         "name": "Library - 2nd Turning Carousel Chest on 2nd Floor",
-                        "access_rules":["[$access_broken_chest_for|hollow_bastion], ^$boss_beginner_require_tools"]
+                        "access_rules":["^$access_broken_chest_for|hollow_bastion, ^$boss_beginner_require_tools"]
                     },
                     {
                         "name": "Lift Stop - Gravity Chest Behind Library Bookshelf",
@@ -1854,7 +1854,7 @@
                     },
                     {
                         "name": "Entrance Hall - Emblem Piece (Chest)",
-                        "access_rules":["^$hb_entrance_hall_upper_level_access, [$access_broken_chest_for|hollow_bastion], ^$boss_beginner_require_tools"]
+                        "access_rules":["^$hb_entrance_hall_upper_level_access, ^$access_broken_chest_for|hollow_bastion, ^$boss_beginner_require_tools"]
                     },
                     {
                         "name": "Entrance Hall - Emblem Piece (Statue)",
@@ -2043,7 +2043,7 @@
                     },
                     {
                         "name": "Final Dimension - 2nd Chest",
-                        "access_rules":["[$access_broken_chest_for|end_of_the_world]"]
+                        "access_rules":["^$access_broken_chest_for|end_of_the_world"]
                     },
                     {
                         "name": "Final Dimension - 3rd Chest",
@@ -2051,7 +2051,7 @@
                     },
                     {
                         "name": "Final Dimension - 4th Chest",
-                        "access_rules":["[$access_broken_chest_for|end_of_the_world]"]
+                        "access_rules":["^$access_broken_chest_for|end_of_the_world"]
                     },
                     {
                         "name": "Final Dimension - 5th Chest",
@@ -2063,11 +2063,11 @@
                     },
                     {
                         "name": "Final Dimension - 7th Chest",
-                        "access_rules":["[$access_broken_chest_for|end_of_the_world]"]
+                        "access_rules":["^$access_broken_chest_for|end_of_the_world"]
                     },
                     {
                         "name": "Final Dimension - 8th Chest",
-                        "access_rules":["[$access_broken_chest_for|end_of_the_world]"]
+                        "access_rules":["^$access_broken_chest_for|end_of_the_world"]
                     },
                     {
                         "name": "Final Dimension - 9th Chest",
@@ -2075,7 +2075,7 @@
                     },
                     {
                         "name": "Final Dimension - 10th Chest",
-                        "access_rules":["[$access_broken_chest_for|end_of_the_world]"]
+                        "access_rules":["^$access_broken_chest_for|end_of_the_world"]
                     },
                     {
                         "name": "Giant Crevasse - 1st Chest",
@@ -2137,7 +2137,7 @@
                     },
                     {
                         "name": "World Terminus - Atlantica Chest",
-                        "access_rules":["[$access_broken_chest_for|end_of_the_world]"]
+                        "access_rules":["^$access_broken_chest_for|end_of_the_world"]
                     },
                     {
                         "name": "World Terminus - Halloween Town Chest",

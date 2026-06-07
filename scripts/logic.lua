@@ -55,6 +55,11 @@ function logic_difficulty_at_least_minimal()
     return logic_difficulty_at_least(LOGIC_MINIMAL)
 end
 
+function is_beta_logic()
+    local beta_logic = Tracker:FindObjectForCode("beta_logic").CurrentStage
+    return beta_logic == 1
+end
+
 function is_stacking_worlds()
     local stacking_world_items_status = Tracker:FindObjectForCode("stacking_world_items").CurrentStage
     return stacking_world_items_status == 1
@@ -125,9 +130,18 @@ function access_chest_for(world_name)
 end
 
 function access_broken_chest_for(world_name)
-    -- Used to show chests as out of logic for beginners if keyblade unlocking
-    -- is broken for the location. Should always be optional.
-    return logic_difficulty_at_least_normal() or access_chest_for(world_name)
+    if access_chest_for(world_name) then
+        return AccessibilityLevel.Normal
+    elseif not is_beta_logic() then
+        -- Used to show chests as out of logic for beginners if keyblade unlocking
+        -- is broken for the location.
+        if logic_difficulty_at_least_normal() then
+            return AccessibilityLevel.Normal
+        else
+            return AccessibilityLevel.SequenceBreak
+        end
+    end
+    return AccessibilityLevel.None
 end
 
 function wl_after_footprints()
