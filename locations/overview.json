@@ -204,10 +204,7 @@
                 "name": "Traverse Town - Moogle Workshop",
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
-                "access_rules": [
-                    "green_trinity",
-                    "high_jump:2, [$logic_difficulty_at_least_proud]"
-                ],
+                "access_rules": ["^$tt_moogle_workshop_access"],
                 "sections": [
                     {
                         "name": "Left Chest",
@@ -467,7 +464,7 @@
                     },
                     {
                         "name": "Tea Party Garden - Bear and Clock Puzzle Chest",
-                        "access_rules":["$access_chest_for|wonderland, ^$wl_tea_party_access"]
+                        "access_rules":["$access_chest_for|wonderland, ^$wl_tea_party_puzzle_access"]
                     },
                     {
                         "name": "Tea Party Garden - Chest Across Bizarre Room Entrance",
@@ -475,31 +472,31 @@
                     },
                     {
                         "name": "Tea Party Garden - Left Cushioned Chair",
-                        "access_rules":["^$wl_tea_party_access"],
+                        "access_rules":["^$wl_tea_party_chair_access"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
                     {
                         "name": "Tea Party Garden - Left Pink Chair",
-                        "access_rules":["^$wl_tea_party_access"],
+                        "access_rules":["^$wl_tea_party_chair_access"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
                     {
                         "name": "Tea Party Garden - Left Gray Chair",
-                        "access_rules":["^$wl_tea_party_access"],
+                        "access_rules":["^$wl_tea_party_chair_access"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
                     {
                         "name": "Tea Party Garden - Right Yellow Chair",
-                        "access_rules":["^$wl_tea_party_access"],
+                        "access_rules":["^$wl_tea_party_chair_access"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
                     {
                         "name": "Tea Party Garden - Right Brown Chair",
-                        "access_rules":["^$wl_tea_party_access"],
+                        "access_rules":["^$wl_tea_party_chair_access"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     }
@@ -1201,17 +1198,11 @@
                 "sections": [
                     {
                         "name": "Mouth - Chest on High Platform Boat Side",
-                        "access_rules":[
-                            "high_jump",
-                            "glide, [$logic_difficulty_at_least_normal]"
-                        ]
+                        "access_rules":["^$mon_mouth_high_places_access"]
                     },
                     {
                         "name": "Mouth - Chest on High Platform Across from Boat",
-                        "access_rules":[
-                            "high_jump",
-                            "glide, [$logic_difficulty_at_least_normal]"
-                        ]
+                        "access_rules":["^$mon_mouth_high_places_access"]
                     },
                     {
                         "name": "Mouth - Chest Near Ship",
@@ -1224,10 +1215,7 @@
                     },
                     {
                         "name": "Mouth - Green Trinity Chest",
-                        "access_rules":[
-                            "green_trinity, high_jump, ^$boss_beginner_require_tools",
-                            "green_trinity, glide, [$logic_difficulty_at_least_normal]"
-                        ]
+                        "access_rules":["green_trinity, ^$mon_mouth_high_places_access, ^$boss_beginner_require_tools"]
                     },
                     {
                         "name": "Chamber 2 - Platform Chest",
@@ -1274,11 +1262,11 @@
                     },
                     {
                         "name": "Chamber 6 - Chest on Platform Opposite Chamber 5 Entrance",
-                        "access_rules":["^$mon_chamber_6_access"]
+                        "access_rules":["^$mon_chamber_6_other_platform_access"]
                     },
                     {
                         "name": "Chamber 6 - Chest on Raised Area Near Chamber 1 Entrance",
-                        "access_rules":["^$mon_chamber_6_access"]
+                        "access_rules":["^$mon_chamber_6_near_chamber_1_access"]
                     }
                 ],
                 "map_locations": [
@@ -1753,11 +1741,11 @@
                     },
                     {
                         "name": "Rising Falls - Chest on Floating Platform Near Save Point",
-                        "access_rules":["$access_chest_for|hollow_bastion, ^$hb_falls_floating_platform_access"]
+                        "access_rules":["$access_chest_for|hollow_bastion, ^$hb_falls_floating_platform_near_save_access"]
                     },
                     {
                         "name": "Rising Falls - Chest on Floating Platform Near Bubble",
-                        "access_rules":["$access_chest_for|hollow_bastion, ^$hb_falls_floating_platform_access"]
+                        "access_rules":["$access_chest_for|hollow_bastion, ^$hb_falls_floating_platform_near_bubble_access"]
                     },
                     {
                         "name": "Rising Falls - High Platform Chest",
@@ -1848,7 +1836,7 @@
                     },
                     {
                         "name": "Entrance Hall - Emblem Piece (Flame)",
-                        "access_rules":["^$hb_entrance_hall_upper_level_access, fire, ^$hb_entrance_hall_flame_emblem_access, ^$boss_beginner_require_tools"],
+                        "access_rules":["^$hb_entrance_hall_flame_emblem_access, ^$boss_beginner_require_tools"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },

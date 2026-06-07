@@ -84,6 +84,73 @@ function is_slot_2_visible()
     return not IGNORE_SLOT_2_LEVELS
 end
 
+-- accessibility level helpers
+
+local access_for_bool = {
+    [true] = AccessibilityLevel.Normal,
+    [false] = AccessibilityLevel.None
+}
+
+function ALL(...)
+    local args = { ... }
+    local min = AccessibilityLevel.Normal
+    for _, v in ipairs(args) do
+        if type(v) == "function" then
+            v = v()
+        elseif type(v) == "string" then
+            v = HAS(v)
+        end
+        if type(v) == "boolean" then
+            v = access_for_bool[v]
+        end
+        if v == AccessibilityLevel.None then
+            return AccessibilityLevel.None
+        elseif v < min then
+            min = v
+        end
+    end
+    return min
+end
+
+function ANY(...)
+    local args = { ... }
+    local max = AccessibilityLevel.None
+    for _, v in ipairs(args) do
+        if type(v) == "function" then
+            v = v()
+        elseif type(v) == "string" then
+            v = HAS(v)
+        end
+        if type(v) == "boolean" then
+            v = access_for_bool[v]
+        end
+        if v == AccessibilityLevel.Normal then
+            return AccessibilityLevel.Normal
+        elseif v > max then
+            max = v
+        end
+    end
+    return max
+end
+
+function HAS(item, amount)
+    local count = Tracker:ProviderCountForCode(item)
+    if not amount and count > 0 then
+        return AccessibilityLevel.Normal
+    elseif amount and count >= amount then
+        return AccessibilityLevel.Normal
+    end
+    return AccessibilityLevel.None
+end
+
+function AT_LEAST(logic_difficulty)
+    if logic_difficulty_at_least(logic_difficulty) then
+        return AccessibilityLevel.Normal
+    end
+    return AccessibilityLevel.SequenceBreak
+end
+
+
 -- optional rules, if not met then checks are accessible out of logic
 
 function world_count()
@@ -301,4 +368,8 @@ end
 
 function can_minimal_air_combo_jump()
    return has("combo_master") and has("high_jump", 3) and has("air_combo_plus", 2)
+end
+
+function can_air_dodge()
+    return has("dodge_roll") and has("air_guard_dodge_roll")
 end
