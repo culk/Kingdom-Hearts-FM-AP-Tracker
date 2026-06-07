@@ -137,6 +137,15 @@ function onClear(slot_data)
         end
     end
 
+    -- Check if slot data is from beta version of AP world.
+    if slot_data["accessory_augments"] ~= nil then
+        local obj = Tracker:FindObjectForCode("beta_logic")
+        if obj then
+            -- Using the beta AP world, enable beta logic.
+            obj.CurrentStage = 1
+        end
+    end
+
     if IS_ENABLE_HIGHLIGHT and Archipelago.PlayerNumber ~= -1 then
         HINT_ID = "_read_hints_" .. Archipelago.TeamNumber .. "_" .. Archipelago.PlayerNumber
         CLIENT_STATUS_ID = "_read_client_status_" .. Archipelago.TeamNumber .. "_" .. Archipelago.PlayerNumber

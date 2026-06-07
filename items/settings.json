@@ -23,6 +23,12 @@
         "img": "/images/settings/title_collectible_requirements.png",
         "codes": "title_collectible_requirements"
     },
+    {
+        "name": "Beta Only Settings",
+        "type": "static",
+        "img": "/images/settings/title_beta_only_settings.png",
+        "codes": "title_beta_only_settings"
+    },
     // Goal
     {
         "name": "Goal - Final Rest Door Key",
@@ -386,6 +392,46 @@
                 "codes": "random_accessories, random_accessories_on",
                 "inherit_codes": false,
                 "name": "Randomize Party Member Starting Accessories On"
+            }
+        ]
+    },
+    {
+        "name": "Beta Logic",
+        "type": "progressive",
+        "allow_disabled": false,
+        "loop": true,
+        "stages": [
+            {
+                "img": "/images/settings/beta_logic_off.png",
+                "codes": "beta_logic, beta_logic_off",
+                "inherit_codes": false,
+                "name": "Beta Logic Off"
+            },
+            {
+                "img": "/images/settings/beta_logic_on.png",
+                "codes": "beta_logic, beta_logic_on",
+                "inherit_codes": false,
+                "name": "Beta Logic On"
+            }
+        ]
+    },
+    {
+        "name": "Accessory Augments",
+        "type": "progressive",
+        "allow_disabled": false,
+        "loop": true,
+        "stages": [
+            {
+                "img": "/images/settings/accessory_augments_off.png",
+                "codes": "accessory_augments, accessory_augments_off",
+                "inherit_codes": false,
+                "name": "Accessory Augments Off"
+            },
+            {
+                "img": "/images/settings/accessory_augments_on.png",
+                "codes": "accessory_augments, accessory_augments_on",
+                "inherit_codes": false,
+                "name": "Accessory Augments On"
             }
         ]
     }

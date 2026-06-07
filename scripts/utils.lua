@@ -186,6 +186,22 @@ function layout_update_keyblades(show_keyblades, show_destiny_islands, show_100_
     end
 end
 
+function layout_update_magic_trinities(show_accessory_augments)
+    if show_accessory_augments then
+        Tracker:AddLayouts("layouts/magic_trinities/augment_show.json")
+    else
+        Tracker:AddLayouts("layouts/magic_trinities/augment_hide.json")
+    end
+end
+
+function layout_update_abilities(show_accessory_augments)
+    if show_accessory_augments then
+        Tracker:AddLayouts("layouts/abilities/augment_show.json")
+    else
+        Tracker:AddLayouts("layouts/abilities/augment_hide.json")
+    end
+end
+
 function layout_update_collectibles(show_lucky_emblems, show_destiny_islands, show_100_acre)
     if show_lucky_emblems then
         Tracker:AddLayouts("layouts/collectibles/lucky_emblems_show.json")
@@ -227,10 +243,13 @@ function tracker_layout_update()
         local show_cups = Tracker:FindObjectForCode("cups").CurrentStage ~= 0 or Tracker:FindObjectForCode("superbosses").CurrentStage == 1 or goal_status == 0
         local show_lucky_emblems = goal_status == 3 or not show_eotw
         local show_final_door_key = goal_status ~= 3
+        local show_accessory_augments = Tracker:FindObjectForCode("accessory_augments").CurrentStage == 1
 
         layout_update_worlds(show_destiny_islands, show_atlantica, show_eotw)
         layout_update_world_keys(show_world_keys, show_jack_box, show_atlantica, show_cups, show_final_door_key)
         layout_update_keyblades(show_keyblades, show_destiny_islands, show_100_acre, show_atlantica)
+        layout_update_magic_trinities(show_accessory_augments)
+        layout_update_abilities(show_accessory_augments)
         layout_update_collectibles(show_lucky_emblems, show_destiny_islands, show_100_acre)
 
         update_layout = false

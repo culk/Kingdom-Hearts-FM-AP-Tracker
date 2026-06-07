@@ -124,5 +124,14 @@ SLOT_CODES =
             [false] = 0,
             [true] = 1
         }
-    }
+    },
+    accessory_augments =
+    {
+        code = "accessory_augments",
+        mapping =
+        {
+            [false] = 0,
+            [true] = 1
+        }
+    },
 }

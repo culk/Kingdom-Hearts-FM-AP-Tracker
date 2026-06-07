@@ -82,5 +82,7 @@ ITEM_MAPPING = {
     [2643024] = {"mp_rage", "toggle"},
     [2643025] = {"second_chance", "toggle"},
     [2643062] = {"leaf_bracer", "toggle"},
-    [2643065] = {"combo_master", "toggle"}
+    [2643065] = {"combo_master", "toggle"},
+    [2644008] = {"air_guard_dodge_roll", "toggle"},
+    [2644038] = {"summon_anywhere", "toggle"},
 }

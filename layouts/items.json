@@ -210,24 +210,37 @@
         ]
     },
     "magic_trinities_rows": {
-        "type": "itemgrid",
-        "margin": "0,5,5,5",
-        "item_margin": "2,2",
-        "item_size": "40,40",
-        "rows": [
-            ["fire", "blizzard", "thunder", "cure", "gravity", "stop", "aero"],
-            ["simba", "bambi", "genie", "dumbo", "tinkerbell", "mushu"],
-            ["blue_trinity", "red_trinity", "green_trinity", "yellow_trinity", "white_trinity"]
+        "type":"array",
+        "orientation": "horizontal",
+        "margin": "0,5,0,0",
+        "content": [
+            {
+                "type": "dock",
+                "content": [
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "magic_trinities_items"
+                    }
+                ]
+            }
         ]
     },
     "abilities_rows": {
-        "type": "itemgrid",
-        "margin": "0,5,5,5",
-        "item_margin": "2,2",
-        "item_size": "40,40",
-        "rows": [
-            ["combo_master", "guard", "counterattack", "sonic_blade", "strike_raid", "high_jump", "glide"], 
-            ["air_combo_plus", "dodge_roll", "second_chance", "leaf_bracer", "mp_rage", "mermaid_kick"]
+        "type":"array",
+        "orientation": "horizontal",
+        "margin": "0,5,0,0",
+        "content": [
+            {
+                "type": "dock",
+                "content": [
+                    {
+                        "type": "layout",
+                        "dock": "top",
+                        "key": "abilities_items"
+                    }
+                ]
+            }
         ]
     },
     "collectibles_rows": {
