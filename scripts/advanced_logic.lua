@@ -285,7 +285,13 @@ function mon_chamber_6_other_platform_access()
       ALL("high_jump", "glide"),
       ALL(
          AT_LEAST(LOGIC_PROUD),
-         ANY("combo_master", "high_jump", "glide", can_air_dodge(), can_dumbo_skip())
+         ANY(
+            "combo_master",
+            "high_jump",
+            "glide",
+            can_air_dodge(),
+            ALL(is_beta_logic(), can_dumbo_skip())
+         )
       ),
       AT_LEAST(LOGIC_MINIMAL)
    )
@@ -326,6 +332,9 @@ end
 -- access the crystal trident chest before giving access to crystal
 -- trident checks.
 function at_beginner_require_chest()
+   if is_beta_logic() then
+      return access_chest_for("atlantica")
+   end
    return ANY(access_chest_for("atlantica"), AT_LEAST(LOGIC_NORMAL))
 end
 
@@ -391,9 +400,14 @@ function ht_oogie_manor_access()
       ALL(AT_LEAST(LOGIC_NORMAL), HAS("high_jump", 3)),
       ALL(
          AT_LEAST(LOGIC_PROUD),
-         ANY(HAS("high_jump", 2), ALL("high_jump", "glide"), can_dumbo_skip())
+         ANY(
+            HAS("high_jump", 2),
+            ALL("high_jump", "glide"),
+            ALL(is_beta_logic(), can_dumbo_skip())
+         )
       ),
-      ALL(AT_LEAST(LOGIC_MINIMAL), ANY("high_jump", "glide"))
+      ALL(AT_LEAST(LOGIC_MINIMAL), ANY("high_jump", "glide")),
+      ALL(AccessibilityLevel.SequenceBreak, can_dumbo_skip())
    )
 end
 
@@ -582,10 +596,17 @@ end
 
 -- End of the World Final Dimension Giant Crevasse - 1st Chest
 function eotw_giant_crevasse_first()
+   if is_beta_logic() then
+      return ANY(
+         "high_jump",
+         "glide",
+         AT_LEAST(LOGIC_PROUD)
+      )
+   end
    return ANY(
       "high_jump",
       "glide",
-      AT_LEAST(LOGIC_PROUD)
+      AT_LEAST(LOGIC_NORMAL)
    )
 end
 
