@@ -55,5 +55,6 @@ ScriptHost:AddWatchForCode("cups", "cups", toggle_items)
 ScriptHost:AddWatchForCode("superbosses", "superbosses", toggle_items)
 ScriptHost:AddWatchForCode("eotw_unlock", "eotw_unlock", toggle_items)
 ScriptHost:AddWatchForCode("goal", "goal", toggle_items)
+ScriptHost:AddWatchForCode("accessory_augments", "accessory_augments", toggle_items)
 
 ScriptHost:AddOnFrameHandler("tracker_layout_update", tracker_layout_update)

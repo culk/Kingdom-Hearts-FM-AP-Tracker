@@ -335,7 +335,7 @@ function VariableStore:ReadVariable(variableName) end
 ---@class Archipelago
 Archipelago = {}
 
----@enum archipelagoCientStatus
+---@enum Archipelago.ClientStatus
 Archipelago.ClientStatus = {
     UNKNOWN = 0,
     CONNECTED = 5,
@@ -437,7 +437,7 @@ function Archipelago:LocationScouts(locations, sendAsHint) end
 
 ---Send client status to the server. This is used to send the goal / win condition.
 ---Supported since 0.27.1, only allowed if "apmanual" flag is set in manifest.
----@param status archipelagoCientStatus
+---@param status Archipelago.ClientStatus
 ---@return boolean true on success
 function Archipelago:StatusUpdate(status) end
 

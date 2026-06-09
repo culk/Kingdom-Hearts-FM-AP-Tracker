@@ -24,6 +24,12 @@
         "codes": "title_collectible_requirements"
     },
     {
+        "name": "Beta Only Settings",
+        "type": "static",
+        "img": "/images/settings/title_beta_only_settings.png",
+        "codes": "title_beta_only_settings"
+    },
+    {
         "name": "Auto-Tab Map",
         "type": "progressive",
         "allow_disabled": false,
@@ -407,6 +413,52 @@
                 "codes": "random_accessories, random_accessories_on",
                 "inherit_codes": false,
                 "name": "Randomize Party Member Starting Accessories On"
+            }
+        ]
+    },
+    {
+        "name": "Beta Logic",
+        "type": "progressive",
+        "allow_disabled": false,
+        "loop": true,
+        "stages": [
+            {
+                "img": "/images/settings/beta_logic_off.png",
+                "codes": "beta_logic",
+                "inherit_codes": false,
+                "name": "Beta Logic Off"
+            },
+            {
+                "img": "/images/settings/beta_logic_v0.11.0.png",
+                "codes": "beta_logic",
+                "inherit_codes": false,
+                "name": "Beta Logic On - v0.11.0"
+            },
+            {
+                "img": "/images/settings/beta_logic_v1.1.0.png",
+                "codes": "beta_logic",
+                "inherit_codes": false,
+                "name": "Beta Logic On - v1.1.0+"
+            }
+        ]
+    },
+    {
+        "name": "Accessory Augments",
+        "type": "progressive",
+        "allow_disabled": false,
+        "loop": true,
+        "stages": [
+            {
+                "img": "/images/settings/accessory_augments_off.png",
+                "codes": "accessory_augments, accessory_augments_off",
+                "inherit_codes": false,
+                "name": "Accessory Augments Off"
+            },
+            {
+                "img": "/images/settings/accessory_augments_on.png",
+                "codes": "accessory_augments, accessory_augments_on",
+                "inherit_codes": false,
+                "name": "Accessory Augments On"
             }
         ]
     }

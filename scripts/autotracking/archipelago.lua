@@ -32,7 +32,7 @@ function onClear(slot_data)
             local obj = Tracker:FindObjectForCode(location_name)
             if obj then
                 if location_name:sub(1, 1) == "@" then
-                    if is_slot_2_level(location_id) then
+                    if is_level_up_location(location_id) then
                         obj.AvailableChestCount = 0
                     else
                         obj.AvailableChestCount = obj.ChestCount
@@ -79,6 +79,8 @@ function onClear(slot_data)
     for key, value in pairs(slot_data) do
         if key == "remote_items" and value == "full" then
             IGNORE_SLOT_2_LEVELS = false
+        elseif key == "level_checks" then
+            MAX_LEVEL_WITH_CHECK = value + 1
         elseif key == "remote_location_ids" then
             for _, location_id in ipairs(value) do
                 if is_slot_2_level(location_id) then
@@ -118,15 +120,45 @@ function onClear(slot_data)
             Tracker:FindObjectForCode(SLOT_CODES[key].code).CurrentStage = SLOT_CODES[key].mapping[value]
         end
     end
+
+    -- Set the correct puppy value from slot data.
     if not randomize_puppies then
         puppy_value = 3
     end
     Tracker:FindObjectForCode("puppy").Increment = puppy_value
 
+    -- Set the correct number of available level location checks based on slot data.
+    for location_id = 2658002,(2658000 + MAX_LEVEL_WITH_CHECK) do
+        local location_name = LOCATION_MAPPING[location_id][1]
+        if location_name then
+            local obj = Tracker:FindObjectForCode(location_name)
+            if obj then
+                obj.AvailableChestCount = obj.AvailableChestCount + 1
+            end
+        end
+    end
+
+    -- Check if slot data is from beta version of AP world.
+    local beta_logic_stage = 0 -- v0.10.0 or older
+    if slot_data["world_version"] ~= nil then
+        beta_logic_stage = 2 -- v1.1.0 or newer
+    elseif slot_data["accessory_augments"] ~= nil then
+        beta_logic_stage = 1 -- v0.11.0
+    else
+        -- Clear beta only settings if not present in slot data.
+        Tracker:FindObjectForCode("accessory_augments").CurrentStage = 0
+    end
+    local beta_logic_obj = Tracker:FindObjectForCode("beta_logic")
+    if beta_logic_obj then
+        -- Using the beta AP world, enable beta logic.
+        beta_logic_obj.CurrentStage = beta_logic_stage
+    end
+
     if IS_ENABLE_HIGHLIGHT and Archipelago.PlayerNumber ~= -1 then
         HINT_ID = "_read_hints_" .. Archipelago.TeamNumber .. "_" .. Archipelago.PlayerNumber
-        Archipelago:Get({HINT_ID})
-        Archipelago:SetNotify({HINT_ID})
+        CLIENT_STATUS_ID = "_read_client_status_" .. Archipelago.TeamNumber .. "_" .. Archipelago.PlayerNumber
+        Archipelago:Get({HINT_ID, CLIENT_STATUS_ID})
+        Archipelago:SetNotify({HINT_ID, CLIENT_STATUS_ID})
     end
 end
 
@@ -243,15 +275,26 @@ function updateHints(hints)
     end
 end
 
+function updateStatus(status)
+    if status == Archipelago.ClientStatus.GOAL then
+        print("updateStatus: goal achieved")
+        onLocation(2659999, "Goal")
+    end
+end
+
 function onDataStorageChanged(key, value, prev_value)
     if key == HINT_ID and IS_ENABLE_HIGHLIGHT then
         updateHints(value)
+    elseif key == CLIENT_STATUS_ID then
+        updateStatus(value)
     end
 end
 
 function onDataStorageRetrieved(key, value)
     if key == HINT_ID and IS_ENABLE_HIGHLIGHT then
         updateHints(value)
+    elseif key == CLIENT_STATUS_ID then
+        updateStatus(value)
     end
 end
 

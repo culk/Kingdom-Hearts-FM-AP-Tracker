@@ -13,6 +13,13 @@ Download the most recent .zip file from the **Releases** and either drag it to t
 - Autotracking of found key items and checked locations.
 - Highlighting of hinted item locations.
 
+## Compatibility
+
+| AP World Version | AP Version | PopTracker Pack Version |
+|------------------|------------|-------------------------|
+| v0.11.0+ (BETA)  | non-core   | v1.3.1+                 |
+| v0.9.0+          | v0.6.4+    | v1.0.0+                 |
+
 ## Screenshot
 
 ![Screenshot](images/screenshot.png)
@@ -21,7 +28,7 @@ Download the most recent .zip file from the **Releases** and either drag it to t
 
 All settings are loaded automatically when connecting the tracker to the AP server. Settings can also be changed manually to update which locations are displayed as available checks.
 
-Settings are divided into four sections: settings, locations, goal, and collectible requirements.
+Settings are divided into five sections: settings, locations, goal, collectible requirements, and beta only logic.
 
 ### Settings
 
@@ -55,6 +62,12 @@ The Goal section controls the requirements for unlocking the **End of the World*
 The Collectible Requirements section controls how many of a collectible are required for their respective goal. Note that a collectable is only required if their respective goal is set or if Destiny Islands checks are enabled.
 
 ![Collectible Requirements](images/ui_collectible_requirements.png)
+
+### Beta Only Logic
+
+These settings should not be changed unless playing offline without a connection to an AP server. The Beta Only Logic section contains settings that require playing with the beta version of the AP world (v0.11.0-v1.1.0, non-core). These settings either aren't available in the core version packaged with the AP launcher or alter the logic required for locations.
+
+![Beta Only Settings](images/ui_beta_only_settings.png)
 
 ## Feedback
 
