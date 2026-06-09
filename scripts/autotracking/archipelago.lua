@@ -138,12 +138,19 @@ function onClear(slot_data)
     end
 
     -- Check if slot data is from beta version of AP world.
-    if slot_data["accessory_augments"] ~= nil then
-        local obj = Tracker:FindObjectForCode("beta_logic")
-        if obj then
-            -- Using the beta AP world, enable beta logic.
-            obj.CurrentStage = 1
-        end
+    local beta_logic_stage = 0 -- v0.10.0 or older
+    if slot_data["world_version"] ~= nil then
+        beta_logic_stage = 2 -- v1.1.0 or newer
+    elseif slot_data["accessory_augments"] ~= nil then
+        beta_logic_stage = 1 -- v0.11.0
+    else
+        -- Clear beta only settings if not present in slot data.
+        Tracker:FindObjectForCode("accessory_augments").CurrentStage = 0
+    end
+    local beta_logic_obj = Tracker:FindObjectForCode("beta_logic")
+    if beta_logic_obj then
+        -- Using the beta AP world, enable beta logic.
+        beta_logic_obj.CurrentStage = beta_logic_stage
     end
 
     if IS_ENABLE_HIGHLIGHT and Archipelago.PlayerNumber ~= -1 then

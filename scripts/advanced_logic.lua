@@ -3,7 +3,12 @@ function tt_balcony_access()
    return ANY(
       ALL("blue_trinity", "glide"),
       ALL(AT_LEAST(LOGIC_PROUD), "glide"),
-      ALL(AT_LEAST(LOGIC_MINIMAL), can_dumbo_skip(), "summon_anywhere"),
+      ALL(
+         AT_LEAST(LOGIC_MINIMAL),
+         can_dumbo_skip(),
+         "summon_anywhere",
+         ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+      ),
       ALL(AccessibilityLevel.SequenceBreak, "blue_trinity")
    )
 end
@@ -17,7 +22,11 @@ function tt_mystical_house_trinity_chest_access()
          AT_LEAST(LOGIC_PROUD),
          ANY(
             "high_jump",
-            ALL(can_dumbo_skip(), "summon_anywhere")
+            ALL(
+               can_dumbo_skip(),
+               "summon_anywhere",
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            )
          )
       )
    )
@@ -30,12 +39,19 @@ function tt_mystical_house_glide_access()
       ALL(
          AT_LEAST(LOGIC_PROUD),
          ANY(
-            ALL(can_dumbo_skip(), "summon_anywhere"),
+            ALL(
+               can_dumbo_skip(),
+               "summon_anywhere",
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            ),
             HAS("high_jump", 3),
             ALL(
                "combo_master",
                ANY(
-                  can_air_dodge(),
+                  ALL(
+                     can_air_dodge(),
+                     ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+                  ),
                   HAS("high_jump", 2),
                   ALL("high_jump", HAS("air_combo_plus", 2))
                )
@@ -46,7 +62,10 @@ function tt_mystical_house_glide_access()
          AT_LEAST(LOGIC_MINIMAL),
          ANY(
             "mermaid_kick",
-            can_air_dodge(),
+            ALL(
+               can_air_dodge(),
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            ),
             ALL(
                "combo_master",
                ANY("high_jump", HAS("air_combo_plus", 2))
@@ -56,7 +75,7 @@ function tt_mystical_house_glide_access()
    )
 end
 
--- Traverse Town Moogle Workshop
+-- Traverse Town Item Workshop (Moogle Workshop)
 function tt_moogle_workshop_access()
    return ANY(
       "green_trinity",
@@ -64,7 +83,11 @@ function tt_moogle_workshop_access()
          AT_LEAST(LOGIC_PROUD),
          ANY(
             HAS("high_jump", 2),
-            ALL(can_dumbo_skip(), "summon_anywhere")
+            ALL(
+               can_dumbo_skip(),
+               "summon_anywhere",
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            )
          )
       )
    )
@@ -78,13 +101,20 @@ function tt_can_synth_15()
    return math.min(orichalcum_count, 9) + math.min(mythril_count, 9) >= 15
 end
 
--- Wonderland Queen's Castle Hedge Chests
+-- Wonderland Queen's Castle Hedge Left Red Chest
+-- Wonderland Queen's Castle Hedge Right Blue Chest
+-- Wonderland Queen's Castle Hedge Right Red Chest
 function wl_queens_castle_hedge_access()
    return ANY(
       wl_after_footprints(),
       "high_jump",
       ALL(AT_LEAST(LOGIC_NORMAL), "glide"),
-      ALL(AT_LEAST(LOGIC_PROUD), can_dumbo_skip(), "summon_anywhere")
+      ALL(
+         AT_LEAST(LOGIC_PROUD),
+         can_dumbo_skip(),
+         "summon_anywhere",
+         ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+      )
    )
 end
 
@@ -92,13 +122,19 @@ function wl_early_tea_access()
    return ANY(
       "glide",
       ANY(
-         ALL(AT_LEAST(LOGIC_PROUD), can_air_dodge(), HAS("high_jump", 3)),
+         ALL(
+            AT_LEAST(LOGIC_PROUD),
+            can_air_dodge(),
+            ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak),
+            HAS("high_jump", 3)
+         ),
          ALL(
             AT_LEAST(LOGIC_MINIMAL),
             ANY(
                can_minimal_air_combo_jump(),
                ALL(
                   can_air_dodge(),
+                  ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak),
                   ANY(
                      HAS("high_jump", 2),
                      ALL("combo_master", "high_jump", HAS("air_combo_plus", 2))
@@ -210,7 +246,14 @@ function ag_palace_access()
       ),
       ALL(
          AT_LEAST(LOGIC_MINIMAL),
-         ANY("combo_master", ALL(can_dumbo_skip(), "summon_anywhere"))
+         ANY(
+            "combo_master",
+            ALL(
+               can_dumbo_skip(),
+               "summon_anywhere",
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            )
+         )
       )
    )
 end
@@ -222,7 +265,15 @@ function ag_cow_entrance_access()
       ALL(AT_LEAST(LOGIC_NORMAL), HAS("high_jump", 2)),
       ALL(
          AT_LEAST(LOGIC_PROUD),
-         ANY("combo_master", can_dumbo_skip(), "high_jump", can_air_dodge())
+         ANY(
+            "combo_master",
+            can_dumbo_skip(),
+            "high_jump",
+            ALL(
+               can_air_dodge(),
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            )
+         )
       ),
       AT_LEAST(LOGIC_MINIMAL)
    )
@@ -275,7 +326,12 @@ function mon_mouth_high_places_access()
    return ANY(
       "high_jump",
       ALL(AT_LEAST(LOGIC_NORMAL), "glide"),
-      ALL(AT_LEAST(LOGIC_PROUD), can_dumbo_skip(), "summon_anywhere")
+      ALL(
+         AT_LEAST(LOGIC_PROUD),
+         can_dumbo_skip(),
+         "summon_anywhere",
+         ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+      )
    )
 end
 
@@ -289,8 +345,14 @@ function mon_chamber_6_other_platform_access()
             "combo_master",
             "high_jump",
             "glide",
-            can_air_dodge(),
-            ALL(is_beta_logic(), can_dumbo_skip())
+            ALL(
+               can_air_dodge(),
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            ),
+            ALL(
+               can_dumbo_skip(),
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            )
          )
       ),
       AT_LEAST(LOGIC_MINIMAL)
@@ -307,8 +369,15 @@ function mon_chamber_6_near_chamber_1_access()
             "combo_master",
             "high_jump",
             "glide",
-            can_air_dodge(),
-            ALL(can_dumbo_skip(), "summon_anywhere")
+            ALL(
+               can_air_dodge(),
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            ),
+            ALL(
+               can_dumbo_skip(),
+               "summon_anywhere",
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            )
          )
       ),
       AT_LEAST(LOGIC_MINIMAL)
@@ -322,7 +391,12 @@ function mon_parasite_ii_access()
       ANY(
          "high_jump",
          ALL(AT_LEAST(LOGIC_NORMAL), "glide"),
-         ALL(AT_LEAST(LOGIC_PROUD), can_dumbo_skip(), "summon_anywhere")
+         ALL(
+            AT_LEAST(LOGIC_PROUD),
+            can_dumbo_skip(),
+            "summon_anywhere",
+            ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+         )
       )
    )
 end
@@ -332,7 +406,7 @@ end
 -- access the crystal trident chest before giving access to crystal
 -- trident checks.
 function at_beginner_require_chest()
-   if is_beta_logic() then
+   if beta_version_at_least(VERSION_1_1_0) then
       return access_chest_for("atlantica")
    end
    return ANY(access_chest_for("atlantica"), AT_LEAST(LOGIC_NORMAL))
@@ -371,7 +445,13 @@ function ht_pumpkin_structure_access()
          ALL(AT_LEAST(LOGIC_NORMAL), HAS("high_jump", 2)),
          ALL(
             AT_LEAST(LOGIC_PROUD),
-            ANY("combo_master", can_air_dodge())
+            ANY(
+               "combo_master",
+               ALL(
+                  can_air_dodge(),
+                  ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+               )
+            )
          )
       )
    )
@@ -403,7 +483,10 @@ function ht_oogie_manor_access()
          ANY(
             HAS("high_jump", 2),
             ALL("high_jump", "glide"),
-            ALL(is_beta_logic(), can_dumbo_skip())
+            ALL(
+               can_dumbo_skip(),
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            )
          )
       ),
       ALL(AT_LEAST(LOGIC_MINIMAL), ANY("high_jump", "glide")),
@@ -477,8 +560,17 @@ function hb_falls_floating_platform_near_save_access()
       "high_jump",
       "glide",
       "blizzard",
-      ALL(AT_LEAST(LOGIC_PROUD), can_dumbo_skip(), "summon_anywhere"),
-      ALL(AT_LEAST(LOGIC_MINIMAL), can_air_dodge())
+      ALL(
+         AT_LEAST(LOGIC_PROUD),
+         can_dumbo_skip(),
+         "summon_anywhere",
+         ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+      ),
+      ALL(
+         AT_LEAST(LOGIC_MINIMAL),
+         can_air_dodge(),
+         ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+      )
    )
 end
 
@@ -488,10 +580,16 @@ function hb_falls_floating_platform_near_bubble_access()
       "high_jump",
       "glide",
       "blizzard",
-      ALL(AT_LEAST(LOGIC_PROUD), can_dumbo_skip(), "summon_anywhere"),
+      ALL(
+         AT_LEAST(LOGIC_PROUD),
+         can_dumbo_skip(),
+         "summon_anywhere",
+         ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+      ),
       ALL(
          AT_LEAST(LOGIC_MINIMAL),
          can_air_dodge(),
+         ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
          "combo_master",
          HAS("air_combo_plus", 2)
       )
@@ -509,8 +607,15 @@ function hb_falls_high_platform_access()
          ANY(
             "high_jump",
             "combo_master",
-            can_air_dodge(),
-            ALL(can_dumbo_skip(), "summon_anywhere")
+            ALL(
+               can_air_dodge(),
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            ),
+            ALL(
+               can_dumbo_skip(),
+               "summon_anywhere",
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            )
          )
       ),
       AT_LEAST(LOGIC_MINIMAL)
@@ -561,7 +666,13 @@ function hb_entrance_hall_pillar_access()
       ALL(
          AT_LEAST(LOGIC_PROUD),
          can_dumbo_skip(),
-         ANY(has_emblems(), "summon_anywhere")
+         ANY(
+            has_emblems(),
+            ALL(
+               "summon_anywhere",
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            )
+         )
       )
    )
 end
@@ -582,7 +693,7 @@ function hb_entrance_hall_flame_emblem_access()
       hb_entrance_hall_upper_level_access(),
       ANY(
          "fire",
-         ALL(is_beta_logic(), AT_LEAST(LOGIC_MINIMAL)),
+         ALL(beta_version_at_least(VERSION_1_1_0), AT_LEAST(LOGIC_MINIMAL)),
          AccessibilityLevel.SequenceBreak
       ),
       ANY(
@@ -596,7 +707,7 @@ end
 
 -- End of the World Final Dimension Giant Crevasse - 1st Chest
 function eotw_giant_crevasse_first()
-   if is_beta_logic() then
+   if beta_version_at_least(VERSION_1_1_0) then
       return ANY(
          "high_jump",
          "glide",
@@ -618,13 +729,35 @@ end
 
 -- End of the World Final Dimension Giant Crevasse - 4th Chest
 function eotw_giant_crevasse_upper()
+   if beta_version_at_least(VERSION_1_1_0) then
+      return ANY(
+         "glide",
+         ALL(
+            AT_LEAST(LOGIC_PROUD),
+            ANY(
+               HAS("high_jump", 2),
+               ALL(can_dumbo_skip(), "summon_anywhere")
+            )
+         ),
+         ALL(AT_LEAST(LOGIC_MINIMAL), can_air_dodge())
+      )
+   end
    return ANY(
       "glide",
       ALL(
          AT_LEAST(LOGIC_PROUD),
-         ANY(HAS("high_jump", 2), ALL(can_dumbo_skip(), "summon_anywhere"))
+         ANY(
+            HAS("high_jump", 2),
+            ALL("high_jump", "combo_master")
+         )
       ),
-      ALL(AT_LEAST(LOGIC_MINIMAL), can_air_dodge())
+      ALL(
+         AccessibilityLevel.SequenceBreak,
+         ANY(
+            ALL(can_dumbo_skip(), "summon_anywhere"),
+            can_air_dodge()
+         )
+      )
    )
 end
 
@@ -635,7 +768,13 @@ function eotw_world_terminus_agrabah_access()
       ALL(
          AT_LEAST(LOGIC_PROUD),
          can_dumbo_skip(),
-         ANY("glide", "summon_anywhere")
+         ANY(
+            "glide",
+            ALL(
+               "summon_anywhere",
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            )
+         )
       )
    )
 end
@@ -656,7 +795,16 @@ function haw_final_nut_access()
    return ANY(
       ALL("high_jump", "glide"),
       ALL(AT_LEAST(LOGIC_NORMAL), ANY("glide", "high_jump")),
-      ALL(AT_LEAST(LOGIC_MINIMAL), ANY("combo_master", can_air_dodge()))
+      ALL(
+         AT_LEAST(LOGIC_MINIMAL),
+         ANY(
+            "combo_master",
+            ALL(
+               can_air_dodge(),
+               ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+            )
+         )
+      )
    )
 end
 

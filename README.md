@@ -17,7 +17,7 @@ Download the most recent .zip file from the **Releases** and either drag it to t
 
 | AP World Version | AP Version | PopTracker Pack Version |
 |------------------|------------|-------------------------|
-| v1.1.0+ (BETA)   | non-core   | v1.3.0+                 |
+| v0.11.0+ (BETA)  | non-core   | v1.3.1+                 |
 | v0.9.0+          | v0.6.4+    | v1.0.0+                 |
 
 ## Screenshot
@@ -65,7 +65,7 @@ The Collectible Requirements section controls how many of a collectible are requ
 
 ### Beta Only Logic
 
-The Beta Only Logic section contains settings that require playing with the beta version of the AP world (v1.1.0, non-core). These settings either aren't available in the core version packaged with the AP launcher or alter the logic required for locations.
+These settings should not be changed unless playing offline without a connection to an AP server. The Beta Only Logic section contains settings that require playing with the beta version of the AP world (v0.11.0-v1.1.0, non-core). These settings either aren't available in the core version packaged with the AP launcher or alter the logic required for locations.
 
 ![Beta Only Settings](images/ui_beta_only_settings.png)
 

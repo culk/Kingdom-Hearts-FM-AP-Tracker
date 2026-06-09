@@ -27,6 +27,10 @@ LOGIC_NORMAL = 1
 LOGIC_PROUD = 2
 LOGIC_MINIMAL = 3
 
+-- Beta AP world version logic setting stages.
+VERSION_0_11_0 = 1
+VERSION_1_1_0 = 2
+
 -- Values updated based on slot data.
 MAX_LEVEL_WITH_CHECK = 100
 IGNORE_SLOT_2_LEVELS = true
@@ -55,9 +59,9 @@ function logic_difficulty_at_least_minimal()
     return logic_difficulty_at_least(LOGIC_MINIMAL)
 end
 
-function is_beta_logic()
+function beta_version_at_least(version_stage)
     local beta_logic = Tracker:FindObjectForCode("beta_logic").CurrentStage
-    return beta_logic == 1
+    return beta_logic >= version_stage
 end
 
 function is_stacking_worlds()
@@ -199,9 +203,9 @@ end
 function access_broken_chest_for(world_name)
     if access_chest_for(world_name) then
         return AccessibilityLevel.Normal
-    elseif not is_beta_logic() then
+    elseif not beta_version_at_least(VERSION_1_1_0) then
         -- Used to show chests as out of logic for beginners if keyblade unlocking
-        -- is broken for the location.
+        -- is broken for the location (broken before v1.1.0 of the AP world).
         if logic_difficulty_at_least_normal() then
             return AccessibilityLevel.Normal
         else
