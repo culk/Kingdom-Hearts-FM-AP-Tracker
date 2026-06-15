@@ -1,6 +1,5 @@
 {
     "world_keys_group": {
-        "type": "container",
-        "content": {}
+        "type": "canvas"
     }
 }

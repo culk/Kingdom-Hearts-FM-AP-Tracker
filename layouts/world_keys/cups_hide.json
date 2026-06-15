@@ -1,6 +1,5 @@
 {
     "world_keys_cups": {
-        "type": "container",
-        "content": {}
+        "type": "canvas"
     }
 }

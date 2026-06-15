@@ -1,6 +1,5 @@
 {
     "keyblades_group": {
-        "type": "container",
-        "content": {}
+        "type": "canvas"
     }
 }

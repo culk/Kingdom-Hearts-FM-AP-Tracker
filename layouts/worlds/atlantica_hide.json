@@ -1,6 +1,5 @@
 {
     "worlds_atlantica": {
-        "type": "container",
-        "content": {}
+        "type": "canvas"
     }
 }

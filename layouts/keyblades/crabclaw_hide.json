@@ -1,6 +1,5 @@
 {
     "keyblades_crabclaw": {
-        "type": "container",
-        "content": {}
+        "type": "canvas"
     }
 }

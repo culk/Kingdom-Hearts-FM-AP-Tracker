@@ -1,6 +1,5 @@
 {
     "keyblades_spellbinder": {
-        "type": "container",
-        "content": {}
+        "type": "canvas"
     }
 }
