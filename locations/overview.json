@@ -1438,7 +1438,10 @@
                         "item_count": 3
                     },
                     {
-                        "name": "Sunken Ship - Obtain Crystal Trident"
+                        "name": "Sunken Ship - Obtain Crystal Trident",
+                        "access_rules": ["^$access_broken_chest_for|atlantica"],
+                        "chest_unopened_img": "/images/misc/chest.png",
+                        "chest_opened_img": "/images/misc/chest_bw.png"
                     },
                     {
                         "name": "Ursula's Lair - Defeat Ursula I",
