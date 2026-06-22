@@ -63,11 +63,15 @@ The Collectible Requirements section controls how many of a collectible are requ
 
 ![Collectible Requirements](images/ui_collectible_requirements.png)
 
-### Beta Only Logic
+### Beta Only Settings
 
-These settings should not be changed unless playing offline without a connection to an AP server. The Beta Only Logic section contains settings that require playing with the beta version of the AP world (v0.11.0-v1.1.0, non-core). These settings either aren't available in the core version packaged with the AP launcher or alter the logic required for locations.
+These settings require the beta version of the AP world and KH1 randomizer mod (v0.11.0-v1.1.0, non-core).These settings are not available in the core version packaged with the AP launcher.
 
 ![Beta Only Settings](images/ui_beta_only_settings.png)
+
+- **Auto-Tab Map** - Requires KH1 randomizer mod beta v1.1.0 or newer. You must also connect to the AP server using the in-game client that is only available in the beta version of the KH1 randomizer mod. Connecting with the KH1 text client from the AP launcher will not work. Enables or disables the map tab auto updating based on the players current world.
+- **Beta Logic** - Changes the access logic for some locations to match the beta versions of the AP world. This value is automatically detected when connecting to the AP server and should only be manually changed if you are playing a beta version offline with manual tracking.
+- **Accessory Augments** - Player option only available in the beta version of the AP world. This value is automatically detected when connecting to the AP server and should only be manually changed if you are playing a beta version offline with manual tracking.
 
 ## Feedback
 
