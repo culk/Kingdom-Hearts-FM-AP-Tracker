@@ -1,6 +1,5 @@
 {
     "worlds_eotw": {
-        "type": "container",
-        "content": {}
+        "type": "canvas"
     }
 }

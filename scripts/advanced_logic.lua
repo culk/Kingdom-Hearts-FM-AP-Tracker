@@ -589,7 +589,7 @@ function hb_falls_floating_platform_near_bubble_access()
       ALL(
          AT_LEAST(LOGIC_MINIMAL),
          can_air_dodge(),
-         ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+         ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak),
          "combo_master",
          HAS("air_combo_plus", 2)
       )
@@ -693,8 +693,13 @@ function hb_entrance_hall_flame_emblem_access()
       hb_entrance_hall_upper_level_access(),
       ANY(
          "fire",
-         ALL(beta_version_at_least(VERSION_1_1_0), AT_LEAST(LOGIC_MINIMAL)),
-         AccessibilityLevel.SequenceBreak
+         ALL(
+            has_emblems(),
+            ANY(
+               ALL(beta_version_at_least(VERSION_1_1_0), AT_LEAST(LOGIC_MINIMAL)),
+               AccessibilityLevel.SequenceBreak
+            )
+         )
       ),
       ANY(
          "glide",

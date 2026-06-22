@@ -1,6 +1,5 @@
 {
     "keyblades_oathkeeper": {
-        "type": "container",
-        "content": {}
+        "type": "canvas"
     }
 }
