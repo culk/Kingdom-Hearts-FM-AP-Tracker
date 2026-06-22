@@ -34,7 +34,7 @@
         "type": "progressive",
         "allow_disabled": false,
         "loop": true,
-        "initial_stage_idx": 1,
+        "initial_stage_idx": 0,
         "stages": [
             {
                 "img": "/images/settings/auto_tab_map_off.png",

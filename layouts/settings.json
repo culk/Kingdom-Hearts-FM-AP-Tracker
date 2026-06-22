@@ -7,20 +7,21 @@
     "item_size": "550,32",
     "rows": [
       ["title_settings", "title_goal"],
-      ["auto_tab_map", "eotw_unlock"],
-      ["logic_difficulty", "goal"],
-      ["keyblade_locks", ""],
-      ["stacking_world_items", "title_collectible_requirements"],
-      ["halloween_town_key_item_bundle", "eotw_req"],
-      ["random_accessories", "door_req"],
-      ["", "postcards_req"],
-      ["title_locations", "puppies_req"],
-      ["destiny_islands_checks", "day_2_materials_req"],
-      ["100_acre_checks", "homecoming_materials_req"],
-      ["atlantica_checks", ""],
-      ["jungle_slider_checks", "title_beta_only_settings"],
-      ["cups", "beta_logic"],
-      ["superbosses", "accessory_augments"]
+      ["logic_difficulty", "eotw_unlock"],
+      ["keyblade_locks", "goal"],
+      ["stacking_world_items", ""],
+      ["halloween_town_key_item_bundle", "title_collectible_requirements"],
+      ["random_accessories", "eotw_req"],
+      ["", "door_req"],
+      ["title_locations", "postcards_req"],
+      ["destiny_islands_checks", "puppies_req"],
+      ["100_acre_checks", "day_2_materials_req"],
+      ["atlantica_checks", "homecoming_materials_req"],
+      ["jungle_slider_checks", ""],
+      ["cups", "title_beta_only_settings"],
+      ["superbosses", "auto_tab_map"],
+      ["", "beta_logic"],
+      ["", "accessory_augments"]
     ]
   }
 }

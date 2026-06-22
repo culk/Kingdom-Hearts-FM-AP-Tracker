@@ -142,6 +142,8 @@ function onClear(slot_data)
     local beta_logic_stage = 0 -- v0.10.0 or older
     if slot_data["world_version"] ~= nil then
         beta_logic_stage = 2 -- v1.1.0 or newer
+        -- Default auto map tab tracking to "on" if the feature is available (requires v1.1.0+).
+        Tracker:FindObjectForCode("auto_tab_map").CurrentStage = 1
     elseif slot_data["accessory_augments"] ~= nil then
         beta_logic_stage = 1 -- v0.11.0
     else
@@ -251,7 +253,7 @@ function onBounce(json)
     if Tracker:FindObjectForCode("auto_tab_map").CurrentStage == 1 then
         if json ~= nil and json["data"] ~= nil then
             local data = json["data"]
-            updateMap(data["worldId"], data["roomId"])
+            updateMap(data["world"], data["room"])
         end
     end
 end
