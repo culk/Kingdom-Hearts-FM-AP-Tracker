@@ -1287,7 +1287,10 @@
                     {
                         "name": "Desert - Defeat Kurt Zisa",
                         "visibility_rules":["superbosses_on"],
-                        "access_rules":["hollow_bastion, $has_emblems, ^$boss_beginner_require_tools, [$world_count:8], [$has_defenses], ^$ag_kurt_zisa_magic_access"],
+                        "access_rules":[
+                            "hollow_bastion, $has_emblems, ^$boss_beginner_require_tools, [$world_count:8], [$has_defenses], ^$ag_kurt_zisa_magic_access",
+                            "$beta_version_at_least_1_2_0, ^$boss_beginner_require_tools, [$world_count:8], [$has_defenses], ^$ag_kurt_zisa_magic_access"
+                        ],
                         "item_count": 2
                     }
                 ],
@@ -1865,7 +1868,10 @@
                     {
                         "name": "Clock Tower - Defeat Phantom",
                         "visibility_rules":["superbosses_on"],
-                        "access_rules":["green_trinity, hollow_bastion, $has_emblems, ^$nl_phantom_magic_access, ^$nl_phantom_defense_access, ^$boss_beginner_require_tools"]
+                        "access_rules":[
+                            "green_trinity, hollow_bastion, $has_emblems, ^$nl_phantom_magic_access, ^$nl_phantom_defense_access, ^$boss_beginner_require_tools",
+                            "green_trinity, $beta_version_at_least_1_2_0, ^$nl_phantom_magic_access, ^$nl_phantom_defense_access, ^$boss_beginner_require_tools"
+                        ]
                     }
                 ],
                 "map_locations": [
