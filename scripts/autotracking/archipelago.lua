@@ -147,13 +147,15 @@ function onClear(slot_data)
     end
 
     -- Check if slot data is from beta version of AP world.
-    local beta_logic_stage = 0 -- v0.10.0 or older
-    if slot_data["world_version"] ~= nil then
+    local beta_logic_stage = 0 -- v0.11.0 or older, v0.9.0 is core, v0.10.0-0.11.0 are older betas only available in github releases
+    if slot_data["world_version"] ~= nil then -- world_version added to slot data in v1.1.0
         local world_version = slot_data["world_version"]
-        if world_version[1] == 1 and world_version[2] >= 2 then
-            beta_logic_stage = 2 -- v1.2.0 or newer
-        elseif world_version[1] == 1 and world_version[2] == 1 then
+        if world_version[1] == 1 and world_version[2] == 1 then
             beta_logic_stage = 1 -- v1.1.0
+        elseif world_version[1] == 1 and world_version[2] >= 2 then
+            beta_logic_stage = 2 -- v1.2.0 or newer
+        elseif world_version[1] > 1 then
+            beta_logic_stage = 2 -- v1.2.0 or newer
         end
     end
     local beta_logic_obj = Tracker:FindObjectForCode("beta_logic")
