@@ -20,7 +20,7 @@ The most recent release of this PopTracker pack is compatible with the following
 | Non-AP Core World Version | Supported since pack version |
 |---------------------------|------------------------------|
 | v1.1.0 (main website)     | v1.3.1+                      |
-| v1.2.0 (dev website)      | v1.5.0+                      |
+| v1.2.0+ (dev website)     | v1.5.1+                      |
 
 ## Screenshot
 
