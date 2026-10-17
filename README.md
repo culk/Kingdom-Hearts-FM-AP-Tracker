@@ -4,7 +4,14 @@ A [PopTracker](https://github.com/black-sliver/PopTracker/) Pack for Kingdom Hea
 
 ## Getting Started
 
-Download the most recent .zip file from the **Releases** and either drag it to the PopTracker window or place it in your `poptracker/packs` directory. For more details and instructions on how to connect the tracker to an Archipelago server see [PopTracker](https://github.com/black-sliver/PopTracker/).
+Download the kh1_ap_tracker.zip file from the latest [Release](https://github.com/culk/Kingdom-Hearts-FM-AP-Tracker/releases) and either drag it to the [PopTracker](https://poptracker.github.io/) window or place it in your `poptracker/packs` directory.
+
+### Detailed Setup Instructions
+
+1. Download and install [PopTracker](https://poptracker.github.io/).
+2. Download the PopTracker pack named "kh1_ap_tracker.zip" from the [latest release](https://github.com/culk/Kingdom-Hearts-FM-AP-Tracker/releases/latest) under "Assets".
+3. Start PopTracker then drag and drop the "kh1_ap_tracker.zip" file onto the PopTracker window to install the pack. Alternatively, move the "kh1_ap_tracker.zip" file into your `poptracker/packs` directory without unzipping the pack.
+4. Connect PopTracker to an Archipelago Multiworld for autotracking by clicking on the grey "AP" icon and then entering your Archipelago host and port information followed by your slot name and password. The "AP" icon will turn green if you are successfully connected.
 
 ## Features
 
@@ -84,4 +91,7 @@ Feedback is always appreciated. If there is an issue with the tracker, either op
 ## Credits
 
 - Original [Kingdom Hearts Final Mix AP Tracker](https://github.com/Lojtana/Kingdom-Hearts-FM-AP-Tracker) created by Lojtana.
-- Icons were made by [Televo](https://github.com/Televo/kingdom-hearts-recollection) or taken from CoM rips by [GaryCXJk](https://www.spriters-resource.com/submitter/GaryCXJk/).
+- Keyblade icons are adapted from [Kingdom Hearts: Chain of Memories cards](https://www.spriters-resource.com/game_boy_advance/khcom/asset/1054/) by [GaryCXJk](https://www.spriters-resource.com/submitter/GaryCXJk/).
+- All fonts and all other icons were made by [Televo](https://github.com/Televo/kingdom-hearts-recollection).
+- Overview map background image is adapted from "[M42 Orion & Running Man](https://www.flickr.com/photos/65141172@N00/23216543151/)" by [Dylan O’Donnell](https://deography.com/), used under [CCO 1.0](https://creativecommons.org/publicdomain/zero/1.0/).
+- All other map images made by [culk](https://github.com/culk) using Kingdom Hearts map models hosted on [noclip](https://noclip.website/) by [magcius](https://github.com/magcius). These map images are licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
