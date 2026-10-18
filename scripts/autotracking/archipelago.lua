@@ -238,6 +238,7 @@ function onLocation(location_id, location_name)
     local location_array = LOCATION_MAPPING[location_id]
     if not location_array and AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
         print(string.format("onLocation: could not find location mapping for id %s", location_id))
+        return
     end
 
     for _, location in ipairs(location_array) do
@@ -280,7 +281,7 @@ function updateHints(hints)
     for _, hint in ipairs(hints) do
         if hint.finding_player == Archipelago.PlayerNumber then
             local v = LOCATION_MAPPING[hint.location]
-            if v[1] then
+            if v and v[1] then
                 local location_name = v[1]
                 local obj = Tracker:FindObjectForCode(location_name)
                 if obj then
