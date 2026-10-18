@@ -24,7 +24,7 @@
         "codes": "title_collectible_requirements"
     },
     {
-        "name": "Beta Only Settings",
+        "name": "Non-Core Only Settings",
         "type": "static",
         "img": "/images/settings/title_beta_only_settings.png",
         "codes": "title_beta_only_settings"
@@ -463,28 +463,28 @@
         ]
     },
     {
-        "name": "Beta Logic",
+        "name": "World Version",
         "type": "progressive",
         "allow_disabled": false,
         "loop": true,
         "stages": [
             {
-                "img": "/images/settings/beta_logic_off.png",
+                "img": "/images/settings/world_version_core.png",
                 "codes": "beta_logic",
                 "inherit_codes": false,
-                "name": "Beta Logic Off"
+                "name": "World Version - AP Core"
             },
             {
-                "img": "/images/settings/beta_logic_v1.1.0.png",
+                "img": "/images/settings/world_version_v1.1.0.png",
                 "codes": "beta_logic",
                 "inherit_codes": false,
-                "name": "Beta Logic On - v1.1.0"
+                "name": "World Version - v1.1.0"
             },
             {
-                "img": "/images/settings/beta_logic_v1.2.0.png",
+                "img": "/images/settings/world_version_v1.2.0.png",
                 "codes": "beta_logic",
                 "inherit_codes": false,
-                "name": "Beta Logic On - v1.2.0+"
+                "name": "World Version - v1.2.0+"
             }
         ]
     },

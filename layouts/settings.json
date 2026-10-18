@@ -19,8 +19,8 @@
       ["atlantica_checks", "homecoming_materials_req"],
       ["jungle_slider_checks", ""],
       ["cups", "title_beta_only_settings"],
-      ["superbosses", "auto_tab_map"],
-      ["", "beta_logic"],
+      ["superbosses", "beta_logic"],
+      ["", "auto_tab_map"],
       ["", "accessory_augments"],
       ["", "evidence_bundle"],
       ["", "slides_bundle"]
