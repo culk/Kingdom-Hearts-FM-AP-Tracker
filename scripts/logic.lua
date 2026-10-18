@@ -257,7 +257,7 @@ function wl_after_footprints()
         elseif has("wonderland") and is_evidence_bundled() and has("footprints") then
             return true
         else
-            return is_stacking_worlds() and has("deep_jungle", 2)
+            return is_stacking_worlds() and has("wonderland", 2)
         end
     else
         if has("wonderland") and has("footprints") then
