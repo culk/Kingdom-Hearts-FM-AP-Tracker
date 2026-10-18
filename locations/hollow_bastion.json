@@ -168,6 +168,10 @@
                     {
                         "name": "Chest after Battle Platform",
                         "ref": "Overview/Hollow Bastion - After Emblems/Great Crest - Chest after Battle Platform"
+                    },
+                    {
+                        "name": "Blue Trinity",
+                        "ref": "Overview/Hollow Bastion - After Emblems/Great Crest - Blue Trinity"
                     }
                 ],
                 "map_locations": [
@@ -798,22 +802,6 @@
                         "map": "HB",
                         "x": 421,
                         "y": 1983
-                    }
-                ]
-            },
-            {
-                "name": "Great Crest - Blue Trinity",
-                "sections": [
-                    {
-                        "name": "Blue Trinity",
-                        "ref": "Overview/Hollow Bastion - After Emblems/Great Crest - Blue Trinity"
-                    }
-                ],
-                "map_locations": [
-                    {
-                        "map": "HB",
-                        "x": 2135,
-                        "y": 1519
                     }
                 ]
             },
