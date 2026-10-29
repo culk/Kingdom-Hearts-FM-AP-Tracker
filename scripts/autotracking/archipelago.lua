@@ -200,18 +200,18 @@ function onItem(index, item_id, item_name, player_number)
     if not item_array then
         return
     end
-    for _, item_pair in ipairs(item_array) do
-        local item_name = item_pair[1]
-        local item_type = item_pair[2]
+    for _, item_info in ipairs(item_array) do
+        local item_name = item_info[1]
+        local item_type = item_info[2]
         local obj = Tracker:FindObjectForCode(item_name)
         if obj then
             if item_type == "toggle" then
                 obj.Active = true
             elseif item_type == "progressive" then
-                if obj.Active then
-                    obj.CurrentStage = obj.CurrentStage + 1
-                else
-                    obj.Active = true
+                local item_stage = item_info[3]
+                --if not obj.Active then obj.Active = true end
+                if item_stage > obj.CurrentStage then
+                    obj.CurrentStage = item_stage
                 end
             elseif item_type == "consumable" then
                 obj.AcquiredCount = obj.AcquiredCount + obj.Increment

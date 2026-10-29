@@ -5,8 +5,9 @@
         "item_margin": "2,2",
         "item_size": "40,40",
         "rows": [
-            ["combo_master", "guard", "counterattack", "sonic_blade", "strike_raid", "high_jump", "glide"], 
-            ["air_combo_plus", "dodge_roll", "second_chance", "leaf_bracer", "mp_rage", "mermaid_kick"]
+            ["high_jump", "glide", "mermaid_kick"],
+            ["", "combo_master", "guard", "counterattack", "sonic_blade", "strike_raid", ""], 
+            ["", "air_combo_plus", "dodge_roll", "second_chance", "leaf_bracer", "mp_rage", ""]
         ]
     }
 }

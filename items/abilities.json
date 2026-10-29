@@ -74,6 +74,32 @@
         "codes": "summon_anywhere"
     },
     {
+        "name": "Haste",
+        "type": "progressive",
+        "allow_disabled": true,
+        "loop": false,
+        "stages": [
+            {
+                "img": "images/misc/augment_haste.png",
+                "codes": "haste",
+                "inherit_codes": true,
+                "name": "Haste"
+            },
+            {
+                "img": "images/misc/augment_hastera.png",
+                "codes": "hastera",
+                "inherit_codes": true,
+                "name": "Hastera"
+            },
+            {
+                "img": "images/misc/augment_hastega.png",
+                "codes": "hastega",
+                "inherit_codes": true,
+                "name": "Hastega"
+            }
+        ]
+    },
+    {
         "name": "High Jump",
         "img": "images/misc/High Jump.png",
         "type": "consumable",

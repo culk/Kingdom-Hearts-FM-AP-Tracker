@@ -97,6 +97,9 @@ ITEM_MAPPING = {
     [2643025] = {{"second_chance", "toggle"}},
     [2643062] = {{"leaf_bracer", "toggle"}},
     [2643065] = {{"combo_master", "toggle"}},
+    [2644002] = {{"haste", "progressive", 1}},
+    [2644003] = {{"hastera", "progressive", 2}},
+    [2644004] = {{"hastega", "progressive", 3}},
     [2644008] = {{"air_guard_dodge_roll", "toggle"}},
     [2644038] = {{"summon_anywhere", "toggle"}},
 }
