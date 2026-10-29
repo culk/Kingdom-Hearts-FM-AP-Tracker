@@ -71,6 +71,9 @@ function tt_mystical_house_glide_access()
                ANY("high_jump", HAS("air_combo_plus", 2))
             )
          )
+      ),
+      ALL(
+         AccessibilityLevel.SequenceBreak, "combo_master", "hastera"
       )
    )
 end
@@ -141,6 +144,14 @@ function wl_early_tea_access()
                   )
                )
             )
+         )
+      ),
+      ALL(
+         AccessibilityLevel.SequenceBreak,
+         "combo_master",
+         ANY(
+            ALL("hastera", HAS("high_jump", 3)),
+            ALL("hastega", HAS("high_jump", 2))
          )
       )
    )
@@ -570,6 +581,9 @@ function hb_falls_floating_platform_near_save_access()
          AT_LEAST(LOGIC_MINIMAL),
          can_air_dodge(),
          ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak)
+      ),
+      ALL(
+         AccessibilityLevel.SequenceBreak, "combo_master", "haste"
       )
    )
 end
@@ -592,6 +606,9 @@ function hb_falls_floating_platform_near_bubble_access()
          ANY(beta_version_at_least(VERSION_1_1_0), AccessibilityLevel.SequenceBreak),
          "combo_master",
          HAS("air_combo_plus", 2)
+      ),
+      ALL(
+         AccessibilityLevel.SequenceBreak, "combo_master", "hastera"
       )
    )
 end
