@@ -6,7 +6,7 @@
         "item_size": "40,40",
         "rows": [
             ["high_jump", "glide", "mermaid_kick"],
-            ["", "combo_master", "guard", "counterattack", "sonic_blade", "strike_raid", ""], 
+            ["combo_master", "guard", "counterattack", "sonic_blade", "strike_raid", "ragnarok"], 
             ["", "air_combo_plus", "dodge_roll", "second_chance", "leaf_bracer", "mp_rage", ""]
         ]
     }

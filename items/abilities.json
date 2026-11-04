@@ -42,6 +42,12 @@
         "codes": "strike_raid"
     },
     {
+        "name": "Ragnarok",
+        "img": "images/misc/ability_ragnarok.png",
+        "type": "toggle",
+        "codes": "ragnarok"
+    },
+    {
         "name": "Sonic Blade",
         "img": "images/misc/ability_sonic_blade.png",
         "type": "toggle",
