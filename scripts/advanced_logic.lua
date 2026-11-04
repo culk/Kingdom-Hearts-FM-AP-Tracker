@@ -17,6 +17,10 @@ end
 function tt_mystical_house_trinity_chest_access()
    return ANY(
       "yellow_trinity",
+      ALL(
+         can_dumbo_skip(),
+         ALL(beta_version_at_least(VERSION_1_1_0), beta_version_at_most(VERSION_1_2_0))
+      ),
       ALL(AT_LEAST(LOGIC_NORMAL), HAS("high_jump", 2)),
       ALL(
          AT_LEAST(LOGIC_PROUD),
@@ -488,6 +492,11 @@ end
 function ht_oogie_manor_access()
    return ANY(
       "fire",
+      ALL(beta_version_at_most(VERSION_1_2_0), "high_jump", "glide"),
+      ALL(
+         can_dumbo_skip(),
+         ALL(beta_version_at_least(VERSION_1_1_0), beta_version_at_most(VERSION_1_2_0))
+      ),
       ALL(AT_LEAST(LOGIC_NORMAL), HAS("high_jump", 3)),
       ALL(
          AT_LEAST(LOGIC_PROUD),
