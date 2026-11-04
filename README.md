@@ -26,7 +26,8 @@ The most recent release of this PopTracker pack is compatible with the following
 
 | Non-Core World Version    | Supported since pack version |
 |---------------------------|------------------------------|
-| v1.3.0+ (main website)    | v1.5.2+                      |
+| v1.4.0+ (dev website)     | v1.6.0+                      |
+| v1.3.0 (main website)     | v1.5.2+                      |
 | v1.2.0 (old)              | v1.5.2+                      |
 | v1.1.0 (old)              | v1.3.1+                      |
 
@@ -84,6 +85,7 @@ These settings require the non-core (beta) version of the AP world. These settin
 - **Accessory Augments** - Requires AP world version v1.1.0 or newer. Enables tracking of accessory augment items and advanced logic that requires accessory augments.
 - **Evidence Bundled** - Requires AP world version v1.2.0 or newer. Tracks Wonderland's evidence key items as a single bundled item.
 - **Slides Bundled** - Requires AP world version v1.2.0 or newer. Tracks Deep Jungle's slides key items as a single bundled item.
+- **Raft Finish** - Requires AP world version v1.4.0 or newer. Enables reaching the final boss by turning in enough raft materials on Destiny Islands Day 2.
 
 ## Feedback
 
