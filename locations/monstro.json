@@ -402,6 +402,10 @@
                     {
                         "name": "Defeat Parasite Cage II",
                         "ref": "Overview/Monstro - Events/Stomach - Defeat Parasite Cage II"
+                    },
+                    {
+                        "name": "Defeat Grand Ghost",
+                        "ref": "Overview/Monstro - Events/Stomach - Grand Ghost Defeat Reward"
                     }
                 ],
                 "map_locations": [

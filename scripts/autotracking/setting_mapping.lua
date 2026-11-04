@@ -144,6 +144,15 @@ SLOT_CODES =
             [true] = 1
         }
     },
+    raft_finish =
+    {
+        code = "raft_finish",
+        mapping =
+        {
+            [false] = 0,
+            [true] = 1
+        }
+    },
     accessory_augments =
     {
         code = "accessory_augments",

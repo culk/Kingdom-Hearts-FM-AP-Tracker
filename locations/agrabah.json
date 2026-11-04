@@ -609,6 +609,22 @@
                 ]
             },
             {
+                "name": "Palace Gates - Pot Scorpion",
+                "sections": [
+                    {
+                        "name": "Defeat Pot Scorpion",
+                        "ref": "Overview/Agrabah - Events/Palace Gates - Defeat Pot Scorpion"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "AG",
+                        "x": 2066,
+                        "y": 484
+                    }
+                ]
+            },
+            {
                 "name": "Bazaar - Blue Trinity",
                 "sections": [
                     {
@@ -625,6 +641,22 @@
                 ]
             },
             {
+                "name": "Bazaar - Black Fungi",
+                "sections": [
+                    {
+                        "name": "Defeat Black Fungi",
+                        "ref": "Overview/Agrabah - Events/Bazaar - Blue Trinity"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "AG",
+                        "x": 2307,
+                        "y": 947
+                    }
+                ]
+            },
+            {
                 "name": "Treasure Room - Red Trinity",
                 "sections": [
                     {
@@ -637,6 +669,22 @@
                         "map": "AG_Cave",
                         "x": 2365,
                         "y": 619
+                    }
+                ]
+            },
+            {
+                "name": "Treasure Room - White Mushroom (Gravity)",
+                "sections": [
+                    {
+                        "name": "Cast Gravity x3 Reward",
+                        "ref": "Overview/Agrabah - Events/Treasure Room - White Mushroom Gravity x3 Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "AG_Cave",
+                        "x": 2337,
+                        "y": 692
                     }
                 ]
             },

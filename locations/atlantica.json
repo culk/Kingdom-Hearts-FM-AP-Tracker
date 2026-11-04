@@ -429,6 +429,22 @@
                 ]
             },
             {
+                "name": "Sunken Ship - White Mushroom (Stop)",
+                "sections": [
+                    {
+                        "name": "Cast Stop x3 Reward",
+                        "ref": "Overview/Atlantica - Events/Sunken Ship - White Mushroom Stop x3 Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "AT",
+                        "x": 2946,
+                        "y": 715
+                    }
+                ]
+            },
+            {
                 "name": "Ursula's Lair",
                 "sections": [
                     {

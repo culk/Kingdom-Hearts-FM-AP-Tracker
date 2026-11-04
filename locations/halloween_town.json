@@ -92,6 +92,22 @@
         "name": "Halloween Town - Chests - 2nd Visit",
         "children": [
             {
+                "name": "Graveyard - White Mushroom (Aero)",
+                "sections": [
+                    {
+                        "name": "Cast Aero x3 Reward",
+                        "ref": "Overview/Halloween Town - After Jack-in-the-Box/Graveyard - White Mushroom Aero x3 Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "HT",
+                        "x": 1828,
+                        "y": 1765
+                    }
+                ]
+            },
+            {
                 "name": "Bridge - Under Bridge",
                 "sections": [
                     {
@@ -120,6 +136,22 @@
                         "map": "HT",
                         "x": 1372,
                         "y": 1102
+                    }
+                ]
+            },
+            {
+                "name": "Bridge - Rare Truffle",
+                "sections": [
+                    {
+                        "name": "Juggle 100 Reward",
+                        "ref": "Overview/Halloween Town - After Jack-in-the-Box/Bridge - Rare Truffle Juggle 100 Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "HT",
+                        "x": 1388,
+                        "y": 1275
                     }
                 ]
             },
@@ -301,6 +333,22 @@
                         "map": "HT",
                         "x": 2085,
                         "y": 594
+                    }
+                ]
+            },
+            {
+                "name": "Manor Ruins - Chimera 9 Heads",
+                "sections": [
+                    {
+                        "name": "Defeat Chimera 9 Heads",
+                        "ref": "Overview/Halloween Town - After Jack-in-the-Box/Manor Ruins - Chimera 9 Heads Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "HT",
+                        "x": 2186,
+                        "y": 582
                     }
                 ]
             },

@@ -80,16 +80,21 @@ function onClear(slot_data)
 
     -- update settings with slot data
     IGNORE_SLOT_2_LEVELS = true
+    MAX_LEVEL_WITH_CHECK = 0
     local puppy_value = 3
     local randomize_puppies = true
     for key, value in pairs(slot_data) do
-        if key == "remote_items" and value == "full" then
-            IGNORE_SLOT_2_LEVELS = false
-        elseif key == "level_checks" then
+        if key == "level_checks" then
+            -- Calculate max level to show for world v1.3.0 and older.
             MAX_LEVEL_WITH_CHECK = value + 1
+        elseif key == "level_check_locations" then
+            -- Calculate max level to show for world v1.4.0 and newer.
+            if value == "level_99" then MAX_LEVEL_WITH_CHECK = 99 end
+            if value == "level_50" then MAX_LEVEL_WITH_CHECK = 50 end
         elseif key == "remote_location_ids" then
             for _, location_id in ipairs(value) do
                 if is_slot_2_level(location_id) then
+                    IGNORE_SLOT_2_LEVELS = false
                     local location_name = LOCATION_MAPPING[location_id][1]
                     if location_name then
                         local obj = Tracker:FindObjectForCode(location_name)
@@ -147,15 +152,22 @@ function onClear(slot_data)
     end
 
     -- Check if slot data is from beta version of AP world.
+    --  v0.9.0 is the core version.
+    --  v0.10.0-v0.11.0 are older beta versions only available in github releases that did not have relevant changes to the tracker.
+    --  v0.1.0 added accessory augments and updated logic using those augments (summon anywhere, air dodge)
+    --  v1.2.0-v1.3.0 added new locations, items, and updated logic for world progression
+    --  v1.4.0 adds rare heartless locations, changes level up locations, and refactors a lot of settings
     local beta_logic_stage = 0 -- v0.11.0 or older, v0.9.0 is core, v0.10.0-0.11.0 are older betas only available in github releases
     if slot_data["world_version"] ~= nil then -- world_version added to slot data in v1.1.0
         local world_version = slot_data["world_version"]
         if world_version[1] == 1 and world_version[2] == 1 then
             beta_logic_stage = 1 -- v1.1.0
-        elseif world_version[1] == 1 and world_version[2] >= 2 then
-            beta_logic_stage = 2 -- v1.2.0 or newer
+        elseif world_version[1] == 1 and (world_version[2] == 2 or world_version[2] == 3) then
+            beta_logic_stage = 2 -- v1.2.0 or v1.3.0
+        elseif world_version[1] == 1 and world_version[2] >= 4 then
+            beta_logic_stage = 3 -- v1.4.0 or newer
         elseif world_version[1] > 1 then
-            beta_logic_stage = 2 -- v1.2.0 or newer
+            beta_logic_stage = 3 -- v1.2.0 or newer
         end
     end
     local beta_logic_obj = Tracker:FindObjectForCode("beta_logic")
@@ -163,10 +175,19 @@ function onClear(slot_data)
         beta_logic_obj.CurrentStage = beta_logic_stage
     end
     -- Clear beta only settings if not present in slot data.
-    for _, setting_key in ipairs({"accessory_augments", "evidence_bundle", "slides_bundle"}) do
+    for _, setting_key in ipairs({"accessory_augments", "evidence_bundle", "slides_bundle", "raft_finish"}) do
         if slot_data[setting_key] == nil then
             Tracker:FindObjectForCode(setting_key).CurrentStage = 0
         end
+    end
+    -- Activate all location settings if on world v1.4.0 or newer. This is purely cosmetic for the settings window as the locations will be visible if on v1.4.0 even if the location setting is toggled off.
+    if beta_logic_stage >= 3 then
+        for _, setting_key in ipairs({"destiny_islands_checks", "superbosses", "atlantica_checks", "100_acre_checks", "jungle_slider_checks"}) do
+            if slot_data[setting_key] == nil then
+                Tracker:FindObjectForCode(setting_key).CurrentStage = 1
+            end
+        end
+        Tracker:FindObjectForCode("cups").CurrentStage = 2
     end
     -- Default auto map tab tracking to "on" if the feature is available (requires v1.1.0+).
     if beta_logic_stage >= 1 then

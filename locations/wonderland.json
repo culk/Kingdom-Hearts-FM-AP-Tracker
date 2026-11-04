@@ -314,7 +314,7 @@
                 ]
             },
             {
-                "name": "Bizarre Room - Trickmaster",
+                "name": "Bizarre Room",
                 "sections": [
                     {
                         "name": "Defeat Trickmaster",
@@ -323,6 +323,10 @@
                     {
                         "name": "Seal Keyhole",
                         "ref": "Overview/Wonderland - After Footprints/Bizarre Room - Seal Keyhole"
+                    },
+                    {
+                        "name": "Defeat 7 Gigas Shadows",
+                        "ref": "Overview/Wonderland - After Footprints/Bizarre Room - Gigas Shadow 7th Defeated Reward"
                     }
                 ],
                 "map_locations": [
@@ -422,6 +426,22 @@
                         "map": "WL",
                         "x": 1549,
                         "y": 1314
+                    }
+                ]
+            },
+            {
+                "name": "Lotus Forest - White Mushroom (Blizzard)",
+                "sections": [
+                    {
+                        "name": "Cast Blizzard x3 Reward",
+                        "ref": "Overview/Wonderland - After Footprints/Lotus Forest - White Mushroom Blizzard x3 Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "WL",
+                        "x": 1298,
+                        "y": 1347
                     }
                 ]
             },

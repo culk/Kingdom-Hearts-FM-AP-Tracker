@@ -31,6 +31,7 @@ LOGIC_MINIMAL = 3
 VERSION_CORE = 0
 VERSION_1_1_0 = 1
 VERSION_1_2_0 = 2
+VERSION_1_4_0 = 3
 
 -- Values updated based on slot data.
 MAX_LEVEL_WITH_CHECK = 100
@@ -69,6 +70,10 @@ function beta_version_at_least_1_2_0()
     return beta_version_at_least(VERSION_1_2_0)
 end
 
+function beta_version_at_least_1_4_0()
+    return beta_version_at_least(VERSION_1_4_0)
+end
+
 function beta_version_at_most(version_stage)
     local beta_logic = Tracker:FindObjectForCode("beta_logic").CurrentStage
     return beta_logic <= version_stage
@@ -76,6 +81,10 @@ end
 
 function beta_version_at_most_1_1_0()
     return beta_version_at_most(VERSION_1_1_0)
+end
+
+function beta_version_at_most_1_2_0()
+    return beta_version_at_most(VERSION_1_2_0)
 end
 
 function is_stacking_worlds()
@@ -371,7 +380,7 @@ function can_open_final_door()
 end
 
 function homecoming_access()
-    if di_homecoming_materials() then
+    if di_homecoming_materials() and (has("raft_finish_on") or beta_version_at_most(VERSION_1_2_0)) then
         return true
     elseif eotw_access() and can_open_final_door() then
         return true

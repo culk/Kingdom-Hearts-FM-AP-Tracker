@@ -520,6 +520,14 @@ function ht_manor_upper_cage_access()
    )
 end
 
+-- Halloween Town Manor Ruins Chimera 9 Heads Reward
+function ht_chimera_9_heads_access()
+   return ALL(
+      HAS("aero", 3),
+      ANY("genie", "bambi", "simba")
+   )
+end
+
 -- Neverland Ship Hold Beam Chests
 function nl_hold_beam_access()
    return ANY(

@@ -403,6 +403,38 @@
                 ]
             },
             {
+                "name": "Linked Worlds - White Mushroom (Thunder)",
+                "sections": [
+                    {
+                        "name": "Cast Thunder x3 Reward",
+                        "ref": "Overview/End of the World - World Terminus/Linked Worlds - White Mushroom Thunder x3 Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "EOTW",
+                        "x": 868,
+                        "y": 1516
+                    }
+                ]
+            },
+            {
+                "name": "Linked Worlds - Neoshadow",
+                "sections": [
+                    {
+                        "name": "Defeat 7 Neoshadows",
+                        "ref": "Overview/End of the World - World Terminus/Linked Worlds - Neoshadow 7th Defeated Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "EOTW",
+                        "x": 793,
+                        "y": 1491
+                    }
+                ]
+            },
+            {
                 "name": "Final Rest",
                 "sections": [
                     {

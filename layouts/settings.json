@@ -23,7 +23,8 @@
       ["", "auto_tab_map"],
       ["", "accessory_augments"],
       ["", "evidence_bundle"],
-      ["", "slides_bundle"]
+      ["", "slides_bundle"],
+      ["", "raft_finish"]
     ]
   }
 }

@@ -360,6 +360,38 @@
                 ]
             },
             {
+                "name": "2nd District - Sniperwild",
+                "sections": [
+                    {
+                        "name": "Defeat 30 Sniperwilds",
+                        "ref": "Overview/Traverse Town - Further Visits/2nd District - Sniperwild 30th Defeated Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "TT",
+                        "x": 2193,
+                        "y": 1187
+                    }
+                ]
+            },
+            {
+                "name": "Red Room - White Mushroom (Fire)",
+                "sections": [
+                    {
+                        "name": "Cast Fire x3 Reward",
+                        "ref": "Overview/Traverse Town - Further Visits/Red Room - White Mushroom Fire x3 Reward"
+                    } 
+                ],
+                "map_locations": [
+                    {
+                        "map": "TT",
+                        "x": 1561,
+                        "y": 863
+                    }
+                ]
+            },
+            {
                 "name": "3rd District - Balcony",
                 "sections": [
                     {

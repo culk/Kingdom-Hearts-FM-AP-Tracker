@@ -225,6 +225,10 @@
                     {
                         "name": "Defeat Captain Hook",
                         "ref": "Overview/Neverland - Events/Pirate Ship - Defeat Captain Hook"
+                    },
+                    {
+                        "name": "Defeat Jet Balloon",
+                        "ref": "Overview/Neverland - Events/Pirate Ship - Jet Balloon Defeat Reward"
                     }
                 ],
                 "map_locations": [

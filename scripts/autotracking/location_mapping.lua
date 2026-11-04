@@ -854,5 +854,26 @@ LOCATION_MAPPING = {
     [2659153] = {}, -- {"Accessory Prime Cap"},
     [2659154] = {}, -- {"Accessory Obsidian Ring"},
 
+    -- Rare Heartless
+    [2659201] = {"@Overview/Traverse Town - Further Visits/Red Room - White Mushroom Fire x3 Reward"},
+    [2659202] = {"@Overview/Wonderland - After Footprints/Lotus Forest - White Mushroom Blizzard x3 Reward"},
+    [2659203] = {"@Overview/End of the World - World Terminus/Linked Worlds - White Mushroom Thunder x3 Reward"},
+    [2659204] = {"@Overview/Deep Jungle - After Slides/Camp - White Mushroom Cure x3 Reward"},
+    [2659205] = {"@Overview/Agrabah - Events/Treasure Room - White Mushroom Gravity x3 Reward"},
+    [2659206] = {"@Overview/Atlantica - Events/Sunken Ship - White Mushroom Stop x3 Reward"},
+    [2659207] = {"@Overview/Halloween Town - After Jack-in-the-Box/Graveyard - White Mushroom Aero x3 Reward"},
+    [2659208] = {"@Overview/Halloween Town - After Jack-in-the-Box/Bridge - Rare Truffle Juggle 100 Reward"},
+    [2659209] = {"@Overview/Deep Jungle - After Slides/Tree House - Pink Agaricus 100 Hits Reward"},
+    [2659210] = {"@Overview/Wonderland - After Footprints/Bizarre Room - Gigas Shadow 7th Defeated Reward"},
+    [2659211] = {"@Overview/Traverse Town - Further Visits/2nd District - Sniperwild 30th Defeated Reward"},
+    [2659212] = {"@Overview/Agrabah - Events/Palace Gates - Defeat Pot Scorpion"},
+    [2659213] = {"@Overview/Monstro - Events/Stomach - Grand Ghost Defeat Reward"},
+    [2659214] = {"@Overview/Halloween Town - After Jack-in-the-Box/Manor Ruins - Chimera 9 Heads Reward"},
+    [2659215] = {"@Overview/Neverland - Events/Pirate Ship - Jet Balloon Defeat Reward"},
+    [2659216] = {"@Overview/End of the World - World Terminus/Linked Worlds - Neoshadow 7th Defeated Reward"},
+    [2659217] = {"@Overview/Agrabah - Events/Bazaar - Black Fungi Defeat Reward"},
+    [2659218] = {"@Overview/Hollow Bastion - After Emblems/Grand Hall - Stealth Soldier Defeat Reward"},
+    [2659219] = {"@Overview/Deep Jungle - After Slides/Bamboo Thicket - Black Ballade 4 Strikes Reward"},
+
     [2659999] = {"@Overview/Homecoming/Goal - Final Ansem"},
 }

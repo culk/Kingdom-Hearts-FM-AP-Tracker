@@ -484,7 +484,13 @@
                 "img": "/images/settings/world_version_v1.2.0.png",
                 "codes": "beta_logic",
                 "inherit_codes": false,
-                "name": "World Version - v1.2.0+"
+                "name": "World Version - v1.2.0-1.3.0"
+            },
+            {
+                "img": "/images/settings/world_version_v1.4.0.png",
+                "codes": "beta_logic",
+                "inherit_codes": false,
+                "name": "World Version - v1.4.0+"
             }
         ]
     },
@@ -505,6 +511,26 @@
                 "codes": "accessory_augments, accessory_augments_on",
                 "inherit_codes": false,
                 "name": "Accessory Augments On"
+            }
+        ]
+    },
+    {
+        "name": "Raft Finish",
+        "type": "progressive",
+        "allow_disabled": false,
+        "loop": true,
+        "stages": [
+            {
+                "img": "/images/settings/raft_finish_off.png",
+                "codes": "raft_finish, raft_finish_off",
+                "inherit_codes": false,
+                "name": "Raft Finish Off"
+            },
+            {
+                "img": "/images/settings/raft_finish_on.png",
+                "codes": "raft_finish, raft_finish_on",
+                "inherit_codes": false,
+                "name": "Raft Finish On"
             }
         ]
     }

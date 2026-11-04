@@ -416,6 +416,22 @@
                 ]
             },
             {
+                "name": "Bamboo Thicket - Black Ballade",
+                "sections": [
+                    {
+                        "name": "4 Strikes Reward",
+                        "ref": "Overview/Deep Jungle - After Slides/Bamboo Thicket - Black Ballade 4 Strikes Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "DJ",
+                        "x": 1392,
+                        "y": 2119
+                    }
+                ]
+            },
+            {
                 "name": "Camp - Gorilla",
                 "sections": [
                     {
@@ -428,6 +444,22 @@
                         "map": "DJ",
                         "x": 431,
                         "y": 1726
+                    }
+                ]
+            },
+            {
+                "name": "Camp - White Mushroom (Cure)",
+                "sections": [
+                    {
+                        "name": "Cast Cure x3 Reward",
+                        "ref": "Overview/Deep Jungle - After Slides/Camp - White Mushroom Cure x3 Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "DJ",
+                        "x": 505,
+                        "y": 1788
                     }
                 ]
             },
@@ -496,6 +528,22 @@
                 ]
             },
             {
+                "name": "Tree House - Pink Agaricus",
+                "sections": [
+                    {
+                        "name": "100 Hits Reward",
+                        "ref": "Overview/Deep Jungle - After Slides/Tree House - Pink Agaricus 100 Hits Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "DJ",
+                        "x": 1054,
+                        "y": 335
+                    }
+                ]
+            },
+            {
                 "name": "Cliff - Clayton",
                 "sections": [
                     {
@@ -560,7 +608,7 @@
                 ]
             },
             {
-                "name": "Treetop Green - Trinity",
+                "name": "Treetop - Green Trinity",
                 "sections": [
                     {
                         "name": "Green Trinity",

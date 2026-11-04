@@ -694,6 +694,22 @@
                 ]
             },
             {
+                "name": "Grand Hall - Stealth Soldier",
+                "sections": [
+                    {
+                        "name": "Defeat Stealth Soldier",
+                        "ref": "Overview/Hollow Bastion - After Emblems/Grand Hall - Stealth Soldier Defeat Reward"
+                    }
+                ],
+                "map_locations": [
+                    {
+                        "map": "HB",
+                        "x": 3648,
+                        "y": 772
+                    }
+                ]
+            },
+            {
                 "name": "Castle Chapel - Princesses",
                 "sections": [
                     {
