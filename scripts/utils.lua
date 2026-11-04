@@ -269,9 +269,9 @@ function tracker_layout_update()
         local show_keyblades = Tracker:FindObjectForCode("keyblade_locks").CurrentStage == 1
         local show_world_keys = Tracker:FindObjectForCode("stacking_world_items").CurrentStage == 0
         local show_jack_box = Tracker:FindObjectForCode("halloween_town_key_item_bundle").CurrentStage == 0
-        local show_destiny_islands = Tracker:FindObjectForCode("destiny_islands_checks").CurrentStage == 1
-        local show_100_acre = Tracker:FindObjectForCode("100_acre_checks").CurrentStage == 1
-        local show_atlantica = Tracker:FindObjectForCode("atlantica_checks").CurrentStage == 1
+        local show_destiny_islands = Tracker:FindObjectForCode("destiny_islands_checks").CurrentStage == 1 or beta_logic_stage >= 3
+        local show_100_acre = Tracker:FindObjectForCode("100_acre_checks").CurrentStage == 1 or beta_logic_stage >= 3
+        local show_atlantica = Tracker:FindObjectForCode("atlantica_checks").CurrentStage == 1 or beta_logic_stage >= 3
         local show_eotw = Tracker:FindObjectForCode("eotw_unlock").CurrentStage == 0
         local goal_status = Tracker:FindObjectForCode("goal").CurrentStage
         local show_cups = Tracker:FindObjectForCode("cups").CurrentStage ~= 0 or Tracker:FindObjectForCode("superbosses").CurrentStage == 1 or goal_status == 0 or beta_logic_stage >= 2
