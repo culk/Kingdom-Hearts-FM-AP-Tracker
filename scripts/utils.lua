@@ -263,6 +263,18 @@ function layout_update_collectibles(show_lucky_emblems, show_destiny_islands, sh
     end
 end
 
+function layout_update_settings(beta_logic_stage)
+    if beta_logic_stage == 0 then
+        Tracker:AddLayouts("layouts/settings/version_core.json")
+    elseif beta_logic_stage == 1 then
+        Tracker:AddLayouts("layouts/settings/version_1_1_0.json")
+    elseif beta_logic_stage == 2 then
+        Tracker:AddLayouts("layouts/settings/version_1_2_0.json")
+    else
+        Tracker:AddLayouts("layouts/settings/version_1_4_0.json")
+    end
+end
+
 function tracker_layout_update()
     if update_layout then
         local beta_logic_stage = Tracker:FindObjectForCode("beta_logic").CurrentStage
@@ -290,6 +302,7 @@ function tracker_layout_update()
         layout_update_magic_trinities(show_accessory_augments)
         layout_update_abilities(show_accessory_augments)
         layout_update_collectibles(show_lucky_emblems, show_destiny_islands, show_100_acre, show_empty_bottle, show_summon_gems)
+        layout_update_settings(beta_logic_stage)
 
         update_layout = false
     end

@@ -108,7 +108,9 @@ function is_slides_bundled()
 end
 
 function is_cups_enabled()
-    if beta_version_at_least_1_2_0() then
+    if beta_version_at_least_1_4_0() then
+        return has("cups_show")
+    elseif beta_version_at_least_1_2_0() then
         return true
     end
     local cups_status = Tracker:FindObjectForCode("cups").CurrentStage
@@ -116,7 +118,9 @@ function is_cups_enabled()
 end
 
 function is_cups_hades_enabled()
-    if beta_version_at_least_1_2_0() then
+    if beta_version_at_least_1_4_0() then
+        return has("cups_show")
+    elseif beta_version_at_least_1_2_0() then
         return true
     end
     local cups_status = Tracker:FindObjectForCode("cups").CurrentStage

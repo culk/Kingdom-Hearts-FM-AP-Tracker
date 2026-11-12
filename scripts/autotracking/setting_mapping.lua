@@ -162,4 +162,58 @@ SLOT_CODES =
             [true] = 1
         }
     },
+    exclude_rare_heartless =
+    {
+        code = "exclude_rare_heartless",
+        mapping =
+        {
+            [false] = 0,
+            [true] = 1
+        }
+    },
+    exclude_super_bosses =
+    {
+        code = "exclude_super_bosses",
+        mapping =
+        {
+            [false] = 0,
+            [true] = 1
+        }
+    },
+    exclude_cups =
+    {
+        code = "exclude_cups",
+        mapping =
+        {
+            [false] = 0,
+            [true] = 1
+        }
+    },
+    exclude_jungle_slider =
+    {
+        code = "exclude_jungle_slider",
+        mapping =
+        {
+            [false] = 0,
+            [true] = 1
+        }
+    },
+    exclude_atlantica =
+    {
+        code = "exclude_atlantica",
+        mapping =
+        {
+            [false] = 0,
+            [true] = 1
+        }
+    },
+    exclude_100_acre_wood =
+    {
+        code = "exclude_100_acre_wood",
+        mapping =
+        {
+            [false] = 0,
+            [true] = 1
+        }
+    },
 }

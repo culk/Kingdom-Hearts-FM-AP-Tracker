@@ -3,7 +3,7 @@
         "type": "container",
         "content": {
             "type": "layout",
-            "key": "setting_grid"
+            "key": "settings_menu"
         }
     },
     "tracker_default": {

@@ -167,7 +167,7 @@ function onClear(slot_data)
         elseif world_version[1] == 1 and world_version[2] >= 4 then
             beta_logic_stage = 3 -- v1.4.0 or newer
         elseif world_version[1] > 1 then
-            beta_logic_stage = 3 -- v1.2.0 or newer
+            beta_logic_stage = 3 -- v1.4.0 or newer
         end
     end
     local beta_logic_obj = Tracker:FindObjectForCode("beta_logic")
@@ -179,15 +179,6 @@ function onClear(slot_data)
         if slot_data[setting_key] == nil then
             Tracker:FindObjectForCode(setting_key).CurrentStage = 0
         end
-    end
-    -- Activate all location settings if on world v1.4.0 or newer. This is purely cosmetic for the settings window as the locations will be visible if on v1.4.0 even if the location setting is toggled off.
-    if beta_logic_stage >= 3 then
-        for _, setting_key in ipairs({"destiny_islands_checks", "superbosses", "atlantica_checks", "100_acre_checks", "jungle_slider_checks"}) do
-            if slot_data[setting_key] == nil then
-                Tracker:FindObjectForCode(setting_key).CurrentStage = 1
-            end
-        end
-        Tracker:FindObjectForCode("cups").CurrentStage = 2
     end
     -- Default auto map tab tracking to "on" if the feature is available (requires v1.1.0+).
     if beta_logic_stage >= 1 then

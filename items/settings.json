@@ -24,10 +24,10 @@
         "codes": "title_collectible_requirements"
     },
     {
-        "name": "Non-Core Only Settings",
+        "name": "AP World",
         "type": "static",
-        "img": "/images/settings/title_beta_only_settings.png",
-        "codes": "title_beta_only_settings"
+        "img": "/images/settings/title_ap_world.png",
+        "codes": "title_ap_world"
     },
     {
         "name": "Auto-Tab Map",
@@ -306,6 +306,126 @@
                 "codes": "jungle_slider_checks, jungle_slider_on",
                 "inherit_codes": false,
                 "name": "Jungle Slider On"
+            }
+        ]
+    },
+    {
+        "name": "Exclude Rare Heartless",
+        "type": "progressive",
+        "allow_disabled": false,
+        "loop": true,
+        "stages": [
+            {
+                "img": "/images/settings/rare_heartless_show.png",
+                "codes": "exclude_rare_heartless, rare_heartless_show",
+                "inherit_codes": false,
+                "name": "Show Rare Heartless"
+            },
+            {
+                "img": "/images/settings/rare_heartless_hide.png",
+                "codes": "exclude_rare_heartless, rare_heartless_hide",
+                "inherit_codes": false,
+                "name": "Hide Rare Heartless"
+            }
+        ]
+    },
+    {
+        "name": "Exclude Super Bosses",
+        "type": "progressive",
+        "allow_disabled": false,
+        "loop": true,
+        "stages": [
+            {
+                "img": "/images/settings/super_bosses_show.png",
+                "codes": "exclude_super_bosses, super_bosses_show",
+                "inherit_codes": false,
+                "name": "Show Super Bosses"
+            },
+            {
+                "img": "/images/settings/super_bosses_hide.png",
+                "codes": "exclude_super_bosses, super_bosses_hide",
+                "inherit_codes": false,
+                "name": "Hide Super Bosses"
+            }
+        ]
+    },
+    {
+        "name": "Exclude Cups",
+        "type": "progressive",
+        "allow_disabled": false,
+        "loop": true,
+        "stages": [
+            {
+                "img": "/images/settings/cups_show.png",
+                "codes": "exclude_cups, cups_show",
+                "inherit_codes": false,
+                "name": "Show Cups"
+            },
+            {
+                "img": "/images/settings/cups_hide.png",
+                "codes": "exclude_cups, cups_hide",
+                "inherit_codes": false,
+                "name": "Hide Cups"
+            }
+        ]
+    },
+    {
+        "name": "Exclude Jungle Slider",
+        "type": "progressive",
+        "allow_disabled": false,
+        "loop": true,
+        "stages": [
+            {
+                "img": "/images/settings/jungle_slider_show.png",
+                "codes": "exclude_jungle_slider, jungle_slider_show",
+                "inherit_codes": false,
+                "name": "Show Jungle Slider"
+            },
+            {
+                "img": "/images/settings/jungle_slider_hide.png",
+                "codes": "exclude_jungle_slider, jungle_slider_hide",
+                "inherit_codes": false,
+                "name": "Hide Jungle Slider"
+            }
+        ]
+    },
+    {
+        "name": "Exclude Atlantica",
+        "type": "progressive",
+        "allow_disabled": false,
+        "loop": true,
+        "stages": [
+            {
+                "img": "/images/settings/atlantica_show.png",
+                "codes": "exclude_atlantica, atlantica_show",
+                "inherit_codes": false,
+                "name": "Show Atlantica"
+            },
+            {
+                "img": "/images/settings/atlantica_hide.png",
+                "codes": "exclude_atlantica, atlantica_hide",
+                "inherit_codes": false,
+                "name": "Hide Atlantica"
+            }
+        ]
+    },
+    {
+        "name": "Exclude 100 Acre Wood",
+        "type": "progressive",
+        "allow_disabled": false,
+        "loop": true,
+        "stages": [
+            {
+                "img": "/images/settings/100_acre_wood_show.png",
+                "codes": "exclude_100_acre_wood, 100_acre_wood_show",
+                "inherit_codes": false,
+                "name": "Show 100 Acre Wood"
+            },
+            {
+                "img": "/images/settings/100_acre_wood_hide.png",
+                "codes": "exclude_100_acre_wood, 100_acre_wood_hide",
+                "inherit_codes": false,
+                "name": "Hide 100 Acre Wood"
             }
         ]
     },

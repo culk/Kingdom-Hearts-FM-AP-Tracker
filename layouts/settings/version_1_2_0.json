@@ -1,0 +1,69 @@
+{
+    "settings_grid": {
+        "type": "array",
+        "orientation": "horizontal",
+        "content": [
+            {
+                "type": "dock",
+                "margin": "0,0",
+                "content": [
+                    {
+                        "type": "itemgrid",
+                        "dock": "top",
+                        "h_alignment": "left",
+                        "item_margin": "16,2",
+                        "item_size": "550,32",
+                        "rows": [
+                            ["title_ap_world"],
+                            ["beta_logic"],
+                            [""],
+                            ["title_goal"],
+                            ["eotw_unlock"],
+                            ["goal"],
+                            [""],
+                            ["title_collectible_requirements"],
+                            ["eotw_req"],
+                            ["door_req"],
+                            ["postcards_req"],
+                            ["puppies_req"],
+                            ["day_2_materials_req"],
+                            ["homecoming_materials_req"]
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "dock",
+                "margin": "0,0",
+                "content": [
+                    {
+                        "type": "itemgrid",
+                        "dock": "top",
+                        "h_alignment": "left",
+                        "item_margin": "16,2",
+                        "item_size": "550,32",
+                        "rows": [
+                            ["title_settings"],
+                            ["auto_tab_map"],
+                            ["logic_difficulty"],
+                            ["keyblade_locks"],
+                            ["accessory_augments"],
+                            ["stacking_world_items"],
+                            ["evidence_bundle"],
+                            ["slides_bundle"],
+                            ["halloween_town_key_item_bundle"],
+                            [""],
+                            ["title_locations"],
+                            ["destiny_islands_checks"],
+                            ["100_acre_checks"],
+                            ["atlantica_checks"],
+                            ["jungle_slider_checks"],
+                            ["cups"],
+                            ["superbosses"]
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

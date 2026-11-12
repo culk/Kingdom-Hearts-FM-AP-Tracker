@@ -146,14 +146,14 @@
                     {
                         "name": "2nd District - Sniperwild 30th Defeated Reward",
                         "access_rules":["red_trinity, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"],
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
                     {
                         "name": "Red Room - White Mushroom Fire x3 Reward",
                         "access_rules":["red_trinity, ^$boss_beginner_require_tools, fire:1"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"],
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
@@ -677,7 +677,7 @@
                     {
                         "name": "Lotus Forest - White Mushroom Blizzard x3 Reward",
                         "access_rules":["blizzard:1, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"],
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
@@ -711,7 +711,7 @@
                     {
                         "name": "Bizarre Room - Gigas Shadow 7th Defeated Reward",
                         "access_rules":["^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"],
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     }
@@ -932,17 +932,17 @@
                     {
                         "name": "Camp - White Mushroom Cure x3 Reward",
                         "access_rules":["cure:1, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"]
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"]
                     },
                     {
                         "name": "Bamboo Thicket - Black Ballade 4 Strikes Reward",
                         "access_rules":["^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"]
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"]
                     },
                     {
                         "name": "Tree House - Pink Agaricus 100 Hits Reward",
                         "access_rules":["aero:2, stop:1, ragnarok, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"],
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     }
@@ -957,7 +957,10 @@
             },
             {
                 "name": "Deep Jungle - Jungle Slider",
-                "visibility_rules":["jungle_slider_on", "$beta_version_at_least_1_4_0"],
+                "visibility_rules":[
+                    "$beta_version_at_most_1_2_0, jungle_slider_on",
+                    "$beta_version_at_least_1_4_0, jungle_slider_show"
+                ],
                 "access_rules":["$dj_after_slides, [$world_count:3], ^$boss_beginner_require_tools"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -1111,13 +1114,20 @@
                     },
                     {
                         "name": "Defeat Sephiroth",
-                        "visibility_rules":["superbosses_on", "goal_sephiroth", "$beta_version_at_least_1_4_0"],
+                        "visibility_rules":[
+                            "goal_sephiroth",
+                            "$beta_version_at_most_1_2_0, superbosses_on",
+                            "$beta_version_at_least_1_4_0, super_bosses_show"
+                        ],
                         "access_rules":["$has_all_cups, [$world_count:8], [$has_defenses]"],
                         "item_count": 2
                     },
                     {
                         "name": "Defeat Ice Titan",
-                        "visibility_rules":["$is_cups_hades_enabled, superbosses_on", "$beta_version_at_least_1_4_0"],
+                        "visibility_rules":[
+                            "$beta_version_at_most_1_2_0, $is_cups_hades_enabled, superbosses_on",
+                            "$beta_version_at_least_1_4_0, cups_show, super_bosses_show"
+                        ],
                         "access_rules":[
                             "$has_all_cups, guard, [$world_count:8], [$has_defenses]",
                             "$has_all_cups, [$logic_difficulty_at_least_minimal], [$world_count:8], [$has_defenses]"
@@ -1311,7 +1321,7 @@
                     {
                         "name": "Palace Gates - Defeat Pot Scorpion",
                         "access_rules":["guard, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"]
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"]
                     },
                     {
                         "name": "Bazaar - Blue Trinity",
@@ -1320,7 +1330,7 @@
                     {
                         "name": "Bazaar - Black Fungi Defeat Reward",
                         "access_rules":["^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"]
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"]
                     },
                     {
                         "name": "Treasure Room - Red Trinity",
@@ -1329,7 +1339,7 @@
                     {
                         "name": "Treasure Room - White Mushroom Gravity x3 Reward",
                         "access_rules":["gravity:1, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"]
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"]
                     },
                     {
                         "name": "Lamp Chamber - Defeat Jafar",
@@ -1347,7 +1357,10 @@
                     },
                     {
                         "name": "Desert - Defeat Kurt Zisa",
-                        "visibility_rules":["superbosses_on", "$beta_version_at_least_1_4_0"],
+                        "visibility_rules":[
+                            "$beta_version_at_most_1_2_0, superbosses_on",
+                            "$beta_version_at_least_1_4_0, super_bosses_show"
+                        ],
                         "access_rules":[
                             "hollow_bastion, $has_emblems, ^$boss_beginner_require_tools, [$world_count:8], [$has_defenses], ^$ag_kurt_zisa_magic_access",
                             "$beta_version_at_least_1_2_0, ^$boss_beginner_require_tools, [$world_count:8], [$has_defenses], ^$ag_kurt_zisa_magic_access"
@@ -1524,7 +1537,7 @@
                     {
                         "name": "Stomach - Grand Ghost Defeat Reward",
                         "access_rules":["^$mon_parasite_ii_access, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"]
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"]
                     }
                 ],
                 "map_locations": [
@@ -1537,7 +1550,10 @@
             },
             {
                 "name": "Atlantica - Chests",
-                "visibility_rules":["atlantica_on", "$beta_version_at_least_1_4_0"],
+                "visibility_rules":[
+                    "$beta_version_at_most_1_2_0, atlantica_on",
+                    "$beta_version_at_least_1_4_0, atlantica_show"
+                ],
                 "access_rules": ["atlantica, ^$access_broken_chest_for|atlantica, [$world_count:3]"],
                 "chest_unopened_img": "/images/misc/chest.png",
                 "chest_opened_img": "/images/misc/chest_bw.png",
@@ -1582,7 +1598,10 @@
             },
             {
                 "name": "Atlantica - Clams",
-                "visibility_rules":["atlantica_on", "$beta_version_at_least_1_4_0"],
+                "visibility_rules":[
+                    "$beta_version_at_most_1_2_0, atlantica_on",
+                    "$beta_version_at_least_1_4_0, atlantica_show"
+                ],
                 "access_rules":["atlantica, [$world_count:3]"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -1650,7 +1669,10 @@
             },
             {
                 "name": "Atlantica - Events",
-                "visibility_rules":["atlantica_on", "$beta_version_at_least_1_4_0"],
+                "visibility_rules":[
+                    "$beta_version_at_most_1_2_0, atlantica_on",
+                    "$beta_version_at_least_1_4_0, atlantica_show"
+                ],
                 "access_rules":["atlantica, [$world_count:3]"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -1669,7 +1691,7 @@
                     {
                         "name": "Sunken Ship - White Mushroom Stop x3 Reward",
                         "access_rules":["stop:1, mermaid_kick, $at_after_crystal_trident, ^$at_beginner_require_chest, ^$at_offensive_magic, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"]
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"]
                     },
                     {
                         "name": "Ursula's Lair - Defeat Ursula I",
@@ -1813,21 +1835,21 @@
                     {
                         "name": "Graveyard - White Mushroom Aero x3 Reward",
                         "access_rules":["aero:1, ^$ht_oogie_manor_access, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"],
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
                     {
                         "name": "Bridge - Rare Truffle Juggle 100 Reward",
                         "access_rules":["aero:2, ^$ht_oogie_manor_access, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"],
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
                     {
                         "name": "Manor Ruins - Chimera 9 Heads Reward",
                         "access_rules":["^$ht_chimera_9_heads_access, ^$ht_oogie_manor_access, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"],
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
@@ -1946,7 +1968,7 @@
                     {
                         "name": "Pirate Ship - Jet Balloon Defeat Reward",
                         "access_rules":["green_trinity, stop:1, aero:3, ^$boss_beginner_require_tools"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"]
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"]
                     },
                     {
                         "name": "Clock Tower - Seal Keyhole",
@@ -1964,7 +1986,10 @@
                     },
                     {
                         "name": "Clock Tower - Defeat Phantom",
-                        "visibility_rules":["superbosses_on", "$beta_version_at_least_1_4_0"],
+                        "visibility_rules":[
+                            "$beta_version_at_most_1_2_0, superbosses_on",
+                            "$beta_version_at_least_1_4_0, super_bosses_show"
+                        ],
                         "access_rules":[
                             "green_trinity, hollow_bastion, $has_emblems, ^$nl_phantom_magic_access, ^$nl_phantom_defense_access, ^$boss_beginner_require_tools",
                             "green_trinity, $beta_version_at_least_1_2_0, ^$nl_phantom_magic_access, ^$nl_phantom_defense_access, ^$boss_beginner_require_tools"
@@ -2212,7 +2237,7 @@
                     {
                         "name": "Grand Hall - Stealth Soldier Defeat Reward",
                         "access_rules":["$has_emblems, stop:1"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"],
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     }
@@ -2270,7 +2295,11 @@
                     },
                     {
                         "name": "Castle Chapel - Defeat Unknown",
-                        "visibility_rules":["superbosses_on", "goal_unknown", "$beta_version_at_least_1_4_0"],
+                        "visibility_rules":[
+                            "goal_unknown",
+                            "$beta_version_at_most_1_2_0, superbosses_on",
+                            "$beta_version_at_least_1_4_0, super_bosses_show"
+                        ],
                         "access_rules":[
                             "gravity, [$world_count:8], [$has_defenses]",
                             "[$logic_difficulty_at_least_normal], [$world_count:8], [$has_defenses]"
@@ -2418,13 +2447,13 @@
                     {
                         "name": "Linked Worlds - White Mushroom Thunder x3 Reward",
                         "access_rules":["thunder:1"],
-                        "visibility_rules":["$beta_version_at_least_1_4_0"],
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
                     {
                         "name": "Linked Worlds - Neoshadow 7th Defeated Reward",
-                        "visibility_rules":["$beta_version_at_least_1_4_0"],
+                        "visibility_rules":["$beta_version_at_least_1_4_0, rare_heartless_show"],
                         "chest_unopened_img": "/images/misc/emblem.png",
                         "chest_opened_img": "/images/misc/emblem_bw.png"
                     },
@@ -2461,7 +2490,10 @@
             },
             {
                 "name": "Hundred Acre Wood",
-                "visibility_rules":["100_acre_on", "$beta_version_at_least_1_4_0"],
+                "visibility_rules":[
+                    "$beta_version_at_most_1_2_0, 100_acre_on",
+                    "$beta_version_at_least_1_4_0, 100_acre_wood_show"
+                ],
                 "access_rules":[
                     "$beta_version_at_most_1_1_0, fire:1",
                     "$beta_version_at_least_1_2_0, fire:1, old_book"
@@ -2566,7 +2598,10 @@
             },
             {
                 "name": "Destiny Islands - Day 1",
-                "visibility_rules":["destiny_islands_on", "$beta_version_at_least_1_4_0"],
+                "visibility_rules":[
+                    "$beta_version_at_most_1_2_0, destiny_islands_on",
+                    "$beta_version_at_least_1_4_0"
+                ],
                 "access_rules":["destiny_islands"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
@@ -2608,7 +2643,10 @@
             },
             {
                 "name": "Destiny Islands - Day 2",
-                "visibility_rules":["destiny_islands_on", "$beta_version_at_least_1_4_0"],
+                "visibility_rules":[
+                    "$beta_version_at_most_1_2_0, destiny_islands_on",
+                    "$beta_version_at_least_1_4_0"
+                ],
                 "access_rules":["$di_day_2_access"],
                 "chest_unopened_img": "/images/misc/emblem.png",
                 "chest_opened_img": "/images/misc/emblem_bw.png",
