@@ -337,10 +337,10 @@
                 ]
             },
             {
-                "name": "Manor Ruins - Chimera 9 Heads",
+                "name": "Manor Ruins - Chimera",
                 "sections": [
                     {
-                        "name": "Defeat Chimera 9 Heads",
+                        "name": "Defeat Chimera After Deflecting Heads 9 Times",
                         "ref": "Overview/Halloween Town - After Jack-in-the-Box/Manor Ruins - Chimera 9 Heads Reward"
                     }
                 ],

@@ -612,7 +612,7 @@
                 "name": "Palace Gates - Pot Scorpion",
                 "sections": [
                     {
-                        "name": "Defeat Pot Scorpion",
+                        "name": "Defeat Pot Scorpion After Breaking All Pots",
                         "ref": "Overview/Agrabah - Events/Palace Gates - Defeat Pot Scorpion"
                     }
                 ],
