@@ -90,6 +90,7 @@ ITEM_MAPPING = {
     [2643007] = {{"air_combo_plus", "toggle"}},
     [2643011] = {{"sonic_blade", "toggle"}},
     [2643013] = {{"strike_raid", "toggle"}},
+    [2643014] = {{"ragnarok", "toggle"}},
     [2643019] = {{"counterattack", "toggle"}},
     [2643021] = {{"guard", "toggle"}},
     [2643022] = {{"dodge_roll", "toggle"}},
