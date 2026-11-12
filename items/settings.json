@@ -147,7 +147,7 @@
         "overlay_font_size": 21,
         "codes": "postcards_req",
         "type": "consumable",
-        "min_quantity": 1,
+        "min_quantity": 0,
         "max_quantity": 10,
         "initial_quantity": 8
     },
@@ -157,7 +157,7 @@
         "overlay_font_size": 21,
         "codes": "puppies_req",
         "type": "consumable",
-        "min_quantity": 10,
+        "min_quantity": 0,
         "max_quantity": 99,
         "increment": 10,
         "initial_quantity": 80
