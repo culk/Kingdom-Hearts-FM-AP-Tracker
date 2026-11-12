@@ -375,7 +375,7 @@ function can_open_final_door()
     local lucky_emblems_required = Tracker:FindObjectForCode("door_req").AcquiredCount
     if goal_status == 3 and has("lucky_emblem", lucky_emblems_required) then
         return true
-    elseif goal_status == 5 and eotw_access() then
+    elseif goal_status == 5 and eotw_access() and access_chest_for("end_of_the_world") then
         return true
     elseif has("final_door_key") then
         return true
