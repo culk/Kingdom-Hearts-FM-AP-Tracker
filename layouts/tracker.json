@@ -1,9 +1,10 @@
 {
     "settings_popup": {
         "type": "container",
+        "background": "#000000",
         "content": {
             "type": "layout",
-            "key": "settings_menu"
+            "key": "settings_grid"
         }
     },
     "tracker_default": {
