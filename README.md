@@ -26,8 +26,8 @@ The most recent release of this PopTracker pack is compatible with the following
 
 | Non-Core World Version    | Supported since pack version |
 |---------------------------|------------------------------|
-| v1.4.0+ (dev website)     | v1.6.0+                      |
-| v1.3.0 (main website)     | v1.5.2+                      |
+| v1.4.0+ (main website)    | v1.6.0+                      |
+| v1.3.0 (old)              | v1.5.2+                      |
 | v1.2.0 (old)              | v1.5.2+                      |
 | v1.1.0 (old)              | v1.3.1+                      |
 
@@ -39,32 +39,19 @@ The most recent release of this PopTracker pack is compatible with the following
 
 All settings are loaded automatically when connecting the tracker to the AP server. Settings can also be changed manually to update which locations are displayed as available checks.
 
-Settings are divided into five sections: settings, locations, goal, collectible requirements, and non-core only settings.
+Settings are divided into five sections: AP world, goal, collectible requirements, settings, and locations.
 
-### Settings
+### AP World
 
-The Settings section controls when checks are considered available in logic or by a sequence break.
+The **World Version** setting controls which version of the AP world to track. Some settings in this menu are only available in more recent non-core versions of the AP world. Settings that are not available for the selected world version are hidden.
 
-![Settings](images/ui_settings.png)
+![AP World](images/ui_ap_world.png)
 
-- **Logic Difficulty** controls what kinds of movement or skips are required to reach out of logic check locations. Checks that are only reachable with more advanced tricks than this setting's value are considered "out of logic". Out of logic checks will display as yellow on the map tracker. Logic difficulty options:
-    - Beginner: Logic only expects what would be the natural solution in vanilla gameplay or similar, as well as a guarantee of tools for boss fights.
-    - Normal: Logic expects some clever use of abilities, exploration of options, and competent combat ability; generally does not require advanced knowledge.
-    - Proud: Logic expects advanced knowledge of tricks and obscure interactions, such as using Combo Master, Dumbo, and other unusual methods to reach locations.
-    - Minimal: Logic expects the bare minimum to get to locations; may require extensive grinding, beating fights with no tools, and performing very difficult or tedious tricks.
-- **Keyblade Locks** controls whether world-specific keyblades are needed to open chests in their respective world.
-- **Stacking World Items** and **Halloween Town Key Item Bundled** control how worlds and key items unlock locations.
-- **Accessory** controls whether new party members have checks for randomized starting accessories.
-
-### Locations
-
-The Locations section controls which optional world and minigame locations are enabled. Disabled options are not displayed on the map tracker.
-
-![Locations](images/ui_locations.png)
+- **World Version** - Changes the items, locations, and access logic to match the non-AP core versions of the AP world. This value is automatically detected when connecting to the AP server and should only be manually changed if you are playing a non-core version offline with manual tracking.
 
 ### Goal
 
-The Goal section controls the requirements for unlocking the **End of the World** and opening the **Final Rest Door**.
+The Goal section controls the requirements for unlocking the **End of the World** and opening the **Final Rest Door**. If playing on AP world version v1.4.0 or newer, then the option for **Raft Finish** is also available to control whether the final boss can be reached by turning in raft materials on Destiny Islands Day 2.
 
 ![Goal](images/ui_goal.png)
 
@@ -74,18 +61,29 @@ The Collectible Requirements section controls how many of a collectible are requ
 
 ![Collectible Requirements](images/ui_collectible_requirements.png)
 
-### Non-Core Only Settings
+### Settings
 
-These settings require the non-core (beta) version of the AP world. These settings are not available in the core version packaged with the AP launcher.
+The Settings section controls when checks are considered available in logic or by a sequence break.
 
-![Non-Core Only Settings](images/ui_beta_only_settings.png)
+![Settings](images/ui_settings.png)
 
-- **World Version** - Changes the items, locations, and access logic to match the non-AP core versions of the AP world. This value is automatically detected when connecting to the AP server and should only be manually changed if you are playing a non-core version offline with manual tracking.
-- **Auto-Tab Map** - Requires AP world version v1.1.0 or newer and an active connection to the AP server using the in-game client. Enables or disables the map tab auto updating to the players current world.
-- **Accessory Augments** - Requires AP world version v1.1.0 or newer. Enables tracking of accessory augment items and advanced logic that requires accessory augments.
-- **Evidence Bundled** - Requires AP world version v1.2.0 or newer. Tracks Wonderland's evidence key items as a single bundled item.
-- **Slides Bundled** - Requires AP world version v1.2.0 or newer. Tracks Deep Jungle's slides key items as a single bundled item.
-- **Raft Finish** - Requires AP world version v1.4.0 or newer. Enables reaching the final boss by turning in enough raft materials on Destiny Islands Day 2.
+- (New in world v1.1.0) **Auto-Tab Map** - Requires AP world version v1.1.0 or newer and an active connection to the AP server using the in-game client. Enables or disables the map tab auto updating to the players current world.
+- **Logic Difficulty** controls what kinds of movement or skips are required to reach out of logic check locations. Checks that are only reachable with more advanced tricks than this setting's value are considered "out of logic". Out of logic checks will display as yellow on the map tracker. Logic difficulty options:
+    - Beginner: Logic only expects what would be the natural solution in vanilla gameplay or similar, as well as a guarantee of tools for boss fights.
+    - Normal: Logic expects some clever use of abilities, exploration of options, and competent combat ability; generally does not require advanced knowledge.
+    - Proud: Logic expects advanced knowledge of tricks and obscure interactions, such as using Combo Master, Dumbo, and other unusual methods to reach locations.
+    - Minimal: Logic expects the bare minimum to get to locations; may require extensive grinding, beating fights with no tools, and performing very difficult or tedious tricks.
+- **Keyblade Locks** controls whether world-specific keyblades are needed to open chests in their respective world.
+- (New in world v1.1.0) **Accessory Augments** - Enables tracking of accessory augment items and advanced logic that requires accessory augments.
+- **Stacking World Items** and the key item bundle options control how worlds and key items unlock locations.
+    - HT Key Item Bundled: controls whether "Forget-Me-Not" and "Jack-In-The-Box" are separate items or are merged into a single key item.
+    - (New in world v1.2.0) Evidence Bundled/Slides Bundled: controls whether each Evidence/Slide item is separate or if they are replaced by a single key item to progress their world state.
+
+### Locations
+
+The Locations section controls which optional world and minigame locations are enabled. Disabled options are not displayed on the map tracker.
+
+![Locations](images/ui_locations.png)
 
 ## Feedback
 
