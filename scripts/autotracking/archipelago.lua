@@ -104,18 +104,6 @@ function onClear(slot_data)
                     end
                 end
             end
-        elseif key == "required_lucky_emblems_eotw" then
-            Tracker:FindObjectForCode("eotw_req").AcquiredCount = value
-        elseif key == "required_lucky_emblems_door" then
-            Tracker:FindObjectForCode("door_req").AcquiredCount = value
-        elseif key == "required_postcards" then
-            Tracker:FindObjectForCode("postcards_req").AcquiredCount = value
-        elseif key == "required_puppies" then
-            Tracker:FindObjectForCode("puppies_req").AcquiredCount = value
-        elseif key == "day_2_materials" then
-            Tracker:FindObjectForCode("day_2_materials_req").AcquiredCount = value
-        elseif key == "homecoming_materials" then
-            Tracker:FindObjectForCode("homecoming_materials_req").AcquiredCount = value
         elseif key == "materials_in_pool" then
             Tracker:FindObjectForCode("raft_materials").MaxCount = value
         elseif key == "orichalcum_in_pool" then
@@ -130,6 +118,22 @@ function onClear(slot_data)
             print(string.format("INFO: updating setting for slot data with key %s", key))
             Tracker:FindObjectForCode(SLOT_CODES[key].code).CurrentStage = SLOT_CODES[key].mapping[value]
         end
+    end
+
+    -- Set collectible requirements.
+    Tracker:FindObjectForCode("door_req").AcquiredCount = 0
+    Tracker:FindObjectForCode("postcards_req").AcquiredCount = 0
+    Tracker:FindObjectForCode("puppies_req").AcquiredCount = 0
+    Tracker:FindObjectForCode("eotw_req").AcquiredCount = 0
+    if slot_data["final_rest_door_key"] == "lucky_emblems" then
+        Tracker:FindObjectForCode("door_req").AcquiredCount = slot_data["required_lucky_emblems_door"]
+    elseif slot_data["final_rest_door_key"] == "postcards" then
+        Tracker:FindObjectForCode("postcards_req").AcquiredCount = slot_data["required_postcards"]
+    elseif slot_data["final_rest_door_key"] == "puppies" then
+        Tracker:FindObjectForCode("puppies_req").AcquiredCount = slot_data["required_puppies"]
+    end
+    if slot_data["end_of_the_world_unlock"] == "lucky_emblems" then
+        Tracker:FindObjectForCode("eotw_req").AcquiredCount = slot_data["required_lucky_emblems_eotw"]
     end
 
     -- Set the correct puppy value from slot data.
@@ -185,6 +189,14 @@ function onClear(slot_data)
         Tracker:FindObjectForCode("auto_tab_map").CurrentStage = 1
     else
         Tracker:FindObjectForCode("auto_tab_map").CurrentStage = 0
+    end
+    -- Handle homecoming material requirements, changed in v1.4.0.
+    if beta_logic_stage < 3 then -- v1.3.0 and older
+        Tracker:FindObjectForCode("day_2_materials_req").AcquiredCount = slot_data["day_2_materials"]
+        Tracker:FindObjectForCode("homecoming_materials_req").AcquiredCount = slot_data["homecoming_materials"]
+    else
+        Tracker:FindObjectForCode("day_2_materials_req").AcquiredCount = slot_data["day_1_materials"]
+        Tracker:FindObjectForCode("homecoming_materials_req").AcquiredCount = slot_data["day_2_materials"]
     end
 
     -- Subscribe to hint and goal information in data storage.
